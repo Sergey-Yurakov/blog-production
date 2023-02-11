@@ -21,10 +21,11 @@ export const Button: FC<ButtonProps> = (props) => {
 
     return (
         <button
+            type="button"
             className={cn(cl.button, {}, [className, cl[theme]])}
             {...otherProps}
         >
             {children}
         </button>
     );
-}
+};
