@@ -13,8 +13,8 @@ export default {
 
 const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
 
-export const Light = Template.bind({});
-Light.args = {
+export const Primary = Template.bind({});
+Primary.args = {
     isOpen: true,
     children: 'Lorem ipsum dolor sit amet, consecrate radicalising elite. Eos, provident.',
 };
