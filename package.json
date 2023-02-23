@@ -94,6 +94,7 @@
     "react-router-dom": "^6.2.1"
   },
   "loki": {
+    "diffingEngine": "pixelmatch",
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.docker",
