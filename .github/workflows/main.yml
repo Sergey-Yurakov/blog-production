@@ -5,9 +5,8 @@ on:
   pull_request:
     branches: [ master ]
 jobs:
-  build:
-    runs-on: ubuntu-latest
   pipeline:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [ 17.x ]
