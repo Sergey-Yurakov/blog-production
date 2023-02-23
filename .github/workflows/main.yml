@@ -8,7 +8,7 @@ jobs:
   pipeline:
     strategy:
       matrix:
-        os: [ubuntu-latest, mac os]
+        os: [ubuntu-latest, macOS-latest]
         node-version: [ 16.x ]
         runs-on: ${{ matrix.os }}
 
