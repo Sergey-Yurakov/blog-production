@@ -3,5 +3,7 @@
     "Главная": "Main",
     "О нас": "About us",
     "Короткий язык": "En",
-    "Войти": "Login"
+    "Войти": "Login",
+    "increment": "increment",
+    "decrement": "decrement"
 }
