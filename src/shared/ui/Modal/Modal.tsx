@@ -2,7 +2,7 @@ import { classNames as cn } from 'shared/lib/classNames/classNames';
 import React, {
     ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
-import { Portal } from 'shared/ui/Portal/Portal';
+// import { Portal } from 'shared/ui/Portal/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
 import cl from './Modal.module.scss';
 
@@ -59,17 +59,17 @@ export const Modal = (props: ModalProps) => {
         [cl[theme]]: true,
     };
     return (
-        <Portal>
-            <div className={cn(cl.Modal, mods, [className])}>
-                <div className={cl.overlay} onClick={closeHandle}>
-                    <div
-                        className={cl.content}
-                        onClick={onContextClick}
-                    >
-                        {children}
-                    </div>
+        // <Portal>
+        <div className={cn(cl.Modal, mods, [className])}>
+            <div className={cl.overlay} onClick={closeHandle}>
+                <div
+                    className={cl.content}
+                    onClick={onContextClick}
+                >
+                    {children}
                 </div>
             </div>
-        </Portal>
+        </div>
+        // </Portal>
     );
 };

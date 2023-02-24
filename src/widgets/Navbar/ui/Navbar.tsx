@@ -34,6 +34,7 @@ export const Navbar = ({ className }: NavbarProps) => {
                 {/* eslint-disable-next-line i18next/no-literal-string */}
                 <div>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, provident.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, voluptatum!
                 </div>
 
             </Modal>
