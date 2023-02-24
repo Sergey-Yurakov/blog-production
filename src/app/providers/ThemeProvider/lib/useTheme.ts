@@ -9,10 +9,9 @@ interface UseThemeResult {
 export const useTheme = (): UseThemeResult => {
     const { theme, setTheme } = useContext(ThemeContext);
 
-    // useEffect(() => {
-    //     document.body.className = theme;
-    //     console.log('theme', theme);
-    // });
+    useEffect(() => {
+        document.body.className = theme;
+    }, [theme]);
 
     const toggleTheme = () => {
         let newTheme: Theme;
@@ -27,7 +26,7 @@ export const useTheme = (): UseThemeResult => {
             newTheme = Theme.LIGHT;
         }
         setTheme?.(newTheme);
-        document.body.className = newTheme;
+        // document.body.className = newTheme;
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
         // const newTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;
         // setTheme(newTheme);
