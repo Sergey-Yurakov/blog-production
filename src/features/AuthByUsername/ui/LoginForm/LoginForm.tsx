@@ -6,15 +6,17 @@ import cl from './LoginForm.module.scss';
 
 interface LoginFormProps {
     className?: string;
+    isOpen?: boolean;
 
 }
 
-export const LoginForm = ({ className }: LoginFormProps) => {
+export const LoginForm = ({ className, isOpen }: LoginFormProps) => {
     const { t } = useTranslation();
 
     return (
         <div className={cn(cl.LoginForm, {}, [className])}>
             <Input
+                isOpen={isOpen}
                 autoFocus
                 type="text"
                 className={cl.input}

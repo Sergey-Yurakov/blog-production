@@ -10,6 +10,7 @@ interface InputProps extends HTMLInputProps{
     value?: string;
     onChange?: (value: string) => void;
     autofocus?: boolean;
+    isOpen?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -20,6 +21,7 @@ export const Input = memo((props: InputProps) => {
         type = 'text',
         placeholder,
         autofocus,
+        isOpen = false,
         ...otherProps
     } = props;
 
@@ -32,10 +34,14 @@ export const Input = memo((props: InputProps) => {
             setIsFocused(true);
             ref?.current?.focus();
         }
+        if (isOpen) {
+            ref?.current?.focus();
+        }
+
         return () => {
             setIsFocused(false);
         };
-    }, [autofocus]);
+    }, [autofocus, isOpen]);
 
     const changeHandle = (e: React.ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
