@@ -43,7 +43,7 @@ module.exports = {
         'i18next/no-literal-string': ['error',
             { markupOnly: true, onlyAttribute: [''], ignoreAttribute: ['data-testid'] },
         ],
-        'max-len': ['error', { ignoreComments: true, code: 100 }],
+        'max-len': ['error', { ignoreComments: true, code: 120 }],
         'no-unused-vars': 'off',
         '@typescript-eslint/no-unused-vars': [
             'warn',
