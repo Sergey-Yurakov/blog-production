@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Buttton/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { useDispatch, useSelector } from 'react-redux';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import {
     DynamicModuleLoader,
@@ -11,7 +11,7 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
-import { getLoginIsLoading } from '../../model/selectors/getLoginLoading/getLoginIsLoading';
+import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
@@ -47,12 +47,6 @@ const LoginForm = memo(({ className, isOpen = false }: LoginFormProps) => {
     const onLoginClick = useCallback(() => {
         dispatch(loginByUsername({ username, password }));
     }, [dispatch, password, username]);
-
-    useEffect(() => {
-        if (!isOpen) {
-            dispatch(loginActions.clearError());
-        }
-    }, [dispatch, isOpen]);
 
     return (
         <DynamicModuleLoader
