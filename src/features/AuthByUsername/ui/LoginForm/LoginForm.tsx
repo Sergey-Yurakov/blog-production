@@ -2,13 +2,14 @@ import { classNames as cn } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Buttton/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { useDispatch, useSelector } from 'react-redux';
-import { memo, useCallback } from 'react';
+import { useSelector } from 'react-redux';
+import { memo, useCallback, useEffect } from 'react';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import {
     DynamicModuleLoader,
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
@@ -20,6 +21,7 @@ import cl from './LoginForm.module.scss';
 export interface LoginFormProps {
     className?: string;
     isOpen?: boolean;
+    onSuccess: () => void;
 
 }
 
@@ -27,9 +29,15 @@ const initialReducers: ReducersList = {
     loginForm: loginReducer,
 };
 
-const LoginForm = memo(({ className, isOpen = false }: LoginFormProps) => {
+const LoginForm = memo((props: LoginFormProps) => {
+    const {
+        className,
+        isOpen = false,
+        onSuccess,
+    } = props;
+
     const { t } = useTranslation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const username = useSelector(getLoginUsername);
     const password = useSelector(getLoginPassword);
@@ -44,9 +52,30 @@ const LoginForm = memo(({ className, isOpen = false }: LoginFormProps) => {
         dispatch(loginActions.setPassword(value));
     }, [dispatch]);
 
-    const onLoginClick = useCallback(() => {
-        dispatch(loginByUsername({ username, password }));
-    }, [dispatch, password, username]);
+    const onLoginClick = useCallback(async () => {
+        const result = await dispatch(loginByUsername({ username, password }));
+
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSuccess();
+        }
+    }, [dispatch, onSuccess, password, username]);
+
+    const onKeyDown = useCallback((e: KeyboardEvent) => {
+        if (e.key === 'Enter') {
+            onLoginClick()
+                .then((r) => r);
+        }
+    }, [onLoginClick]);
+
+    useEffect(() => {
+        if (isOpen) {
+            document.addEventListener('keydown', onKeyDown);
+        }
+
+        return () => {
+            document.removeEventListener('keydown', onKeyDown);
+        };
+    }, [isOpen, onKeyDown]);
 
     return (
         <DynamicModuleLoader
