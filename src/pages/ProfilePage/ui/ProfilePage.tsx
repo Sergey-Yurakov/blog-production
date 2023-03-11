@@ -6,18 +6,22 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
     fetchProfileData,
-    getProfileForm,
     getProfileError,
+    getProfileForm,
     getProfileIsLoading,
     getProfileReadOnly,
+    getProfileValidateErrors,
     profileActions,
     ProfileCard,
     profileReducer,
+    ValidateProfileErrors,
 } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -29,14 +33,27 @@ interface ProfilePageProps {
 
 const ProfilePage = memo(({ className }: ProfilePageProps) => {
     const dispatch = useAppDispatch();
+    const { t } = useTranslation('profile');
 
     const formData = useSelector(getProfileForm);
     const error = useSelector(getProfileError);
     const isLoading = useSelector(getProfileIsLoading);
     const readOnly = useSelector(getProfileReadOnly);
+    const validateErrors = useSelector(getProfileValidateErrors);
+
+    const validateErrorsTranslates = {
+        [ValidateProfileErrors.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+        [ValidateProfileErrors.INCORRECT_AGE]: t('Некорректный возраст'),
+        [ValidateProfileErrors.INCORRECT_USERNAME]: t('Некорректное имя пользователя'),
+        [ValidateProfileErrors.INCORRECT_CITY]: t('Некорректный город'),
+        [ValidateProfileErrors.SERVER_ERROR]: t('Серверная ошибка'),
+        [ValidateProfileErrors.NO_DATA]: t('Данные не указаны'),
+    };
 
     useEffect(() => {
-        dispatch(fetchProfileData());
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData());
+        }
     }, [dispatch]);
 
     const onChangeFirstname = useCallback((value?: string) => {
@@ -78,6 +95,13 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
         >
             <div className={cn('', {}, [className])}>
                 <ProfilePageHeader />
+                {validateErrors?.length && validateErrors.map((err) => (
+                    <Text
+                        theme={TextTheme.ERROR}
+                        key={err}
+                        text={validateErrorsTranslates[err]}
+                    />
+                ))}
                 <ProfileCard
                     data={formData}
                     error={error}

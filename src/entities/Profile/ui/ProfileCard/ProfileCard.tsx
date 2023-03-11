@@ -46,8 +46,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     const { t } = useTranslation('profile');
 
-    const validateAge = useCallback((event: KeyboardEvent) => {
-        if (/\D/.test(event.key)) {
+    const validateAge = useCallback((event: KeyboardEvent<HTMLInputElement>) => {
+        if (/\D/.test(event.key) && event.key !== 'Backspace') {
             event.preventDefault();
         }
     }, []);
