@@ -13,9 +13,7 @@ import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
-import {
-    addCommentsForArticle,
-} from 'pages/ArticleDetailsPage/model/services/addCommentsForArticle/addCommentsForArticle';
+import { addCommentsForArticle } from '../../model/services/addCommentsForArticle/addCommentsForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import {
