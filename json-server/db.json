@@ -44,18 +44,62 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "123",
+      "id": "RPcqrHi"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "123assdd",
+      "id": "rNs6bpd"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "werqttt",
+      "id": "QZL51Py"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "hello world",
+      "id": "lr0cVCo"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "hola!!!",
+      "id": "W4TJVcQ"
     }
   ],
-  "profile": {
-    "first": "Sergey",
-    "lastname": "Yurakov",
-    "age": 30,
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Moscow",
-    "username": "admin",
-    "avatar": "https://thumbs.dreamstime.com/b/hacker-working-laptop-black-white-graphic-vector-92229941.jpg"
-  },
+  "profile": [
+    {
+      "id": "1",
+      "first": "Sergey",
+      "lastname": "Yurakov",
+      "age": 30,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "admin",
+      "avatar": "https://thumbs.dreamstime.com/b/hacker-working-laptop-black-white-graphic-vector-92229941.jpg"
+    },
+    {
+      "id": "2",
+      "first": "Timur",
+      "lastname": "Ulbi",
+      "age": 23,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "ulbiTV",
+      "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png"
+    }
+  ],
   "users": [
     {
       "id": "1",
@@ -69,7 +113,7 @@
       "username": "user",
       "password": "123",
       "role": "USER",
-      "avatar": "https://e-news.su/uploads/posts/2022-04/1650919998_d091d18bd181d182d180d0bed0b2_d0a5d0b0d0bad0b5d180.jpeg"
+      "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png"
     }
   ],
   "articles": [
