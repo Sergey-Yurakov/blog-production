@@ -2,8 +2,9 @@ export {
     ArticleDetails,
 } from './ui/ArticleDetails/ArticleDetails';
 
-export type {
+export {
     Article,
+    ArticleView,
 } from './model/types/article';
 
 export type {
@@ -13,3 +14,7 @@ export type {
 export {
     getArticleDetailData,
 } from './model/selectors/articleDetails';
+
+export {
+    ArticleList,
+} from './ui/ArticleList/ArticleList';

@@ -1,6 +1,7 @@
 import { classNames as cn } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
+import { ArticleList, ArticleView } from 'entities/Article';
 import cl from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
@@ -12,7 +13,10 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
 
     return (
         <div className={cn(cl.ArticlesPage, {}, [className])}>
-            ArticlesPage
+            <ArticleList
+                view={ArticleView.BIG}
+                articles={[]}
+            />
         </div>
     );
 };
