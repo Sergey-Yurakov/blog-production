@@ -15,6 +15,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { Button } from 'shared/ui/Buttton/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 import { addCommentsForArticle } from '../../model/services/addCommentsForArticle/addCommentsForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
@@ -53,15 +54,15 @@ const ArticleDetailsPage = ({ className }: ArticlesDetailPageProps) => {
 
     if (!id) {
         return (
-            <div className={cn(cl.ArticlesDetailPage, {}, [className])}>
+            <Page className={cn(cl.ArticlesDetailPage, {}, [className])}>
                 {t('Статья не найдена')}
-            </div>
+            </Page>
         );
     }
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={cn(cl.ArticlesDetailPage, {}, [className])}>
+            <Page className={cn(cl.ArticlesDetailPage, {}, [className])}>
                 <Button
                     onClick={onBackToLIst}
                 >
@@ -81,7 +82,7 @@ const ArticleDetailsPage = ({ className }: ArticlesDetailPageProps) => {
                     isLoading={commentsIsLoading}
                     comments={comments}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };
