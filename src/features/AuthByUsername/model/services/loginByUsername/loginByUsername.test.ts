@@ -56,7 +56,12 @@ describe('loginByUsername', () => {
         // ибо аксиос возвращает промис
 
         const thunk = new TestAsyncThunk(loginByUsername);
+
+        // передаем в мок значение, которое нам должен вернуть сервер, в случае успеха
+        // в поле data аксиос возвращает какие-либо данные с сервера
         thunk.api.post.mockReturnValue(Promise.resolve({ data: userValue }));
+
+        // в callThunk передаем входные параметры для сервиса (если есть такие)
         const result = await thunk.callThunk({ username: '123', password: '123' });
 
         console.log('result', result);

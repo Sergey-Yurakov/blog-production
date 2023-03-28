@@ -1,7 +1,5 @@
 import { classNames as cn } from 'shared/lib/classNames/classNames';
-import {
-    memo, MutableRefObject, ReactNode, useRef,
-} from 'react';
+import { MutableRefObject, ReactNode, useRef } from 'react';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import cl from './Page.module.scss';
 
@@ -11,7 +9,7 @@ interface PageProps {
     onScrollEnd?: () => void;
 }
 
-export const Page = memo((props: PageProps) => {
+export const Page = (props: PageProps) => {
     const {
         className,
         children,
@@ -36,4 +34,4 @@ export const Page = memo((props: PageProps) => {
             <div ref={triggerRef} />
         </section>
     );
-});
+};

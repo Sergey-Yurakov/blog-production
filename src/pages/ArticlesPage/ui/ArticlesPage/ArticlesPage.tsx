@@ -11,6 +11,7 @@ import { useSelector } from 'react-redux';
 import { Page } from 'shared/ui/Page/Page';
 import { Text, TextAlign } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import {
     fetchNextArticlesPage,
 } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
@@ -18,8 +19,7 @@ import {
     getArticlesPageError,
     getArticlesPageIsLoading,
     getArticlesPageView,
-} from '../../model/selectors/articlesPageSlelectors';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
+} from '../../model/selectors/articlesPageSelectors';
 import {
     articlesPageActions,
     articlesPageReducer,
@@ -52,10 +52,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(articlesPageActions.initState());
-        dispatch(fetchArticlesList({
-            page: 1,
-        }));
+        dispatch(initArticlesPage());
     });
 
     if (error) {
@@ -70,7 +67,10 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     }
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader
+            reducers={reducers}
+            removeAfterUnmount={false}
+        >
             <Page
                 className={cn(cl.ArticlesPage, {}, [className])}
                 onScrollEnd={onLoadNextPart}

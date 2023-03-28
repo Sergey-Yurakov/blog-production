@@ -16,6 +16,10 @@ const data = {
 
 describe('updateProfileData', () => {
     test('success', async () => {
+        // задаем изначальный стейт руками сами,
+        // ибо как входные параметры сервис ничего не принимает
+        // внутри сервиса получаем данные напрямую из стейта - const formData = getProfileForm(getState());
+        // и по этому надо задать начальный стейт руками
         const thunk = new TestAsyncThunk(updateProfileData, {
             profile: {
                 form: data,
