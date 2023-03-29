@@ -15,14 +15,14 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { Button } from 'shared/ui/Buttton/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 import { addCommentsForArticle } from '../../model/services/addCommentsForArticle/addCommentsForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import {
     articleDetailsCommentsReducer,
     getArticleComments,
-} from '../../model/slice/articleDetailsCommentsSlice';
+} from '../../model/slices/articleDetailsCommentsSlice';
 import cl from './ArticleDetailsPage.module.scss';
 
 interface ArticlesDetailPageProps {

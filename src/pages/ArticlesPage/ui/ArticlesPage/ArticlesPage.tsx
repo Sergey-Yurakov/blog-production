@@ -8,7 +8,7 @@ import {
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useSelector } from 'react-redux';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 import { Text, TextAlign } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
@@ -24,7 +24,7 @@ import {
     articlesPageActions,
     articlesPageReducer,
     getArticles,
-} from '../../model/slice/articlesPageSlice';
+} from '../../model/slices/articlesPageSlice';
 import cl from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {

@@ -19,7 +19,7 @@ import {
     getArticleDetailError,
     getArticleDetailIsLoading,
 } from '../../model/selectors/articleDetails';
-import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
+import { articleDetailsReducer } from '../../model/slices/articleDetailsSlice';
 import cl from './ArticleDetails.module.scss';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { ArticleCodeBlockComponent } from '../../ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';

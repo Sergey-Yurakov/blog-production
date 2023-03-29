@@ -1,5 +1,6 @@
 {
   "Комментарии отсутствуют": "There are no comments",
   "Введите текст комментария": "Enter the comment text",
-  "Отправить": "Send"
+  "Отправить": "Send",
+  "Произошла ошибка при добавлении комментария": "An error occurred while adding a comment"
 }

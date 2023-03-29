@@ -9,10 +9,12 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Page } from 'widgets/Page/Page';
+import { Text } from 'shared/ui/Text/Text';
 import {
     addCommentFormActions,
     addCommentFormReducer,
-} from '../../model/slice/addCommentFormSlice';
+} from '../../model/slices/addCommentFormSlice';
 import {
     getAddCommentFormError,
     getAddCommentFormText,
@@ -42,6 +44,16 @@ const AddCommentForm = ({ className, onSendComment }: AddCommentFormProps) => {
         onSendComment(text || '');
         onCommentTextChange('');
     }, [onCommentTextChange, onSendComment, text]);
+
+    if (error) {
+        return (
+            <Page>
+                <Text
+                    text={t('Произошла ошибка при добавлении комментария')}
+                />
+            </Page>
+        );
+    }
 
     return (
         <DynamicModuleLoader reducers={reducers}>

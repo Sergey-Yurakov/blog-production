@@ -7,7 +7,7 @@ export {
 export {
     profileActions,
     profileReducer,
-} from './model/slice/profileSlice';
+} from './model/slices/profileSlice';
 
 export {
     fetchProfileData,
