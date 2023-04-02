@@ -1,6 +1,6 @@
 import { classNames as cn } from 'shared/lib/classNames/classNames';
 import {
-    MutableRefObject, ReactNode, useRef, UIEvent,
+    MutableRefObject, ReactNode, UIEvent, useRef,
 } from 'react';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -56,7 +56,10 @@ export const Page = (props: PageProps) => {
             onScroll={onScroll}
         >
             {children}
-            <div ref={triggerRef} />
+            { onScrollEnd ? (
+                <div ref={triggerRef} className={cl.trigger} />
+            )
+                : null}
         </section>
     );
 };

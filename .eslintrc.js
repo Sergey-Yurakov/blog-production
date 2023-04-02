@@ -41,9 +41,9 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
         'i18next/no-literal-string': ['error',
-            { markupOnly: true, onlyAttribute: [''], ignoreAttribute: ['data-testid'] },
+            { markupOnly: true, onlyAttribute: [''], ignoreAttribute: ['data-testid', 'to', 'target'] },
         ],
-        'max-len': ['error', { ignoreComments: true, code: 120 }],
+        'max-len': ['error', { ignoreComments: true, code: 140 }],
         'no-unused-vars': 'off',
         '@typescript-eslint/no-unused-vars': [
             'warn',
@@ -56,6 +56,7 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-undef': 'off',
         'react/no-array-index-key': 'warn',
+        'arrow-body-style': 'off',
     },
     globals: {
         __IS_DEV__: true,

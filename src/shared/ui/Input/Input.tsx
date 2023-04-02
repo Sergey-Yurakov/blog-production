@@ -1,20 +1,20 @@
 import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
 import React, {
-    InputHTMLAttributes, memo, useEffect, useRef, useState,
+    InputHTMLAttributes, useEffect, useRef, useState,
 } from 'react';
 import cl from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
-interface InputProps extends HTMLInputProps{
+interface InputProps<T> extends HTMLInputProps {
     className?: string;
-    value?: string | number;
-    onChange?: (value: string) => void;
+    value?: T | number;
+    onChange?: (value: T) => void;
     autofocus?: boolean;
     isOpen?: boolean;
     readOnly?: boolean;
 }
 
-export const Input = memo((props: InputProps) => {
+export const Input = <T extends string>(props: InputProps<T>) => {
     const {
         className,
         value,
@@ -48,7 +48,7 @@ export const Input = memo((props: InputProps) => {
     }, [autofocus, isOpen]);
 
     const changeHandle = (e: React.ChangeEvent<HTMLInputElement>) => {
-        onChange?.(e.target.value);
+        onChange?.(e.target.value as T);
         setCaretPosition(e.target.value.length);
     };
 
@@ -96,4 +96,4 @@ export const Input = memo((props: InputProps) => {
             </div>
         </div>
     );
-});
+};

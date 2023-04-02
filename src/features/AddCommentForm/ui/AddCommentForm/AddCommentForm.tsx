@@ -9,7 +9,7 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Page } from 'widgets/Page/Page';
+import { Page } from 'widgets/Page';
 import { Text } from 'shared/ui/Text/Text';
 import {
     addCommentFormActions,

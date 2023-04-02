@@ -1,4 +1,4 @@
-import { ArticleView } from 'entities/Article';
+import { ArticleType, ArticleView } from 'entities/Article';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 import { articlesPageActions, articlesPageReducer } from './articlesPageSlice';
@@ -14,6 +14,7 @@ describe('articlesPageSlice', () => {
             page: 1,
             hasMore: true,
             _inited: false,
+            type: ArticleType.ALL,
         };
         expect(
             articlesPageReducer(
@@ -29,6 +30,7 @@ describe('articlesPageSlice', () => {
                 view: ArticleView.SMALL,
                 page: 2,
                 hasMore: true,
+                type: ArticleType.ALL,
             });
     });
 
@@ -41,6 +43,7 @@ describe('articlesPageSlice', () => {
             view: ArticleView.SMALL,
             page: 1,
             hasMore: true,
+            type: ArticleType.ALL,
         };
         expect(
             articlesPageReducer(
@@ -56,6 +59,7 @@ describe('articlesPageSlice', () => {
                 view: ArticleView.BIG,
                 page: 1,
                 hasMore: true,
+                type: ArticleType.ALL,
             });
     });
 
