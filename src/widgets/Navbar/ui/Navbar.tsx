@@ -5,6 +5,9 @@ import { Button, ButtonTheme } from 'shared/ui/Buttton/Button';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cl from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -32,6 +35,18 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <header className={cn(cl.Navbar, {}, [className])}>
+                <Text
+                    className={cl.appName}
+                    title={t('Ulbi TV App')}
+                    theme={TextTheme.INVERTED}
+                />
+                <AppLink
+                    to={RoutePath.article_create}
+                    theme={AppLinkTheme.SECONDARY}
+                    className={cl.createBtn}
+                >
+                    {t('Создать статью')}
+                </AppLink>
                 <Button
                     className={cl.links}
                     theme={ButtonTheme.CLEAR_INVERTED}

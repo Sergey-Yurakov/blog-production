@@ -3,6 +3,10 @@ export {
 } from './ui/ArticleDetailsPage/ArticleDetailsPage.async';
 
 export {
+    ArticleDetailsPageAsync as ArticleDetailsPageHeader,
+} from './ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader.async';
+
+export {
     ArticleDetailsCommentsSchema,
 } from './model/types/ArticleDetailsCommentsSchema';
 

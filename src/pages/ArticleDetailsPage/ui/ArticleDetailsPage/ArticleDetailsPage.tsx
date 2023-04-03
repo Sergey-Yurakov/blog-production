@@ -2,7 +2,7 @@ import { classNames as cn } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { ArticleDetails, ArticleList } from 'entities/Article';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { CommentList } from 'entities/Comment';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import {
@@ -13,9 +13,8 @@ import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
-import { Button } from 'shared/ui/Buttton/Button';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page';
+import { ArticleDetailsPageHeader } from 'pages/ArticleDetailsPage';
 import { articleDetailsPageReducer } from '../../model/slices';
 import {
     fetchArticleRecommendations,
@@ -49,7 +48,6 @@ const ArticleDetailsPage = ({ className }: ArticlesDetailPageProps) => {
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
     const recommendations = useSelector(getArticleRecommendations.selectAll);
     const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
-    const navigate = useNavigate();
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
@@ -59,10 +57,6 @@ const ArticleDetailsPage = ({ className }: ArticlesDetailPageProps) => {
     const onSendComment = useCallback((text: string) => {
         dispatch(addCommentsForArticle(text));
     }, [dispatch]);
-
-    const onBackToLIst = useCallback(() => {
-        navigate(RoutePath.articles);
-    }, [navigate]);
 
     if (!id) {
         return (
@@ -75,11 +69,7 @@ const ArticleDetailsPage = ({ className }: ArticlesDetailPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <Page className={cn(cl.ArticlesDetailPage, {}, [className])}>
-                <Button
-                    onClick={onBackToLIst}
-                >
-                    {t('Назад к списку')}
-                </Button>
+                <ArticleDetailsPageHeader />
                 <ArticleDetails
                     id={id}
                 />
