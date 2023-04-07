@@ -22,6 +22,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
+        'stells-plugin',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -57,6 +58,7 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'warn',
         'arrow-body-style': 'off',
+        'stells-plugin/path-cheker': 'error',
     },
     globals: {
         __IS_DEV__: true,

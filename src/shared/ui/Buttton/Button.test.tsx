@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Button, ButtonTheme } from 'shared/ui/Buttton/Button';
+import { Button, ButtonTheme } from './Button';
 
 describe('Button', () => {
     test('Test render in doom', () => {

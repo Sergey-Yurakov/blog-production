@@ -13,7 +13,7 @@ interface ArticleDetailsPageHeaderProps {
     className?: string;
 }
 
-const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) => {
+export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderProps) => {
     const { className } = props;
     const { t } = useTranslation('article-details');
     const navigate = useNavigate();
@@ -45,6 +45,4 @@ const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) => {
             )}
         </div>
     );
-};
-
-export default memo(ArticleDetailsPageHeader);
+});

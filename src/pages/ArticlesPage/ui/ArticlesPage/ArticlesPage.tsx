@@ -12,11 +12,11 @@ import { Page } from 'widgets/Page';
 import { Text, TextAlign } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
-import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
-import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import {
     fetchNextArticlesPage,
 } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import {
     getArticlesPageError,
     getArticlesPageHasMore,
