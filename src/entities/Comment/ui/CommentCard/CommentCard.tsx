@@ -5,6 +5,7 @@ import { Text } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { Comment } from '../../model/types/comment';
 import cl from './CommentCard.module.scss';
 
@@ -23,8 +24,12 @@ export const CommentCard = memo((props: CommentCardProps) => {
 
     if (isLoading) {
         return (
-            <div className={cn(cl.CommentCard, {}, [className, cl.loading])}>
-                <div className={cl.header}>
+            <VStack
+                className={cn(cl.CommentCard, {}, [className, cl.loading])}
+                gap="8"
+                max
+            >
+                <HStack max>
                     <Skeleton
                         width={30}
                         height={30}
@@ -35,13 +40,13 @@ export const CommentCard = memo((props: CommentCardProps) => {
                         width={100}
                         className={cl.username}
                     />
-                </div>
+                </HStack>
                 <Skeleton
                     className={cl.text}
                     width="100%"
                     height={50}
                 />
-            </div>
+            </VStack>
         );
     }
 
@@ -50,26 +55,29 @@ export const CommentCard = memo((props: CommentCardProps) => {
     }
 
     return (
-        <div className={cn(cl.CommentCard, {}, [className])}>
+        <VStack
+            className={cn(cl.CommentCard, {}, [className])}
+            max
+        >
             <AppLink
-                className={cl.header}
                 to={`${RoutePath.profile}${comment.user.id}`}
             >
-                {comment.user.avatar ? (
-                    <Avatar
-                        size={30}
-                        src={comment.user.avatar}
+                <HStack max gap="8">
+                    {comment.user.avatar ? (
+                        <Avatar
+                            size={30}
+                            src={comment.user.avatar}
+                        />
+                    ) : null}
+                    <Text
+                        title={comment.user.username}
+                        className={cl.username}
                     />
-                ) : null}
-                <Text
-                    title={comment.user.username}
-                    className={cl.username}
-                />
+                </HStack>
             </AppLink>
             <Text
                 text={comment.text}
-                className={cl.text}
             />
-        </div>
+        </VStack>
     );
 });
