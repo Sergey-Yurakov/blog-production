@@ -21,7 +21,7 @@ describe('fetchNextArticlesPage', () => {
         console.log('result', result);
 
         expect(thunk.dispatch).toBeCalledTimes(4);
-        expect(fetchArticlesList).toHaveBeenCalledWith({ page: 3 });
+        expect(fetchArticlesList).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
     });
 

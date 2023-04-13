@@ -48,7 +48,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         for (let i = fromIndex; i < toIndex; i += 1) {
             items.push(
                 <ArticleListItem
-                    article={articles[index]}
+                    article={articles[i]}
                     view={view}
                     target={target}
                     className={cl.card}

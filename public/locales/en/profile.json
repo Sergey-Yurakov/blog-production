@@ -18,5 +18,6 @@
   "Некорректное имя пользователя": "Invalid user name",
   "Некорректный город": "Incorrect city",
   "Серверная ошибка": "Server error",
-  "Данные не указаны": "Data is not specified"
+  "Данные не указаны": "Data is not specified",
+  "Профиль не найден": "Profile not found"
 }

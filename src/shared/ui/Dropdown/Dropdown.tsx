@@ -55,13 +55,22 @@ export const Dropdown = (props: DropdownProps) => {
 
                     if (item.href) {
                         return (
-                            <Menu.Item as={AppLink} to={item.href} disabled={item.disabled}>
+                            <Menu.Item
+                                as={AppLink}
+                                to={item.href}
+                                disabled={item.disabled}
+                                key={String(item.content)}
+                            >
                                 {content}
                             </Menu.Item>
                         );
                     }
                     return (
-                        <Menu.Item as={Fragment} disabled={item.disabled}>
+                        <Menu.Item
+                            as={Fragment}
+                            disabled={item.disabled}
+                            key={String(item.content)}
+                        >
                             {content}
                         </Menu.Item>
                     );

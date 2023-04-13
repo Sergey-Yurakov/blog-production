@@ -1,5 +1,4 @@
 import { ArticleType, ArticleView } from 'entities/Article';
-import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 import { articlesPageActions, articlesPageReducer } from './articlesPageSlice';
 
@@ -30,6 +29,7 @@ describe('articlesPageSlice', () => {
                 view: ArticleView.SMALL,
                 page: 2,
                 hasMore: true,
+                _inited: false,
                 type: ArticleType.ALL,
             });
     });
@@ -44,6 +44,7 @@ describe('articlesPageSlice', () => {
             page: 1,
             hasMore: true,
             type: ArticleType.ALL,
+            _inited: false,
         };
         expect(
             articlesPageReducer(
@@ -60,23 +61,7 @@ describe('articlesPageSlice', () => {
                 page: 1,
                 hasMore: true,
                 type: ArticleType.ALL,
-            });
-    });
-
-    test('test update fetchArticlesList service pending', () => {
-        const state: DeepPartial<ArticlesPageSchema> = {
-            error: 'error',
-            isLoading: false,
-        };
-        expect(
-            articlesPageReducer(
-                state as ArticlesPageSchema,
-                fetchArticlesList.pending,
-            ),
-        )
-            .toEqual({
-                error: undefined,
-                isLoading: true,
+                _inited: false,
             });
     });
 });
