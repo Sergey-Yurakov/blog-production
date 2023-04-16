@@ -1,5 +1,4 @@
 import { classNames as cn } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
@@ -23,16 +22,7 @@ const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer,
 };
 const ArticleDetailsPage = ({ className }: ArticlesDetailPageProps) => {
-    const { t } = useTranslation('article-details');
     const { id } = useParams<{id: string}>();
-
-    if (!id) {
-        return (
-            <Page className={cn(cl.ArticlesDetailPage, {}, [className])}>
-                {t('Статья не найдена')}
-            </Page>
-        );
-    }
 
     return (
         <DynamicModuleLoader reducers={reducers}>
@@ -40,10 +30,10 @@ const ArticleDetailsPage = ({ className }: ArticlesDetailPageProps) => {
                 <VStack max gap="16">
                     <ArticleDetailsPageHeader />
                     <ArticleDetails
-                        id={id}
+                        id={id!}
                     />
                     <ArticleRecommendationsList />
-                    <ArticleDetailsComments id={id} />
+                    <ArticleDetailsComments id={id!} />
                 </VStack>
             </Page>
         </DynamicModuleLoader>

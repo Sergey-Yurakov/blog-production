@@ -25,46 +25,51 @@ DisableItems.args = {
     label: 'label',
 };
 
-export const TopLeft = Template.bind({});
-TopLeft.args = {
+export const Normal = Template.bind({});
+Normal.args = {
+    value: '123',
     items: [
-        { value: '1', content: 'text 1' },
-        { value: '2', content: 'text 2' },
-        { value: '3', content: 'text 3' },
+        { content: '1asfasfasf23', value: '123' },
+        { content: '1asfasfasf21233', value: '1232' },
     ],
-    value: 'button',
+};
+
+export const topLeft = Template.bind({});
+topLeft.args = {
     direction: 'top left',
+    value: '123',
+    items: [
+        { content: '1asfasfasf23', value: '123' },
+        { content: '1asfasfasf21233', value: '1232' },
+    ],
 };
 
-export const TopLRight = Template.bind({});
-TopLRight.args = {
-    items: [
-        { value: '1', content: 'text 1' },
-        { value: '2', content: 'text 2' },
-        { value: '3', content: 'text 3' },
-    ],
-    value: 'button',
+export const topRight = Template.bind({});
+topRight.args = {
     direction: 'top right',
+    value: '123',
+    items: [
+        { content: '1asfasfasf23', value: '123' },
+        { content: '1asfasfasf21233', value: '1232' },
+    ],
 };
 
-export const BottomLeft = Template.bind({});
-BottomLeft.args = {
-    items: [
-        { value: '1', content: 'text 1' },
-        { value: '2', content: 'text 2' },
-        { value: '3', content: 'text 3' },
-    ],
-    value: 'button',
+export const bottomLeft = Template.bind({});
+bottomLeft.args = {
     direction: 'bottom left',
+    value: '123',
+    items: [
+        { content: '1asfasfasf23', value: '123' },
+        { content: '1asfasfasf21233', value: '1232' },
+    ],
 };
 
-export const BottomRight = Template.bind({});
-BottomRight.args = {
-    items: [
-        { value: '1', content: 'text 1' },
-        { value: '2', content: 'text 2' },
-        { value: '3', content: 'text 3' },
-    ],
-    value: 'button',
+export const bottomRight = Template.bind({});
+bottomRight.args = {
     direction: 'bottom right',
+    value: '123',
+    items: [
+        { content: '1asfasfasf23', value: '123' },
+        { content: '1asfasfasf21233', value: '1232' },
+    ],
 };
