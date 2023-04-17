@@ -13,6 +13,7 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { ValidateProfileErrors } from '../../model/consts/consts';
 import {
     EditableProfileCardHeader,
 } from '../EditableProfileCardHeader/EditableProfileCardHeader';
@@ -25,7 +26,6 @@ import {
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
-import { ValidateProfileErrors } from '../../model/types/editableProfileCardSchema';
 
 interface EditableProfileCardProps {
     className?: string;

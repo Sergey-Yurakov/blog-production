@@ -2,6 +2,6 @@ export {
     LoginModal,
 } from './ui/LoginModal/LoginModal';
 
-export {
+export type {
     LoginSchema,
 } from './model/types/loginSchema';

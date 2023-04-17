@@ -11,42 +11,28 @@ import ProfilePage from './ProfilePage';
 export default {
     title: 'pages/ProfilePage',
     component: ProfilePage,
+    decorators: [StoreDecorator({
+        profile: {
+            form: {
+                first: 'Sergey',
+                lastname: 'Yurakov',
+                age: 30,
+                currency: Currency.RUB,
+                country: Country.RUSSIA,
+                city: 'Moscow',
+                username: 'admin',
+                avatar,
+            },
+        },
+    })],
 
 } as ComponentMeta<typeof ProfilePage>;
 
-// @ts-ignore
 const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [StoreDecorator({
-    profile: {
-        form: {
-            first: 'Sergey',
-            lastname: 'Yurakov',
-            age: 30,
-            currency: Currency.RUB,
-            country: Country.RUSSIA,
-            city: 'Moscow',
-            username: 'admin',
-            avatar,
-        },
-    },
-})];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-    profile: {
-        form: {
-            first: 'Sergey',
-            lastname: 'Yurakov',
-            age: 30,
-            currency: Currency.RUB,
-            country: Country.RUSSIA,
-            city: 'Moscow',
-            username: 'admin',
-            avatar,
-        },
-    },
-})];
+Dark.decorators = [ThemeDecorator(Theme.DARK)];

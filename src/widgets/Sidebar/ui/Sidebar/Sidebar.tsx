@@ -1,7 +1,7 @@
 import { classNames as cn } from 'shared/lib/classNames/classNames';
 import { memo, useMemo, useState } from 'react';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
-import { LangSwitcher } from 'widgets/LangSwitcher/LangSwitcher';
+import { LangSwitcher } from 'widgets/LangSwitcher';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Buttton/Button';
 import { useSelector } from 'react-redux';
 import { VStack } from 'shared/ui/Stack';
