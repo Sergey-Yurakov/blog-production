@@ -14,7 +14,7 @@ export const LoginModal = memo(({ className, onClose, isOpen }: LoginModalProps)
     <Modal
         className={cn('', {}, [className])}
         isOpen={isOpen}
-        onCLose={onClose}
+        onClose={onClose}
         lazy
     >
         <Suspense fallback={<Loader />}>
