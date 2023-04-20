@@ -8,6 +8,7 @@ import React, {
     useState,
 } from 'react';
 import { useTheme } from 'app/providers/ThemeProvider';
+import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 import cl from './Modal.module.scss';
 
@@ -65,10 +66,6 @@ export const Modal = (props: ModalProps) => {
         }
     }, [closeHandle]);
 
-    const onContextClick = (e: React.MouseEvent) => {
-        e.stopPropagation();
-    };
-
     useEffect(() => {
         if (isOpen) {
             window.addEventListener('keydown', onKeyDown);
@@ -90,15 +87,14 @@ export const Modal = (props: ModalProps) => {
 
     return (
         <Portal>
-            <div className={cn(cl.Modal, mods, [className, theme])}>
-                <div className={cl.overlay} onClick={closeHandle}>
-                    <div
-                        className={cl.content}
-                        onClick={onContextClick}
-                    >
-                        {children}
-                    </div>
+            <div className={cn(cl.Modal, mods, [className, theme, 'app_modal'])}>
+                <Overlay onClick={closeHandle} />
+                <div
+                    className={cl.content}
+                >
+                    {children}
                 </div>
+
             </div>
         </Portal>
     );
