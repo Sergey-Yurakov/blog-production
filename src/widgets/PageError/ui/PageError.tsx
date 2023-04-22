@@ -1,7 +1,7 @@
-import { classNames as cn } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/ui/Buttton/Button';
 import { memo } from 'react';
+import { classNames as cn } from '@/shared/lib/classNames/classNames';
+import { Button } from '@/shared/ui/Buttton/Button';
 import cl from './PageError.module.scss';
 
 interface PageErrorProps {
