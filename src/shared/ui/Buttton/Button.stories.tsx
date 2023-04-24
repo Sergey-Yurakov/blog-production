@@ -56,6 +56,13 @@ OutlineSizeXL.args = {
     size: ButtonSize.XL,
 };
 
+export const FullWidth = Template.bind({});
+FullWidth.args = {
+    children: 'Text',
+    size: ButtonSize.XL,
+    fullWidth: true,
+};
+
 export const OutlineDark = Template.bind({});
 OutlineDark.args = {
     children: 'Text',
