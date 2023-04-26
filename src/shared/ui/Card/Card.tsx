@@ -1,5 +1,5 @@
 import { HTMLAttributes, memo, ReactNode } from 'react';
-import { classNames as cn } from '@/shared/lib/classNames/classNames';
+import { classNames as cn, Mods } from '@/shared/lib/classNames/classNames';
 import cl from './Card.module.scss';
 
 export enum CardTheme {
@@ -7,10 +7,11 @@ export enum CardTheme {
     OUTLINED = 'outlined'
 }
 
-interface CardProps extends HTMLAttributes<HTMLDivElement>{
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
     children: ReactNode;
     theme?: CardTheme;
+    maxWidth?: boolean;
 }
 
 export const Card = memo((props: CardProps) => {
@@ -18,12 +19,17 @@ export const Card = memo((props: CardProps) => {
         className,
         children,
         theme = CardTheme.NORMAL,
+        maxWidth,
         ...otherProps
     } = props;
 
+    const mods: Mods = {
+        [cl.maxWidth]: maxWidth,
+    };
+
     return (
         <div
-            className={cn(cl.Card, {}, [className, cl[theme]])}
+            className={cn(cl.Card, mods, [className, cl[theme]])}
             {...otherProps}
         >
             {children}

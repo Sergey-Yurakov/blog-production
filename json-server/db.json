@@ -710,5 +710,85 @@
         }
       ]
     }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 5,
+      "feedback": "Отличная статья",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "id": "3",
+      "rate": 3,
+      "feedback": "Плохая статья",
+      "userId": "1",
+      "articleId": "3"
+    },
+    {
+      "rate": 4,
+      "feedback": "",
+      "articleId": "4",
+      "userId": "1",
+      "id": "3PMvg4I"
+    },
+    {
+      "rate": 5,
+      "feedback": "",
+      "articleId": "7",
+      "userId": "1",
+      "id": "V7wkaFp"
+    },
+    {
+      "rate": 4,
+      "feedback": "статья пойдет!",
+      "articleId": "8",
+      "userId": "1",
+      "id": "SJGdrOl"
+    },
+    {
+      "rate": 3,
+      "articleId": "6",
+      "userId": "1",
+      "id": "bXviy22"
+    },
+    {
+      "rate": 2,
+      "feedback": "",
+      "articleId": "10",
+      "userId": "1",
+      "id": "HMf7Bzu"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хороший профиль",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 5,
+      "feedback": "Отличный профиль",
+      "userId": "1",
+      "profileId": "2"
+    },
+    {
+      "id": "3",
+      "rate": 3,
+      "feedback": "Плохой профиль",
+      "userId": "1",
+      "profileId": "3"
+    }
   ]
 }
