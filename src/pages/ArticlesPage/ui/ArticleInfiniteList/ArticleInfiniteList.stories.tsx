@@ -3,6 +3,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ArticleInfiniteList } from './ArticleInfiniteList';
+import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
+import { ArticlesPageSchema } from '@/pages/ArticlesPage';
 
 export default {
     title: 'pages/ArticlesPage/ArticleInfiniteList',
@@ -12,6 +14,24 @@ export default {
 
 const Template: ComponentStory<typeof ArticleInfiniteList> = (args) => <ArticleInfiniteList {...args} />;
 
+const article: ArticlesPageSchema = {
+    isLoading: false,
+    error: '',
+    page: 1,
+    limit: 3,
+    hasMore: true,
+    _inited: true,
+    view: ArticleView.BIG,
+    order: 'asc',
+    sort: ArticleSortField.CREATED,
+    search: '',
+    type: ArticleType.ALL,
+    entities: {},
+    ids: [],
+};
+
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({})];
+Normal.decorators = [StoreDecorator({
+    articlesPage: article,
+})];

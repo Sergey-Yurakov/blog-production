@@ -6,7 +6,7 @@ import { Notification } from '../../model/types/notification';
 import { NotificationItem } from './NotificationItem';
 
 export default {
-    title: 'entities/Notification/NotificationItem',
+    title: 'entities/Notification/Notification/NotificationItem',
     component: NotificationItem,
 
 } as ComponentMeta<typeof NotificationItem>;

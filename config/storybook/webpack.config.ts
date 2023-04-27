@@ -4,7 +4,7 @@ import { BuildPaths } from '../build/types/config';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
 
-export default ({ config }: {config: webpack.Configuration}) => {
+export default ({ config }: { config: webpack.Configuration }) => {
     const paths: BuildPaths = {
         entry: '',
         html: '',
@@ -20,7 +20,10 @@ export default ({ config }: {config: webpack.Configuration}) => {
     // @ts-ignore
     config!.module!.rules = config!.module!.rules!.map((rule: webpack.RuleSetRule) => {
         if (/svg/.test(rule.test as string)) {
-            return { ...rule, exclude: /\.svg$/i };
+            return {
+                ...rule,
+                exclude: /\.svg$/i,
+            };
         }
         return rule;
     });
@@ -32,7 +35,11 @@ export default ({ config }: {config: webpack.Configuration}) => {
         'node_modules',
     ];
 
-    config!.resolve!.alias = { '@': paths.src };
+    // настройка для alias
+    config!.resolve!.alias = {
+        ...config!.resolve!.alias,
+        '@': paths.src,
+    };
 
     config!.plugins!.push(new webpack.DefinePlugin({
         __IS_DEV__: JSON.stringify(true),

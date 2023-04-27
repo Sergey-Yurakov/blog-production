@@ -7,6 +7,7 @@ export default defineConfig({
     plugins: [
         svgr({ exportAsDefault: true }),
         react(),
+
     ],
     resolve: {
         alias: [

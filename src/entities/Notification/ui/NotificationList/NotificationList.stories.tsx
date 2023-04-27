@@ -9,7 +9,7 @@ import { Notification } from '../../model/types/notification';
 import { NotificationList } from './NotificationList';
 
 export default {
-    title: 'entities/Notification/NotificationList',
+    title: 'entities/Notification/Notification/NotificationList',
     component: NotificationList,
     decorators: [withMock, StoreDecorator({})],
 
@@ -32,10 +32,22 @@ Normal.parameters = {
             method: 'GET',
             status: 200,
             response: [
-                { ...notifications, id: '1' },
-                { ...notifications, id: '2' },
-                { ...notifications, id: '3' },
-                { ...notifications, id: '4' },
+                {
+                    ...notifications,
+                    id: '1',
+                },
+                {
+                    ...notifications,
+                    id: '2',
+                },
+                {
+                    ...notifications,
+                    id: '3',
+                },
+                {
+                    ...notifications,
+                    id: '4',
+                },
             ],
         },
     ],
@@ -51,10 +63,22 @@ Dark.parameters = {
             method: 'GET',
             status: 200,
             response: [
-                { ...notifications, id: '1' },
-                { ...notifications, id: '2' },
-                { ...notifications, id: '3' },
-                { ...notifications, id: '4' },
+                {
+                    ...notifications,
+                    id: '1',
+                },
+                {
+                    ...notifications,
+                    id: '2',
+                },
+                {
+                    ...notifications,
+                    id: '3',
+                },
+                {
+                    ...notifications,
+                    id: '4',
+                },
             ],
         },
     ],
