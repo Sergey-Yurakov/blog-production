@@ -42,9 +42,16 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
         'i18next/no-literal-string': ['error',
-            { markupOnly: true, onlyAttribute: [''], ignoreAttribute: ['data-testid', 'to', 'target'] },
+            {
+                markupOnly: true,
+                onlyAttribute: [''],
+                ignoreAttribute: ['data-testid', 'to', 'target'],
+            },
         ],
-        'max-len': ['error', { ignoreComments: true, code: 140 }],
+        'max-len': ['error', {
+            ignoreComments: true,
+            code: 140,
+        }],
         'no-unused-vars': 'off',
         '@typescript-eslint/no-unused-vars': [
             'warn',
@@ -58,7 +65,7 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'warn',
         'arrow-body-style': 'off',
-        'stells-plugin/path-cheker': 'error',
+        'stells-plugin/path-cheker': ['error', { alias: '@' }],
     },
     globals: {
         __IS_DEV__: true,

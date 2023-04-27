@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ArticleInfiniteList } from './ArticleInfiniteList';
 import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
-import { ArticlesPageSchema } from '@/pages/ArticlesPage';
+import { ArticlesPageSchema } from '../../model/types/articlesPageSchema';
 
 export default {
     title: 'pages/ArticlesPage/ArticleInfiniteList',

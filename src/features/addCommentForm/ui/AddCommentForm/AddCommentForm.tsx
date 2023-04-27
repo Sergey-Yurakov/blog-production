@@ -16,11 +16,12 @@ import {
     addCommentFormActions,
     addCommentFormReducer,
 } from '../../model/slices/addCommentFormSlice';
+
+import cl from './AddCommentForm.module.scss';
 import {
     getAddCommentFormError,
     getAddCommentFormText,
 } from '../../model/selectors/addCommentFormSelectors';
-import cl from './AddCommentForm.module.scss';
 
 export interface AddCommentFormProps {
     className?: string;
@@ -31,7 +32,10 @@ const reducers: ReducersList = {
     addCommentForm: addCommentFormReducer,
 };
 
-const AddCommentForm = ({ className, onSendComment }: AddCommentFormProps) => {
+const AddCommentForm = ({
+    className,
+    onSendComment,
+}: AddCommentFormProps) => {
     const { t } = useTranslation('comment');
     const text = useSelector(getAddCommentFormText);
     const error = useSelector(getAddCommentFormError);
