@@ -1,15 +1,10 @@
 import { Story } from '@storybook/react';
-// todo
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-// eslint-disable-next-line stells-plugin/public-api-imports
-import { loginReducer } from '@/features/AuthByUsername/model/slices/loginSlice';
+import { loginReducer } from '@/features/AuthByUsername/testing';
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-// eslint-disable-next-line stells-plugin/public-api-imports
-import { articleDetailsReducer } from '@/entities/Article/model/slices/articleDetailsSlice';
-// eslint-disable-next-line stells-plugin/public-api-imports
-import { addCommentFormReducer } from '@/features/addCommentForm/model/slices/addCommentFormSlice';
-// eslint-disable-next-line stells-plugin/public-api-imports
-import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slices';
+import { articleDetailsReducer } from '@/entities/Article/testing';
+import { addCommentFormReducer } from '@/features/addCommentForm/testing';
+import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing';
 import { profileReducer } from '@/features/editableProfileCard';
 
 const defaultAsyncReducers: ReducersList = {
