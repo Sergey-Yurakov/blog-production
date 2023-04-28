@@ -66,6 +66,7 @@ module.exports = {
         'react/no-array-index-key': 'warn',
         'arrow-body-style': 'off',
         'stells-plugin/path-cheker': ['error', { alias: '@' }],
+        'stells-plugin/public-api-imports': ['error', { alias: '@' }],
     },
     globals: {
         __IS_DEV__: true,

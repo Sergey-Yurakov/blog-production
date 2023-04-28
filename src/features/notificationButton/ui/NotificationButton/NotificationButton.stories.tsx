@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import withMock from 'storybook-addon-mock';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Notification } from '@/entities/Notification/model/types/notification';
+import { Notification } from '@/entities/Notification';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { NotificationButton } from './NotificationButton';
@@ -32,10 +32,22 @@ Normal.parameters = {
             method: 'GET',
             status: 200,
             response: [
-                { ...data, id: '1' },
-                { ...data, id: '2' },
-                { ...data, id: '3' },
-                { ...data, id: '4' },
+                {
+                    ...data,
+                    id: '1',
+                },
+                {
+                    ...data,
+                    id: '2',
+                },
+                {
+                    ...data,
+                    id: '3',
+                },
+                {
+                    ...data,
+                    id: '4',
+                },
             ],
         },
     ],
@@ -51,10 +63,22 @@ Dark.parameters = {
             method: 'GET',
             status: 200,
             response: [
-                { ...data, id: '1' },
-                { ...data, id: '2' },
-                { ...data, id: '3' },
-                { ...data, id: '4' },
+                {
+                    ...data,
+                    id: '1',
+                },
+                {
+                    ...data,
+                    id: '2',
+                },
+                {
+                    ...data,
+                    id: '3',
+                },
+                {
+                    ...data,
+                    id: '4',
+                },
             ],
         },
     ],

@@ -14,7 +14,7 @@ import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
 import { Icon } from '@/shared/ui/Icon/Icon';
 import { HStack, VStack } from '@/shared/ui/Stack';
-import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { ArticleBlock } from '../../model/types/article';
 import {
     getArticleDetailData,
     getArticleDetailError,
@@ -23,9 +23,16 @@ import {
 import { articleDetailsReducer } from '../../model/slices/articleDetailsSlice';
 import cl from './ArticleDetails.module.scss';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
-import { ArticleCodeBlockComponent } from '../../ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import { ArticleTextBlockComponent } from '../../ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { ArticleImageBlockComponent } from '../../ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
+import {
+    ArticleCodeBlockComponent,
+} from '../../ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import {
+    ArticleTextBlockComponent,
+} from '../../ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
+import {
+    ArticleImageBlockComponent,
+} from '../../ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleBlockType } from '../../model/consts/articleConsts';
 
 interface ArticleDetailsProps {
     className?: string;
@@ -36,7 +43,10 @@ const reducers: ReducersList = {
     articleDetails: articleDetailsReducer,
 };
 
-export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
+export const ArticleDetails = memo(({
+    className,
+    id,
+}: ArticleDetailsProps) => {
     const { t } = useTranslation('article-details');
     const dispatch = useAppDispatch();
 
