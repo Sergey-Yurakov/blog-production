@@ -4,9 +4,9 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text, TextSize, TextTheme } from '@/shared/ui/Text/Text';
 import { ArticleList } from '@/entities/Article';
 import { HStack, VStack } from '@/shared/ui/Stack';
-import { Page } from '@/widgets/Page';
 import { Loader } from '@/shared/ui/Loader/Loader';
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
+import cl from './ArticleRecommendationsList.module.scss';
 
 interface ArticleRecommendationsListProps {
     className?: string;
@@ -15,7 +15,11 @@ interface ArticleRecommendationsListProps {
 export const ArticleRecommendationsList = memo((props: ArticleRecommendationsListProps) => {
     const { className } = props;
     const { t } = useTranslation('article-details');
-    const { isLoading, error, data: articles } = useArticleRecommendationsList(3);
+    const {
+        isLoading,
+        error,
+        data: articles,
+    } = useArticleRecommendationsList(3);
 
     if (isLoading) {
         return (
@@ -27,12 +31,12 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
 
     if (error || !articles) {
         return (
-            <Page>
+            <div className={cl.error}>
                 <Text
                     text={t('Произошла ошибка')}
                     theme={TextTheme.ERROR}
                 />
-            </Page>
+            </div>
         );
     }
 

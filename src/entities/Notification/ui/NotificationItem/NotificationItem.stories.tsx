@@ -1,9 +1,9 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { Notification } from '../../model/types/notification';
 import { NotificationItem } from './NotificationItem';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'entities/Notification/Notification/NotificationItem',

@@ -5,8 +5,8 @@ import withMock from 'storybook-addon-mock';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Article } from '@/entities/Article';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'features/ArticleRecommendationsList',
@@ -22,7 +22,10 @@ const article: Article = {
     img: '',
     title: 'title',
     createdAt: '',
-    user: { id: '1', username: 'admin' },
+    user: {
+        id: '1',
+        username: 'admin',
+    },
     views: 123,
     type: [],
     blocks: [],
@@ -38,10 +41,22 @@ Normal.parameters = {
             method: 'GET',
             status: 200,
             response: [
-                { ...article, id: '1' },
-                { ...article, id: '2' },
-                { ...article, id: '3' },
-                { ...article, id: '4' },
+                {
+                    ...article,
+                    id: '1',
+                },
+                {
+                    ...article,
+                    id: '2',
+                },
+                {
+                    ...article,
+                    id: '3',
+                },
+                {
+                    ...article,
+                    id: '4',
+                },
             ],
         },
     ],
@@ -57,10 +72,22 @@ Dark.parameters = {
             method: 'GET',
             status: 200,
             response: [
-                { ...article, id: '1' },
-                { ...article, id: '2' },
-                { ...article, id: '3' },
-                { ...article, id: '4' },
+                {
+                    ...article,
+                    id: '1',
+                },
+                {
+                    ...article,
+                    id: '2',
+                },
+                {
+                    ...article,
+                    id: '3',
+                },
+                {
+                    ...article,
+                    id: '4',
+                },
             ],
         },
     ],

@@ -2,9 +2,9 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { ArticleView } from '../../model/consts/articleConsts';
 import { ArticleViewSelector } from './ArticleViewSelector';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'entities/Article/ArticleViewSelector',

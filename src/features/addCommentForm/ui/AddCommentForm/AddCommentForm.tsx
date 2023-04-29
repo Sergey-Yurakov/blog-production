@@ -9,7 +9,6 @@ import {
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Page } from '@/widgets/Page';
 import { Text } from '@/shared/ui/Text/Text';
 import { HStack } from '@/shared/ui/Stack';
 import {
@@ -52,11 +51,11 @@ const AddCommentForm = ({
 
     if (error) {
         return (
-            <Page>
+            <div className={cl.error}>
                 <Text
                     text={t('Произошла ошибка при добавлении комментария')}
                 />
-            </Page>
+            </div>
         );
     }
 

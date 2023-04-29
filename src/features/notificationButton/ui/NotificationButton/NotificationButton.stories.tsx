@@ -5,8 +5,8 @@ import withMock from 'storybook-addon-mock';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Notification } from '@/entities/Notification';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { NotificationButton } from './NotificationButton';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'features/NotificationButton',
