@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/Buttton/Button';
+import { Button } from '@/shared/ui/Buttton';
 import cl from './PageError.module.scss';
 
 interface PageErrorProps {

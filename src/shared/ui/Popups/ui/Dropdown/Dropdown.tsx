@@ -38,7 +38,7 @@ export const Dropdown = (props: DropdownProps) => {
             </Menu.Button>
             <Menu.Items className={cn(cl.menu, {}, menuClasses)}>
                 {items.map((item) => {
-                    const content = ({ active }: {active: boolean}) => (
+                    const content = ({ active }: { active: boolean }) => (
                         <button
                             disabled={item.disabled}
                             type="button"
