@@ -1,13 +1,16 @@
-import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames as cn } from '@/shared/lib/classNames/classNames';
+
 import { RatingCard } from '@/entities/Rating';
-import { useGetArticleRating, useRateArticle } from '../../api/articleRatingApi';
 import { getUserAuthData } from '@/entities/User';
+import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { Skeleton } from '@/shared/ui/Skeleton';
 
+import { useGetArticleRating, useRateArticle } from '../../api/articleRatingApi';
+
 export interface ArticleRatingProps {
+
     className?: string;
     articleId: string;
 }

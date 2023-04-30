@@ -1,12 +1,13 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
+import React from 'react';
 import withMock from 'storybook-addon-mock';
+
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Notification } from '../../model/types/notification';
-import { NotificationList } from './NotificationList';
 import { Theme } from '@/shared/const/theme';
+
+import { NotificationList } from './NotificationList';
+import { Notification } from '../../model/types/notification';
 
 export default {
     title: 'entities/Notification/Notification/NotificationList',

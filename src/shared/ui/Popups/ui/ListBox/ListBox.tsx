@@ -1,11 +1,13 @@
-import { Fragment, ReactNode } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
+import { Fragment, ReactNode } from 'react';
+
 import { classNames as cn, Mods } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
-import { mapDirectionClass } from '../../styles/consts';
-import { HStack } from '../../../Stack';
-import { Button } from '../../../Buttton/Button';
+
 import cl from './ListBox.module.scss';
+import { Button } from '../../../Buttton/Button';
+import { HStack } from '../../../Stack';
+import { mapDirectionClass } from '../../styles/consts';
 import popupCl from '../../styles/popup.module.scss';
 
 export interface ListBoxItem {

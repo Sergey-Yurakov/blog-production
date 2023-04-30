@@ -1,12 +1,13 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
+import React from 'react';
 import withMock from 'storybook-addon-mock';
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+
 import { Notification } from '@/entities/Notification';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { NotificationButton } from './NotificationButton';
 import { Theme } from '@/shared/const/theme';
+
+import { NotificationButton } from './NotificationButton';
 
 export default {
     title: 'features/NotificationButton',

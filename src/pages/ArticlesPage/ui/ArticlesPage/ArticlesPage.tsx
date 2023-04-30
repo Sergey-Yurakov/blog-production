@@ -1,7 +1,8 @@
 import { memo, useCallback } from 'react';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
+
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,
@@ -9,21 +10,22 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Page } from '@/widgets/Page';
 import { Text, TextAlign } from '@/shared/ui/Text';
-import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
-import {
-    fetchNextArticlesPage,
-} from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
-import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
-import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
+import { Page } from '@/widgets/Page';
+
+import cl from './ArticlesPage.module.scss';
 import {
     getArticlesPageError,
     getArticlesPageHasMore,
     getArticlesPageIsLoading,
 } from '../../model/selectors/articlesPageSelectors';
+import {
+    fetchNextArticlesPage,
+} from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
-import cl from './ArticlesPage.module.scss';
+import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 
 interface ArticlesPageProps {
     className?: string;

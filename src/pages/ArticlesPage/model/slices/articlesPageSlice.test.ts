@@ -1,6 +1,7 @@
 import { ArticleType, ArticleView } from '@/entities/Article';
-import { ArticlesPageSchema } from '../types/articlesPageSchema';
+
 import { articlesPageActions, articlesPageReducer } from './articlesPageSlice';
+import { ArticlesPageSchema } from '../types/articlesPageSchema';
 
 describe('articlesPageSlice', () => {
     test('test set in setPage', () => {

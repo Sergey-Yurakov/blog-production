@@ -1,6 +1,7 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { ValidateProfileErrors } from '../../consts/consts';
+
 import { getProfileValidateErrors } from './getProfileValidateErrors';
+import { ValidateProfileErrors } from '../../consts/consts';
 
 describe('getProfileValidateErrors', () => {
     test('should return data', () => {

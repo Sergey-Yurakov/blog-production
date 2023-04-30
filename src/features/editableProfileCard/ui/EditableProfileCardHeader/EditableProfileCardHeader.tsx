@@ -1,22 +1,24 @@
-import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { classNames as cn } from '@/shared/lib/classNames/classNames';
+
 import { getUserAuthData } from '@/entities/User';
+import { classNames as cn } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Button, ButtonTheme } from '@/shared/ui/Buttton';
 import { HStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
-import { Button, ButtonTheme } from '@/shared/ui/Buttton';
-import { profileActions } from '../../model/slices/profileSlice';
-import {
-    updateProfileData,
-} from '../../model/services/updateProfileData/updateProfileData';
+
 import {
     getProfileData,
 } from '../../model/selectors/getProfileData/getProfileData';
 import {
     getProfileReadOnly,
 } from '../../model/selectors/getProfileReadOnly/getProfileReadOnly';
+import {
+    updateProfileData,
+} from '../../model/services/updateProfileData/updateProfileData';
+import { profileActions } from '../../model/slices/profileSlice';
 
 interface EditableProfileCardHeaderProps {
     className?: string;

@@ -1,9 +1,10 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React from 'react';
 
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ArticleInfiniteList } from './ArticleInfiniteList';
 import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+
+import { ArticleInfiniteList } from './ArticleInfiniteList';
 import { ArticlesPageSchema } from '../../model/types/articlesPageSchema';
 
 export default {
