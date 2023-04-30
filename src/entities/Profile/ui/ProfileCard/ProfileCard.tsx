@@ -1,4 +1,5 @@
 import { KeyboardEvent, useCallback } from 'react';
+
 import { useTranslation } from 'react-i18next';
 
 import { Country, CountrySelect } from '@/entities/Country';

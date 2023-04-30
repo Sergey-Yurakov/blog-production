@@ -41,11 +41,17 @@ module.exports = {
                 groups: ['builtin', 'external', 'internal'],
                 pathGroups: [
                     {
+                        pattern: 'react',
+                        group: 'builtin',
+                        position: 'before',
+                    },
+                    {
                         pattern: '@/**',
                         group: 'external',
                         position: 'after',
                     },
                 ],
+                pathGroupsExcludedImportTypes: ['react'],
                 'newlines-between': 'always',
                 alphabetize: {
                     order: 'asc',

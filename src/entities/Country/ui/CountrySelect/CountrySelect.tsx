@@ -1,4 +1,5 @@
 import { memo, useCallback } from 'react';
+
 import { useTranslation } from 'react-i18next';
 
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
