@@ -14,7 +14,10 @@
         "./src/*"
       ]
     },
+    // esModuleInterop позволяет делать импорты не через require(), а через import
     "esModuleInterop": true,
+    // allowSyntheticDefaultImports позволяет делать импорты частично, а не целиком
+    // то есть вместо import * as say from './say.js'; делать import {sayHi, sayBye} from './say.js';
     "allowSyntheticDefaultImports": true,
     "isolatedModules": true
   },
