@@ -2,11 +2,13 @@ import React, {
     InputHTMLAttributes, useEffect, useRef, useState,
 } from 'react';
 
+import { genericTypedMemo } from '@/shared/const/genericTypedMemo';
 import { classNames as cn, Mods } from '@/shared/lib/classNames/classNames';
 
 import cl from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
+
 interface InputProps<T> extends HTMLInputProps {
     className?: string;
     value?: T | number;
@@ -16,7 +18,7 @@ interface InputProps<T> extends HTMLInputProps {
     readOnly?: boolean;
 }
 
-export const Input = <T extends string>(props: InputProps<T>) => {
+export const Input = genericTypedMemo(<T extends string>(props: InputProps<T>) => {
     const {
         className,
         value,
@@ -75,7 +77,7 @@ export const Input = <T extends string>(props: InputProps<T>) => {
                 <div className={cl.placeholder}>
                     {`${placeholder}>`}
                 </div>
-            ) }
+            )}
             <div className={cl.caretWrapper}>
                 <input
                     ref={ref}
@@ -98,4 +100,4 @@ export const Input = <T extends string>(props: InputProps<T>) => {
             </div>
         </div>
     );
-};
+});

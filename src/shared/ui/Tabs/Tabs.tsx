@@ -1,5 +1,6 @@
 import { ReactNode, useCallback } from 'react';
 
+import { genericTypedMemo } from '@/shared/const/genericTypedMemo';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
 import { Card, CardTheme } from '../Card/Card';
@@ -10,6 +11,7 @@ export interface TabsItem<T extends string> {
     value: T;
     content: ReactNode;
 }
+
 interface TabsProps<T extends string> {
     className?: string;
     tabs: TabsItem<T>[];
@@ -17,7 +19,7 @@ interface TabsProps<T extends string> {
     onTabClick: (tab: TabsItem<T>) => void;
 }
 
-export const Tabs = <T extends string>(props: TabsProps<T>) => {
+export const Tabs = genericTypedMemo(<T extends string>(props: TabsProps<T>) => {
     const {
         className,
         tabs,
@@ -43,4 +45,4 @@ export const Tabs = <T extends string>(props: TabsProps<T>) => {
             ))}
         </div>
     );
-};
+});
