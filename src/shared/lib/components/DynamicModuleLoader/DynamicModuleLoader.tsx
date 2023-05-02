@@ -3,10 +3,12 @@ import { ReactNode, useEffect } from 'react';
 import { Reducer } from '@reduxjs/toolkit';
 import { useDispatch, useStore } from 'react-redux';
 
-import { ReduxStoreWithManager, StateSchemaKey } from '@/app/providers/StoreProvider';
+import { ReduxStoreWithManager, StateSchema, StateSchemaKey } from '@/app/providers/StoreProvider';
 
 export type ReducersList = {
-    [name in StateSchemaKey]?: Reducer;
+    // более строго типизируем список редьюсеров
+    // NonNullable - не нулевой редьюсер
+    [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
 }
 
 interface DynamicModuleLoaderProps {
@@ -27,22 +29,24 @@ export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
     useEffect(() => {
         const mountedReducers = store.reducerManager.getMountedReducers();
 
-        Object.entries(reducers).forEach(([name, reducer]) => {
-            const mounted = mountedReducers[name as StateSchemaKey];
+        Object.entries(reducers)
+            .forEach(([name, reducer]) => {
+                const mounted = mountedReducers[name as StateSchemaKey];
 
-            // Добавляем новый редьюсер только если его нет
-            if (!mounted) {
-                store.reducerManager.add(name as StateSchemaKey, reducer);
-                dispatch({ type: `@INIT ${name} reducer` });
-            }
-        });
+                // Добавляем новый редьюсер только если его нет
+                if (!mounted) {
+                    store.reducerManager.add(name as StateSchemaKey, reducer);
+                    dispatch({ type: `@INIT ${name} reducer` });
+                }
+            });
 
         return () => {
             if (removeAfterUnmount) {
-                Object.entries(reducers).forEach(([name]) => {
-                    store.reducerManager.remove(name as StateSchemaKey);
-                    dispatch({ type: `@DESTROY ${name} reducer` });
-                });
+                Object.entries(reducers)
+                    .forEach(([name]) => {
+                        store.reducerManager.remove(name as StateSchemaKey);
+                        dispatch({ type: `@DESTROY ${name} reducer` });
+                    });
             }
         };
         // eslint-disable-next-line
@@ -51,7 +55,7 @@ export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
     return (
         // eslint-disable-next-line react/jsx-no-useless-fragment
         <>
-            { children }
+            {children}
         </>
     );
 };
