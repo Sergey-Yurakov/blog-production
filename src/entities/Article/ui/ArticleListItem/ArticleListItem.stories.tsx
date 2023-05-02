@@ -5,9 +5,10 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 
-import { ArticleListItem } from './ArticleListItem';
 import { ArticleView } from '../../model/consts/articleConsts';
 import { Article } from '../../model/types/article';
+
+import { ArticleListItem } from './ArticleListItem';
 
 const article = {
     id: '1',

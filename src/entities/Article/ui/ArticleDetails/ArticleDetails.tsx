@@ -17,7 +17,6 @@ import { Skeleton } from '@/shared/ui/Skeleton';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text, TextAlign, TextSize } from '@/shared/ui/Text';
 
-import cl from './ArticleDetails.module.scss';
 import { ArticleBlockType } from '../../model/consts/articleConsts';
 import {
     getArticleDetailData,
@@ -36,6 +35,8 @@ import {
 import {
     ArticleTextBlockComponent,
 } from '../../ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
+
+import cl from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {
     className?: string;

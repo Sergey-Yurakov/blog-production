@@ -8,8 +8,9 @@ import { Loader } from '@/shared/ui/Loader';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text, TextSize, TextTheme } from '@/shared/ui/Text';
 
-import cl from './ArticleRecommendationsList.module.scss';
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
+
+import cl from './ArticleRecommendationsList.module.scss';
 
 interface ArticleRecommendationsListProps {
     className?: string;

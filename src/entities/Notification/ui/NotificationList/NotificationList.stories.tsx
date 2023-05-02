@@ -7,8 +7,9 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 
-import { NotificationList } from './NotificationList';
 import { Notification } from '../../model/types/notification';
+
+import { NotificationList } from './NotificationList';
 
 export default {
     title: 'entities/Notification/Notification/NotificationList',

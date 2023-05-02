@@ -5,11 +5,12 @@ import { Listbox as HListBox } from '@headlessui/react';
 import { classNames as cn, Mods } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
 
-import cl from './ListBox.module.scss';
 import { Button } from '../../../Buttton/Button';
 import { HStack } from '../../../Stack';
 import { mapDirectionClass } from '../../styles/consts';
 import popupCl from '../../styles/popup.module.scss';
+
+import cl from './ListBox.module.scss';
 
 export interface ListBoxItem {
     value: string;

@@ -14,7 +14,6 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { Text, TextAlign } from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page';
 
-import cl from './ArticlesPage.module.scss';
 import {
     getArticlesPageError,
     getArticlesPageHasMore,
@@ -27,6 +26,8 @@ import { initArticlesPage } from '../../model/services/initArticlesPage/initArti
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
+
+import cl from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
     className?: string;

@@ -5,10 +5,11 @@ import { Menu } from '@headlessui/react';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
 
-import cl from './Dropdown.module.scss';
 import { AppLink } from '../../../AppLink/AppLink';
 import { mapDirectionClass } from '../../styles/consts';
 import popupCl from '../../styles/popup.module.scss';
+
+import cl from './Dropdown.module.scss';
 
 export interface DropdownItem {
     disabled?: boolean;

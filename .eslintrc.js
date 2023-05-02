@@ -38,7 +38,7 @@ module.exports = {
         'import/order': [
             'error',
             {
-                groups: ['builtin', 'external', 'internal'],
+                groups: ['builtin', 'external', 'internal', 'parent'],
                 pathGroups: [
                     {
                         pattern: 'react',
@@ -48,6 +48,11 @@ module.exports = {
                     {
                         pattern: '@/**',
                         group: 'external',
+                        position: 'after',
+                    },
+                    {
+                        pattern: './**.module.scss',
+                        group: 'parent',
                         position: 'after',
                     },
                 ],

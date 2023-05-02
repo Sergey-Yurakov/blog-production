@@ -2,8 +2,9 @@ import { ReactNode, useCallback } from 'react';
 
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 
-import cl from './Tabs.module.scss';
 import { Card, CardTheme } from '../Card/Card';
+
+import cl from './Tabs.module.scss';
 
 export interface TabsItem<T extends string> {
     value: T;

@@ -7,8 +7,9 @@ import { Profile } from '@/entities/Profile';
 import { $api } from '@/shared/api/api';
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 
-import { EditableProfileCard } from './EditableProfileCard';
 import { profileReducer } from '../../model/slices/profileSlice';
+
+import { EditableProfileCard } from './EditableProfileCard';
 
 const profile: Profile = {
     id: '1',

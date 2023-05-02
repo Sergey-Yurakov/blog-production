@@ -8,9 +8,10 @@ import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Buttton';
 import { VStack } from '@/shared/ui/Stack';
 
-import cl from './Sidebar.module.scss';
 import { getSidebarItems } from '../../selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
+
+import cl from './Sidebar.module.scss';
 
 interface SidebarProps {
     className?: string;

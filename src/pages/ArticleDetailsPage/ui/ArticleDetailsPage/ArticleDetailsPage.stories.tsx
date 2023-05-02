@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import withMock from 'storybook-addon-mock';
 
 import { Article, ArticleBlockType, ArticleType } from '@/entities/Article';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
@@ -10,6 +11,9 @@ import ArticleDetailsPage from './ArticleDetailsPage';
 export default {
     title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
     component: ArticleDetailsPage,
+    decorators: [
+        withMock,
+    ],
 
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
@@ -96,4 +100,40 @@ Normal.decorators = [StoreDecorator({
     articleDetails: {
         data: article,
     },
+    user: {
+        authData: { id: '1' },
+    },
 })];
+Normal.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/articles?_limit=3`,
+            method: 'GET',
+            status: 200,
+            response: [
+                {
+                    ...article,
+                    id: '1',
+                },
+                {
+                    ...article,
+                    id: '2',
+                },
+                {
+                    ...article,
+                    id: '3',
+                },
+                {
+                    ...article,
+                    id: '4',
+                },
+            ],
+        },
+        {
+            url: `${__API__}/article-ratings?userId=1`,
+            method: 'GET',
+            status: 200,
+            response: [],
+        },
+    ],
+};

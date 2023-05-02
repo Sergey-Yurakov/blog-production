@@ -11,8 +11,9 @@ import { Loader } from '@/shared/ui/Loader';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text, TextAlign, TextTheme } from '@/shared/ui/Text';
 
-import cl from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';
+
+import cl from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
     className?: string;

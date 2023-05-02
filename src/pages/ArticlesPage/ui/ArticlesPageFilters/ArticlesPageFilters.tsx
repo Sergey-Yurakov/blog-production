@@ -18,7 +18,6 @@ import { Card } from '@/shared/ui/Card';
 import { Input } from '@/shared/ui/Input';
 import { TabsItem } from '@/shared/ui/Tabs';
 
-import cl from './ArticlesPageFilters.module.scss';
 import {
     getArticlesPageOrder,
     getArticlesPageSearch,
@@ -28,6 +27,8 @@ import {
 } from '../../model/selectors/articlesPageSelectors';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
+
+import cl from './ArticlesPageFilters.module.scss';
 
 interface ArticlesPageFiltersProps {
     className?: string;

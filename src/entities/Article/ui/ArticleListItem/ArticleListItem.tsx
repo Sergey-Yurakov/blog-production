@@ -12,10 +12,11 @@ import { Card } from '@/shared/ui/Card';
 import { Icon } from '@/shared/ui/Icon';
 import { Text } from '@/shared/ui/Text';
 
-import cl from './ArticleListItem.module.scss';
 import { ArticleBlockType, ArticleView } from '../../model/consts/articleConsts';
 import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+
+import cl from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {
     className?: string;
