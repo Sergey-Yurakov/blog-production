@@ -3,7 +3,7 @@ import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
-import { RoutePath } from '@/shared/const/router';
+import { getRouterArticleDetails } from '@/shared/const/router';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
@@ -63,7 +63,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     )}
                     <div className={cl.footer}>
                         <AppLink
-                            to={RoutePath.article_details + article.id}
+                            to={getRouterArticleDetails(article.id)}
                             target={target}
                         >
                             <Button>
@@ -80,7 +80,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     return (
         <AppLink
             className={cn(cl.ArticleListItem, {}, [className, cl[view]])}
-            to={RoutePath.article_details + article.id}
+            to={getRouterArticleDetails(article.id)}
             target={target}
         >
             <Card>

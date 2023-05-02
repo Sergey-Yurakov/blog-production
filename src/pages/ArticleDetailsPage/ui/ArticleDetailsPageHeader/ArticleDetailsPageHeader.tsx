@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { getArticleDetailData } from '@/entities/Article';
-import { RoutePath } from '@/shared/const/router';
+import { getRouterArticleEdit, getRouterArticles } from '@/shared/const/router';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/Buttton';
 import { HStack } from '@/shared/ui/Stack';
@@ -24,12 +24,14 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
     const article = useSelector(getArticleDetailData);
 
     const onBackToLIst = useCallback(() => {
-        navigate(RoutePath.articles);
+        navigate(getRouterArticles());
     }, [navigate]);
 
     const onEditArticle = useCallback(() => {
-        navigate(`${RoutePath.article_details}${article?.id}/edit`);
-    }, [article?.id, navigate]);
+        if (article) {
+            navigate(getRouterArticleEdit(article.id));
+        }
+    }, [article, navigate]);
 
     return (
         <HStack
