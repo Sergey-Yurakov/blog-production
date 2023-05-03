@@ -1,20 +1,33 @@
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
 
 import { Button } from '@/shared/ui/Buttton';
 
-import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
-import { counterActions } from '../model/slices/counterSlice';
+import { useCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
+import { useCounterActions } from '../model/slices/counterSlice';
 
 export const Counter = () => {
-    const dispatch = useDispatch();
-    const counterValue = useSelector(getCounterValue);
     const { t } = useTranslation();
-    const increment = () => {
-        dispatch(counterActions.increment());
+
+    // new selector
+    const counterValue = useCounterValue();
+
+    // new slice
+    const {
+        add,
+        increment,
+        decrement,
+    } = useCounterActions();
+    const handleIncrement = () => {
+        // dispatch(counterActions.increment());
+        increment();
     };
-    const decrement = () => {
-        dispatch(counterActions.decrement());
+    const handleDecrement = () => {
+        // dispatch(counterActions.decrement());
+        decrement();
+    };
+    const handleAddFive = () => {
+        // dispatch(counterActions.decrement());
+        add(5);
     };
 
     return (
@@ -23,16 +36,22 @@ export const Counter = () => {
                 {counterValue}
             </h1>
             <Button
-                onClick={increment}
-                data-testid="increment-btn"
+                onClick={handleAddFive}
+                data-testid="addFive-btn"
             >
-                {t('increment') }
+                {t('addFive')}
             </Button>
             <Button
-                onClick={decrement}
+                onClick={handleIncrement}
+                data-testid="increment-btn"
+            >
+                {t('increment')}
+            </Button>
+            <Button
+                onClick={handleDecrement}
                 data-testid="decrement-btn"
             >
-                {t('decrement') }
+                {t('decrement')}
             </Button>
         </div>
     );
