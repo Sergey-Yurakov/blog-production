@@ -13,7 +13,15 @@ import { NotificationButton } from './NotificationButton';
 export default {
     title: 'features/NotificationButton',
     component: NotificationButton,
-    decorators: [withMock, StoreDecorator({})],
+    decorators: [withMock, StoreDecorator({}), (Story) => (
+        <div style={{
+            display: 'flex',
+            justifyContent: 'flex-end',
+        }}
+        >
+            <Story />
+        </div>
+    )],
 
 } as ComponentMeta<typeof NotificationButton>;
 

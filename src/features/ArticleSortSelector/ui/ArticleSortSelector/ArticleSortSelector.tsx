@@ -2,11 +2,10 @@ import { memo, useMemo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
+import { ArticleSortField } from '@/entities/Article';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { SortOrder } from '@/shared/types/sortOrder';
 import { Select, SelectOption } from '@/shared/ui/Select';
-
-import { ArticleSortField } from '../../model/consts/articleConsts';
 
 import cl from './ArticleSortSelector.module.scss';
 

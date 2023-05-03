@@ -2,15 +2,14 @@ import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
+import { ArticleView } from '@/entities/Article';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
-
-import { ArticleView } from '../../model/consts/articleConsts';
 
 import { ArticleViewSelector } from './ArticleViewSelector';
 
 export default {
-    title: 'entities/Article/ArticleViewSelector',
+    title: 'features/Article/ArticleViewSelector',
     component: ArticleViewSelector,
 
 } as ComponentMeta<typeof ArticleViewSelector>;
