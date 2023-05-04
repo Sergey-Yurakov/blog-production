@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import { getRouterProfile } from '@/shared/const/router';
+import { getRouteProfile } from '@/shared/const/router';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
@@ -63,7 +63,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
             max
         >
             <AppLink
-                to={getRouterProfile(comment.user.id)}
+                to={getRouteProfile(comment.user.id)}
             >
                 <HStack max gap="8">
                     {comment.user.avatar ? (

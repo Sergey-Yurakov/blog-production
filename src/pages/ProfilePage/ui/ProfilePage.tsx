@@ -12,10 +12,10 @@ interface ProfilePageProps {
 }
 
 const ProfilePage = memo(({ className }: ProfilePageProps) => {
-    const { id } = useParams<{id: string}>();
+    const { id } = useParams<{ id: string }>();
 
     return (
-        <Page className={cn('', {}, [className])}>
+        <Page data-testid="ProfilePage" className={cn('', {}, [className])}>
             <VStack gap="16">
                 <EditableProfileCard id={id!} />
             </VStack>
