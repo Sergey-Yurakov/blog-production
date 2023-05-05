@@ -9,7 +9,7 @@
 /storybook-static
 .loki/report.html
 .loki/report.json
-/reports
+/reports/unit
 
 # production
 /build
