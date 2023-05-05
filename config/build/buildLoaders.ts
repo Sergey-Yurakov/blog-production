@@ -27,8 +27,14 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     //     exclude: /node_modules/,
     // };
 
-    const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
-    const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTsx: true });
+    const codeBabelLoader = buildBabelLoader({
+        ...options,
+        isTsx: false,
+    });
+    const tsxCodeBabelLoader = buildBabelLoader({
+        ...options,
+        isTsx: true,
+    });
 
     const cssLoaders = buildCssLoader(isDev);
 
