@@ -2,6 +2,7 @@ import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
+import { ArticleType } from '@/entities/Article';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 import ArticlesPage from './ArticlesPage';
@@ -18,7 +19,12 @@ export const Normal = Template.bind({});
 Normal.args = {};
 Normal.decorators = [StoreDecorator({
     articlesPage: {
-        isLoading: true,
-        hasMore: true,
+        isLoading: false,
+        hasMore: false,
+        ids: [],
+        page: 1,
+        limit: 5,
+        type: ArticleType.ALL,
+        entities: {},
     },
 })];

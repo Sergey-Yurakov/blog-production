@@ -22,7 +22,7 @@ const article: ArticlesPageSchema = {
     error: '',
     page: 1,
     limit: 3,
-    hasMore: true,
+    hasMore: false,
     _inited: true,
     view: ArticleView.BIG,
     order: 'asc',
