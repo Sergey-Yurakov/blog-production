@@ -21,13 +21,7 @@ Normal.decorators = [StoreDecorator({
     articlesPage: {
         isLoading: false,
         hasMore: false,
-        ids: [
-            '4',
-            '6',
-            '3',
-            '2',
-            '5',
-        ],
+        ids: [4, 6, 3, 2, 5],
         page: 1,
         limit: 5,
         type: ArticleType.ALL,

@@ -25,7 +25,9 @@ import {
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
-import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
+import {
+    ArticlesPageFilters,
+} from '../ArticlesPageFilters/ArticlesPageFilters';
 
 import cl from './ArticlesPage.module.scss';
 
