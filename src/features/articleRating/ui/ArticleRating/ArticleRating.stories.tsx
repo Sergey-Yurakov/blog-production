@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import withMock from 'storybook-addon-mock';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
@@ -11,7 +10,7 @@ export default {
     title: 'features/ArticleRating/ArticleRating',
     component: ArticleRating,
     // todo: в компоненте достаем из стейта userData, по этому тут ее надо инициализировать
-    decorators: [withMock, StoreDecorator({
+    decorators: [StoreDecorator({
         user: {
             authData: { id: '1' },
         },

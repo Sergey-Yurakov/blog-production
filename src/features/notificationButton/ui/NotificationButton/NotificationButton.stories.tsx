@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import withMock from 'storybook-addon-mock';
 
 import { Notification } from '@/entities/Notification';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
@@ -13,7 +12,7 @@ import { NotificationButton } from './NotificationButton';
 export default {
     title: 'features/NotificationButton',
     component: NotificationButton,
-    decorators: [withMock, StoreDecorator({}), (Story) => (
+    decorators: [StoreDecorator({}), (Story) => (
         <div style={{
             display: 'flex',
             justifyContent: 'flex-end',

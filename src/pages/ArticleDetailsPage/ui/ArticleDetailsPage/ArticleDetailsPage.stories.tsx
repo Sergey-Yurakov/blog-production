@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import withMock from 'storybook-addon-mock';
 
 import { Article, ArticleBlockType, ArticleType } from '@/entities/Article';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
@@ -11,9 +10,6 @@ import ArticleDetailsPage from './ArticleDetailsPage';
 export default {
     title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
     component: ArticleDetailsPage,
-    decorators: [
-        withMock,
-    ],
 
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
