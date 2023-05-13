@@ -42,4 +42,17 @@ describe('Пользователь заходит на страницу стат
         // have.length - длинна
         cy.get('[data-selected=true]').should('have.length', 4);
     });
+
+    it('И ставит оценку (пример на стабах/фикстурах)', () => {
+        // мокаем запрос след образом
+        // указываем сперва тип запроса - гет, пост и прочее
+        // затем часть пути урла, по которому будет запрос
+        // затем фикстуру - то есть готовый json файл с данными
+        cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
+        cy.getByTestId('ArticleDetails.Info');
+        cy.getByTestId('RatingCard').scrollIntoView();
+        cy.setRate(4, 'feedback');
+        // have.length - длинна
+        cy.get('[data-selected=true]').should('have.length', 4);
+    });
 });
