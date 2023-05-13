@@ -55,6 +55,7 @@ export const Flex = (props: FlexProps) => {
         align = 'center',
         gap,
         max,
+        ...otherProps
     } = props;
 
     const classes = [
@@ -70,7 +71,7 @@ export const Flex = (props: FlexProps) => {
     };
 
     return (
-        <div className={cn(cl.Flex, mods, classes)}>
+        <div className={cn(cl.Flex, mods, classes)} {...otherProps}>
             {children}
         </div>
     );

@@ -31,6 +31,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
                 className={cn(cl.CommentCard, {}, [className, cl.loading])}
                 gap="8"
                 max
+                data-testid="CommentCard.Loading"
             >
                 <HStack max>
                     <Skeleton
@@ -61,6 +62,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
         <VStack
             className={cn(cl.CommentCard, {}, [className])}
             max
+            data-testid="CommentCard.Content"
         >
             <AppLink
                 to={getRouteProfile(comment.user.id)}

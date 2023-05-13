@@ -12,9 +12,22 @@
 //
 // -- This is a parent command --
 
-import { login } from './commands/login';
+// todo: написать еще тест-кейсы на поиск и сортировку для /articles
 
-Cypress.Commands.add('login', login);
+// добавляем все команды из файла
+import * as articleCommands from './commands/article';
+import * as commentsCommands from './commands/comments';
+import * as commonCommands from './commands/common';
+import * as profileCommands from './commands/profile';
+import * as ratingCommands from './commands/rating';
+
+// и регистрируем их
+Cypress.Commands.addAll(commonCommands);
+Cypress.Commands.addAll(profileCommands);
+Cypress.Commands.addAll(articleCommands);
+Cypress.Commands.addAll(articleCommands);
+Cypress.Commands.addAll(commentsCommands);
+Cypress.Commands.addAll(ratingCommands);
 //
 //
 // -- This is a child command --
@@ -28,18 +41,5 @@ Cypress.Commands.add('login', login);
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 //
-declare global {
-    namespace Cypress {
-        interface Chainable {
-            login(email?: string, password?: string): Chainable<void>;
-
-            // drag(subject: string, options?: Partial<TypeOptions>): Chainable<Element>;
-            //
-            // dismiss(subject: string, options?: Partial<TypeOptions>): Chainable<Element>;
-            //
-            // visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>): Chainable<Element>;
-        }
-    }
-}
 
 export {};

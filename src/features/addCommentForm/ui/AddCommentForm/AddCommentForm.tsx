@@ -68,16 +68,19 @@ const AddCommentForm = ({
                 className={cn(cl.AddCommentForm, {}, [className])}
                 max
                 gap="8"
+                data-testid="AddCommentForm"
             >
                 <Input
                     className={cl.input}
                     placeholder={t('Введите текст комментария')}
                     value={text}
                     onChange={onCommentTextChange}
+                    data-testid="AddCommentForm.Input"
                 />
                 <Button
                     className={cl.btn}
                     onClick={onSendHandler}
+                    data-testid="AddCommentForm.Button"
                 >
                     {t('Отправить')}
                 </Button>

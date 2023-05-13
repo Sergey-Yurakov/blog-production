@@ -19,7 +19,7 @@ describe('loginByUsername', () => {
     //     getState = jest.fn();
     // });
 
-    // test('success login', async () => {
+    // test('success common', async () => {
     //     const userValue = { username: '123', id: '1' };
     //     // передаем в мок значение, которое потом вернем, промис нужен для асинхронности,
     //     // ибо аксиос возвращает промис
@@ -36,7 +36,7 @@ describe('loginByUsername', () => {
     //     expect(result.meta.requestStatus).toBe('fulfilled');
     // });
 
-    // test('error login', async () => {
+    // test('error common', async () => {
     //     // передаем в мок значение, которое потом вернем, промис нужен для асинхронности,
     //     // ибо аксиос возвращает промис
     //     mockedAxios.post.mockReturnValue(Promise.resolve({ status: 403 }));
@@ -51,8 +51,11 @@ describe('loginByUsername', () => {
     //     expect(result.meta.requestStatus).toBe('rejected');
     // });
 
-    test('success login', async () => {
-        const userValue = { username: '123', id: '1' };
+    test('success common', async () => {
+        const userValue = {
+            username: '123',
+            id: '1',
+        };
         // передаем в мок значение, которое потом вернем, промис нужен для асинхронности,
         // ибо аксиос возвращает промис
 
@@ -63,32 +66,47 @@ describe('loginByUsername', () => {
         thunk.api.post.mockReturnValue(Promise.resolve({ data: userValue }));
 
         // в callThunk передаем входные параметры для сервиса (если есть такие)
-        const result = await thunk.callThunk({ username: '123', password: '123' });
+        const result = await thunk.callThunk({
+            username: '123',
+            password: '123',
+        });
 
         console.log('result', result);
 
-        expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue));
+        expect(thunk.dispatch)
+            .toHaveBeenCalledWith(userActions.setAuthData(userValue));
         // кол-во диспатч вызовов при вызове метода
-        expect(thunk.dispatch).toHaveBeenCalledTimes(3);
-        expect(thunk.api.post).toHaveBeenCalled();
-        expect(result.payload).toEqual(userValue);
-        expect(result.meta.requestStatus).toBe('fulfilled');
+        expect(thunk.dispatch)
+            .toHaveBeenCalledTimes(3);
+        expect(thunk.api.post)
+            .toHaveBeenCalled();
+        expect(result.payload)
+            .toEqual(userValue);
+        expect(result.meta.requestStatus)
+            .toBe('fulfilled');
     });
 
-    test('error login', async () => {
+    test('error common', async () => {
         // передаем в мок значение, которое потом вернем, промис нужен для асинхронности,
         // ибо аксиос возвращает промис
 
         const thunk = new TestAsyncThunk(loginByUsername);
         thunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }));
-        const result = await thunk.callThunk({ username: '123', password: '123' });
+        const result = await thunk.callThunk({
+            username: '123',
+            password: '123',
+        });
 
         console.log('result', result);
 
         // кол-во диспатч вызовов при вызове метода
-        expect(thunk.dispatch).toHaveBeenCalledTimes(2);
-        expect(thunk.api.post).toHaveBeenCalled();
-        expect(result.payload).toBe('error');
-        expect(result.meta.requestStatus).toBe('rejected');
+        expect(thunk.dispatch)
+            .toHaveBeenCalledTimes(2);
+        expect(thunk.api.post)
+            .toHaveBeenCalled();
+        expect(result.payload)
+            .toBe('error');
+        expect(result.meta.requestStatus)
+            .toBe('rejected');
     });
 });
