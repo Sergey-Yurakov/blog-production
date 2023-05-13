@@ -14,7 +14,10 @@ import { Icon } from '@/shared/ui/Icon';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { Text } from '@/shared/ui/Text';
 
-import { ArticleBlockType, ArticleView } from '../../model/consts/articleConsts';
+import {
+    ArticleBlockType,
+    ArticleView,
+} from '../../model/consts/articleConsts';
 import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
@@ -28,12 +31,7 @@ interface ArticleListItemProps {
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
-    const {
-        className,
-        article,
-        view,
-        target,
-    } = props;
+    const { className, article, view, target } = props;
     const { t } = useTranslation('article');
 
     const types = <Text text={article.type.join(', ')} className={cl.types} />;
@@ -57,7 +55,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 <Card>
                     <div className={cl.header}>
                         <Avatar size={30} src={article.user.avatar} />
-                        <Text text={article.user.username} className={cl.username} />
+                        <Text
+                            text={article.user.username}
+                            className={cl.username}
+                        />
                         <Text text={article.createdAt} className={cl.date} />
                     </div>
                     <Text title={article.title} className={cl.title} />
@@ -69,16 +70,17 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         className={cl.img}
                     />
                     {textBlock && (
-                        <ArticleTextBlockComponent block={textBlock} className={cl.textBlock} />
+                        <ArticleTextBlockComponent
+                            block={textBlock}
+                            className={cl.textBlock}
+                        />
                     )}
                     <div className={cl.footer}>
                         <AppLink
                             to={getRouteArticleDetails(article.id)}
                             target={target}
                         >
-                            <Button>
-                                {t('Читать далее ...')}
-                            </Button>
+                            <Button>{t('Читать далее ...')}</Button>
                         </AppLink>
                         {views}
                     </div>

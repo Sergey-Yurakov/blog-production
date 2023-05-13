@@ -16,11 +16,7 @@ interface CommentListProps {
 }
 
 export const CommentList = memo((props: CommentListProps) => {
-    const {
-        className,
-        comments,
-        isLoading,
-    } = props;
+    const { className, comments, isLoading } = props;
 
     const { t } = useTranslation('comment');
 
@@ -35,12 +31,8 @@ export const CommentList = memo((props: CommentListProps) => {
     }
 
     return (
-        <VStack
-            className={cn('', {}, [className])}
-            gap="16"
-            max
-        >
-            { comments?.length ? (
+        <VStack className={cn('', {}, [className])} gap="16" max>
+            {comments?.length ? (
                 comments.map((comment) => (
                     <CommentCard
                         key={comment.id}
@@ -49,9 +41,7 @@ export const CommentList = memo((props: CommentListProps) => {
                     />
                 ))
             ) : (
-                <Text
-                    text={t('Комментарии отсутствуют')}
-                />
+                <Text text={t('Комментарии отсутствуют')} />
             )}
         </VStack>
     );

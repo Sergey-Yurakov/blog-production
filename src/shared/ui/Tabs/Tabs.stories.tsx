@@ -8,7 +8,6 @@ import { Tabs } from './Tabs';
 export default {
     title: 'shared/Tabs',
     component: Tabs,
-
 } as ComponentMeta<typeof Tabs>;
 
 const Template: ComponentStory<typeof Tabs> = (args) => <Tabs {...args} />;

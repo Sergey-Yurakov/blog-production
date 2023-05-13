@@ -7,7 +7,6 @@ import { Flex } from './Flex';
 export default {
     title: 'shared/Flex',
     component: Flex,
-
 } as ComponentMeta<typeof Flex>;
 
 const Template: ComponentStory<typeof Flex> = (args) => <Flex {...args} />;

@@ -88,12 +88,16 @@ describe('articlesPageSelectors', () => {
                 view: ArticleView.BIG,
             },
         };
-        expect(getArticlesPageView(state as StateSchema)).toEqual(ArticleView.BIG);
+        expect(getArticlesPageView(state as StateSchema)).toEqual(
+            ArticleView.BIG,
+        );
     });
 
     test('should work with empty getArticlesPageView', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getArticlesPageView(state as StateSchema)).toEqual(ArticleView.SMALL);
+        expect(getArticlesPageView(state as StateSchema)).toEqual(
+            ArticleView.SMALL,
+        );
     });
 
     test('should return getArticlesPageInited', () => {

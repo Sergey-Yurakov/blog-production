@@ -11,10 +11,7 @@ interface RequireAuthProps {
     roles?: UserRole[];
 }
 
-export function RequireAuth({
-    children,
-    roles,
-}: RequireAuthProps) {
+export function RequireAuth({ children, roles }: RequireAuthProps) {
     const auth = useSelector(getUserAuthData);
     const location = useLocation();
     const userRoles = useSelector(getUserRoles);
@@ -32,11 +29,19 @@ export function RequireAuth({
         // trying to go to when they were redirected. This allows us to send them
         // along to that page after they common, which is a nicer user experience
         // than dropping them off on the home page.
-        return <Navigate to={getRouteMain()} state={{ from: location }} replace />;
+        return (
+            <Navigate to={getRouteMain()} state={{ from: location }} replace />
+        );
     }
 
     if (!hasRequiredRoles) {
-        return <Navigate to={getRouteForbidden()} state={{ from: location }} replace />;
+        return (
+            <Navigate
+                to={getRouteForbidden()}
+                state={{ from: location }}
+                replace
+            />
+        );
     }
 
     return children;

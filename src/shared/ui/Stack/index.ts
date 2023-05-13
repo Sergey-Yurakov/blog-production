@@ -1,7 +1,3 @@
-export {
-    VStack,
-} from './VStack/VStack';
+export { VStack } from './VStack/VStack';
 
-export {
-    HStack,
-} from './HStack/HStack';
+export { HStack } from './HStack/HStack';

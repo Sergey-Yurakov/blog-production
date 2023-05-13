@@ -12,10 +12,11 @@ import { ArticleInfiniteList } from './ArticleInfiniteList';
 export default {
     title: 'pages/ArticlesPage/ArticleInfiniteList',
     component: ArticleInfiniteList,
-
 } as ComponentMeta<typeof ArticleInfiniteList>;
 
-const Template: ComponentStory<typeof ArticleInfiniteList> = (args) => <ArticleInfiniteList {...args} />;
+const Template: ComponentStory<typeof ArticleInfiniteList> = (args) => (
+    <ArticleInfiniteList {...args} />
+);
 
 const article: ArticlesPageSchema = {
     isLoading: false,
@@ -35,6 +36,8 @@ const article: ArticlesPageSchema = {
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
-    articlesPage: article,
-})];
+Normal.decorators = [
+    StoreDecorator({
+        articlesPage: article,
+    }),
+];

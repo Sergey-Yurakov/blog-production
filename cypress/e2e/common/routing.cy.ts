@@ -6,8 +6,7 @@ describe('Роутинг', () => {
             cy.visit('/');
             // через метод should можно проверить существование элемента на странице,
             // кол-во элементов и прочее
-            cy.get('[data-testid=MainPage]')
-                .should('exist');
+            cy.get('[data-testid=MainPage]').should('exist');
         });
 
         it('Переход открывает страницу профиля', () => {
@@ -15,16 +14,14 @@ describe('Роутинг', () => {
             // через метод should можно проверить существование элемента на странице,
             // кол-во элементов и прочее
             // selectByTestId - хук для testId
-            cy.get(selectByTestId('MainPage'))
-                .should('exist');
+            cy.get(selectByTestId('MainPage')).should('exist');
         });
 
         it('Переход открывает несуществующий маршрут', () => {
             cy.visit('/asasasas');
             // через метод should можно проверить существование элемента на странице,
             // кол-во элементов и прочее
-            cy.get(selectByTestId('NotFoundPage'))
-                .should('exist');
+            cy.get(selectByTestId('NotFoundPage')).should('exist');
         });
     });
     describe('Пользователь авторизован', () => {
@@ -39,8 +36,7 @@ describe('Роутинг', () => {
             // через метод should можно проверить существование элемента на странице,
             // кол-во элементов и прочее
             // selectByTestId - хук для testId
-            cy.get(selectByTestId('ProfilePage'))
-                .should('exist');
+            cy.get(selectByTestId('ProfilePage')).should('exist');
         });
 
         it('Переход открывает страницу со списком статей', () => {
@@ -48,8 +44,7 @@ describe('Роутинг', () => {
             // через метод should можно проверить существование элемента на странице,
             // кол-во элементов и прочее
             // selectByTestId - хук для testId
-            cy.get(selectByTestId('ArticlesPage'))
-                .should('exist');
+            cy.get(selectByTestId('ArticlesPage')).should('exist');
         });
     });
 });

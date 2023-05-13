@@ -73,17 +73,14 @@ describe('loginByUsername', () => {
 
         console.log('result', result);
 
-        expect(thunk.dispatch)
-            .toHaveBeenCalledWith(userActions.setAuthData(userValue));
+        expect(thunk.dispatch).toHaveBeenCalledWith(
+            userActions.setAuthData(userValue),
+        );
         // кол-во диспатч вызовов при вызове метода
-        expect(thunk.dispatch)
-            .toHaveBeenCalledTimes(3);
-        expect(thunk.api.post)
-            .toHaveBeenCalled();
-        expect(result.payload)
-            .toEqual(userValue);
-        expect(result.meta.requestStatus)
-            .toBe('fulfilled');
+        expect(thunk.dispatch).toHaveBeenCalledTimes(3);
+        expect(thunk.api.post).toHaveBeenCalled();
+        expect(result.payload).toEqual(userValue);
+        expect(result.meta.requestStatus).toBe('fulfilled');
     });
 
     test('error common', async () => {
@@ -100,13 +97,9 @@ describe('loginByUsername', () => {
         console.log('result', result);
 
         // кол-во диспатч вызовов при вызове метода
-        expect(thunk.dispatch)
-            .toHaveBeenCalledTimes(2);
-        expect(thunk.api.post)
-            .toHaveBeenCalled();
-        expect(result.payload)
-            .toBe('error');
-        expect(result.meta.requestStatus)
-            .toBe('rejected');
+        expect(thunk.dispatch).toHaveBeenCalledTimes(2);
+        expect(thunk.api.post).toHaveBeenCalled();
+        expect(result.payload).toBe('error');
+        expect(result.meta.requestStatus).toBe('rejected');
     });
 });

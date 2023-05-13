@@ -14,38 +14,35 @@ import {
 
 import { SidebarItemType } from '../types/sidebar';
 
-export const getSidebarItems = createSelector(
-    getUserAuthData,
-    (userData) => {
-        const sidebarItemList: SidebarItemType[] = [
-            {
-                path: getRouteMain(),
-                Icon: MainIcon,
-                text: 'Главная',
-            },
-            {
-                path: getRouteAbout(),
-                Icon: AboutIcon,
-                text: 'О нас',
-            },
-        ];
+export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
+    const sidebarItemList: SidebarItemType[] = [
+        {
+            path: getRouteMain(),
+            Icon: MainIcon,
+            text: 'Главная',
+        },
+        {
+            path: getRouteAbout(),
+            Icon: AboutIcon,
+            text: 'О нас',
+        },
+    ];
 
-        if (userData) {
-            sidebarItemList.push(
-                {
-                    path: getRouteProfile(userData.id),
-                    Icon: ProfileIcon,
-                    text: 'Профиль',
-                    authOnly: true,
-                },
-                {
-                    path: getRouteArticles(),
-                    Icon: ArticleIcon,
-                    text: 'Статьи',
-                    authOnly: true,
-                },
-            );
-        }
-        return sidebarItemList;
-    },
-);
+    if (userData) {
+        sidebarItemList.push(
+            {
+                path: getRouteProfile(userData.id),
+                Icon: ProfileIcon,
+                text: 'Профиль',
+                authOnly: true,
+            },
+            {
+                path: getRouteArticles(),
+                Icon: ArticleIcon,
+                text: 'Статьи',
+                authOnly: true,
+            },
+        );
+    }
+    return sidebarItemList;
+});

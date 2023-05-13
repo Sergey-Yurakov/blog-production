@@ -1,7 +1,11 @@
 import { screen } from '@testing-library/react';
 
 import { UserRole } from '@/entities/User';
-import { getRouteAbout, getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
+import {
+    getRouteAbout,
+    getRouteAdminPanel,
+    getRouteProfile,
+} from '@/shared/const/router';
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 
 import AppRouter from './AppRouter';
@@ -17,8 +21,7 @@ describe('app/router/AppRouter', () => {
         const page = await screen.findByTestId('AboutPage');
 
         // проверяем наличие элемента в доме
-        expect(page)
-            .toBeInTheDocument();
+        expect(page).toBeInTheDocument();
     });
 
     test('Страница не найдена', async () => {
@@ -31,8 +34,7 @@ describe('app/router/AppRouter', () => {
         const page = await screen.findByTestId('NotFoundPage');
 
         // проверяем наличие элемента в доме
-        expect(page)
-            .toBeInTheDocument();
+        expect(page).toBeInTheDocument();
     });
 
     test('Редирект неавторизованного пользователя на главную', async () => {
@@ -45,8 +47,7 @@ describe('app/router/AppRouter', () => {
         const page = await screen.findByTestId('MainPage');
 
         // проверяем наличие элемента в доме
-        expect(page)
-            .toBeInTheDocument();
+        expect(page).toBeInTheDocument();
     });
 
     test('Доступ к закрытой странице для авторизованного пользователя', async () => {
@@ -66,8 +67,7 @@ describe('app/router/AppRouter', () => {
         const page = await screen.findByTestId('ProfilePage');
 
         // проверяем наличие элемента в доме
-        expect(page)
-            .toBeInTheDocument();
+        expect(page).toBeInTheDocument();
     });
 
     test('Доступ запрещен (отсутствует роль)', async () => {
@@ -87,8 +87,7 @@ describe('app/router/AppRouter', () => {
         const page = await screen.findByTestId('ForbiddenPage');
 
         // проверяем наличие элемента в доме
-        expect(page)
-            .toBeInTheDocument();
+        expect(page).toBeInTheDocument();
     });
 
     test('Доступ разрешен (присутствует роль)', async () => {
@@ -108,7 +107,6 @@ describe('app/router/AppRouter', () => {
         const page = await screen.findByTestId('AdminPanelPage');
 
         // проверяем наличие элемента в доме
-        expect(page)
-            .toBeInTheDocument();
+        expect(page).toBeInTheDocument();
     });
 });

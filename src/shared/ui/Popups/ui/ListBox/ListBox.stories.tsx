@@ -8,12 +8,17 @@ export default {
     title: 'shared/ListBox',
     component: ListBox,
     decorators: [
-        (Story) => <div style={{ padding: '100px' }}><Story /></div>,
+        (Story) => (
+            <div style={{ padding: '100px' }}>
+                <Story />
+            </div>
+        ),
     ],
-
 } as ComponentMeta<typeof ListBox>;
 
-const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />;
+const Template: ComponentStory<typeof ListBox> = (args) => (
+    <ListBox {...args} />
+);
 
 export const DisableItems = Template.bind({});
 DisableItems.args = {

@@ -1,7 +1,10 @@
 import { ReactNode, useCallback, useEffect } from 'react';
 
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
-import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
+import {
+    AnimationProvider,
+    useAnimationLibs,
+} from '@/shared/lib/components/AnimationProvider';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
 import { Overlay } from '../Overlay/Overlay';
@@ -19,19 +22,10 @@ interface DrawerProps {
 
 const height = window.innerHeight - 100;
 export const DrawerContent = (props: DrawerProps) => {
-    const {
-        className,
-        onClose,
-        isOpen,
-        children,
-        lazy,
-    } = props;
+    const { className, onClose, isOpen, children, lazy } = props;
 
     const { theme } = useTheme();
-    const {
-        Gesture,
-        Spring,
-    } = useAnimationLibs();
+    const { Gesture, Spring } = useAnimationLibs();
     const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
 
     const openDrawer = useCallback(() => {
@@ -98,7 +92,9 @@ export const DrawerContent = (props: DrawerProps) => {
 
     return (
         <Portal>
-            <div className={cn(cl.Drawer, {}, [className, theme, 'app_drawer'])}>
+            <div
+                className={cn(cl.Drawer, {}, [className, theme, 'app_drawer'])}
+            >
                 <Overlay onClick={close} />
                 <Spring.a.div
                     className={cl.sheet}

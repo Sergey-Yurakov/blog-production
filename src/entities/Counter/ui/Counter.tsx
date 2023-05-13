@@ -12,11 +12,7 @@ export const Counter = () => {
     const counterValue = useCounterValue();
 
     // new slice
-    const {
-        add,
-        increment,
-        decrement,
-    } = useCounterActions();
+    const { add, increment, decrement } = useCounterActions();
     const handleIncrement = () => {
         // dispatch(counterActions.increment());
         increment();
@@ -33,22 +29,13 @@ export const Counter = () => {
     return (
         <div>
             <h1 data-testid="value-title">{counterValue}</h1>
-            <Button
-                onClick={handleAddFive}
-                data-testid="increment-btn5"
-            >
+            <Button onClick={handleAddFive} data-testid="increment-btn5">
                 {t('add5')}
             </Button>
-            <Button
-                onClick={handleIncrement}
-                data-testid="increment-btn"
-            >
+            <Button onClick={handleIncrement} data-testid="increment-btn">
                 {t('increment')}
             </Button>
-            <Button
-                data-testid="decrement-btn"
-                onClick={handleDecrement}
-            >
+            <Button data-testid="decrement-btn" onClick={handleDecrement}>
                 {t('decrement')}
             </Button>
         </div>

@@ -30,11 +30,10 @@ describe('articleDetailsSlice', () => {
                 state as ArticleDetailsSchema,
                 fetchArticleById.pending,
             ),
-        )
-            .toEqual({
-                isLoading: true,
-                error: undefined,
-            });
+        ).toEqual({
+            isLoading: true,
+            error: undefined,
+        });
     });
 
     test('test update articleDetailsSlice service fulfilled', () => {
@@ -47,10 +46,9 @@ describe('articleDetailsSlice', () => {
                 state as ArticleDetailsSchema,
                 fetchArticleById.fulfilled(data, '', ''),
             ),
-        )
-            .toEqual({
-                isLoading: false,
-                data,
-            });
+        ).toEqual({
+            isLoading: false,
+            data,
+        });
     });
 });

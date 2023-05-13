@@ -7,22 +7,22 @@ const defaultArticle = {
     views: 10,
     createdAt: '26.02.2022',
     userId: '1',
-    type: [
-        'SCIENCE',
-    ],
+    type: ['SCIENCE'],
     blocks: [],
 };
 
 export const createArticle = (article?: Article) => {
     // делаем запрос и передаем данные в боди
-    return cy.request({
-        method: 'POST',
-        url: 'http://localhost:8000/articles',
-        headers: { Authorization: 'asaw' },
-        body: article ?? defaultArticle,
-    }).then(({ body }) => {
-        return body;
-    });
+    return cy
+        .request({
+            method: 'POST',
+            url: 'http://localhost:8000/articles',
+            headers: { Authorization: 'asaw' },
+            body: article ?? defaultArticle,
+        })
+        .then(({ body }) => {
+            return body;
+        });
 };
 
 export const removeArticle = (articleId: string) => {

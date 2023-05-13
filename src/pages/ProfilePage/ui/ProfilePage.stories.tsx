@@ -14,24 +14,27 @@ import ProfilePage from './ProfilePage';
 export default {
     title: 'pages/ProfilePage',
     component: ProfilePage,
-    decorators: [StoreDecorator({
-        profile: {
-            form: {
-                first: 'Sergey',
-                lastname: 'Yurakov',
-                age: 30,
-                currency: Currency.RUB,
-                country: Country.RUSSIA,
-                city: 'Moscow',
-                username: 'admin',
-                avatar,
+    decorators: [
+        StoreDecorator({
+            profile: {
+                form: {
+                    first: 'Sergey',
+                    lastname: 'Yurakov',
+                    age: 30,
+                    currency: Currency.RUB,
+                    country: Country.RUSSIA,
+                    city: 'Moscow',
+                    username: 'admin',
+                    avatar,
+                },
             },
-        },
-    })],
-
+        }),
+    ],
 } as ComponentMeta<typeof ProfilePage>;
 
-const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...args} />;
+const Template: ComponentStory<typeof ProfilePage> = (args) => (
+    <ProfilePage {...args} />
+);
 
 export const Light = Template.bind({});
 Light.args = {};

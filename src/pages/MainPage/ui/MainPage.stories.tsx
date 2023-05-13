@@ -12,7 +12,6 @@ export default {
     title: 'pages/MainPage',
     component: MainPage,
     decorators: [StoreDecorator({})],
-
 } as ComponentMeta<typeof MainPage>;
 
 // @ts-ignore

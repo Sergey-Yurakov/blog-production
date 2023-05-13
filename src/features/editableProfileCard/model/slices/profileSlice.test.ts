@@ -25,8 +25,7 @@ describe('profileSlice', () => {
                 state as ProfileSchema,
                 profileActions.setReadOnly(true),
             ),
-        )
-            .toEqual({ readonly: true });
+        ).toEqual({ readonly: true });
     });
 
     test('test cancel edit', () => {
@@ -37,17 +36,13 @@ describe('profileSlice', () => {
             validateErrors: [],
         };
         expect(
-            profileReducer(
-                state as ProfileSchema,
-                profileActions.cancelEdit(),
-            ),
-        )
-            .toEqual({
-                readonly: true,
-                data,
-                form: data,
-                validateErrors: undefined,
-            });
+            profileReducer(state as ProfileSchema, profileActions.cancelEdit()),
+        ).toEqual({
+            readonly: true,
+            data,
+            form: data,
+            validateErrors: undefined,
+        });
     });
 
     test('test update profile', () => {
@@ -57,8 +52,7 @@ describe('profileSlice', () => {
                 state as ProfileSchema,
                 profileActions.updateProfile({ username: '123456' }),
             ),
-        )
-            .toEqual({ form: { username: '123456' } });
+        ).toEqual({ form: { username: '123456' } });
     });
 
     test('test update profile service pending', () => {
@@ -67,12 +61,8 @@ describe('profileSlice', () => {
             isLoading: false,
         };
         expect(
-            profileReducer(
-                state as ProfileSchema,
-                updateProfileData.pending,
-            ),
-        )
-            .toEqual({ validateErrors: undefined, isLoading: true });
+            profileReducer(state as ProfileSchema, updateProfileData.pending),
+        ).toEqual({ validateErrors: undefined, isLoading: true });
     });
 
     test('test update profile service fulfilled', () => {
@@ -86,13 +76,12 @@ describe('profileSlice', () => {
                 state as ProfileSchema,
                 updateProfileData.fulfilled(data, ''),
             ),
-        )
-            .toEqual({
-                validateErrors: undefined,
-                isLoading: false,
-                readonly: true,
-                data,
-                form: data,
-            });
+        ).toEqual({
+            validateErrors: undefined,
+            isLoading: false,
+            readonly: true,
+            data,
+            form: data,
+        });
     });
 });

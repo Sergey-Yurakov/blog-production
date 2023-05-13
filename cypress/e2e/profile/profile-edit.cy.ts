@@ -5,11 +5,10 @@ describe('Пользователь заходит на страницу проф
         cy.visit('');
         // достаем данные, которые приходят из профиля и
         // добавляем к странице профиля id пользователя
-        cy.login()
-            .then((data) => {
-                profileId = data.id;
-                cy.visit(`profile/${profileId}`);
-            });
+        cy.login().then((data) => {
+            profileId = data.id;
+            cy.visit(`profile/${profileId}`);
+        });
     });
 
     afterEach(() => {
@@ -27,6 +26,9 @@ describe('Пользователь заходит на страницу проф
         const newLastname = 'lastname';
         cy.updateProfile(newName, newLastname);
         cy.getByTestId('ProfileCard.firstname').should('have.value', newName);
-        cy.getByTestId('ProfileCard.lastname').should('have.value', newLastname);
+        cy.getByTestId('ProfileCard.lastname').should(
+            'have.value',
+            newLastname,
+        );
     });
 });

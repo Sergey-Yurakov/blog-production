@@ -1,34 +1,32 @@
 {
-  "compilerOptions": {
-    "outDir": "./dist/",
-    "noImplicitAny": true,
-    "module": "ESNext",
-    "target": "es5",
-    "jsx": "react-jsx",
-    "allowJs": true,
-    "moduleResolution": "node",
-    "strict": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ]
-    },
-    // esModuleInterop позволяет делать импорты не через require(), а через import
-    "esModuleInterop": true,
-    // allowSyntheticDefaultImports позволяет делать импорты частично, а не целиком
-    // то есть вместо import * as say from './say.js'; делать import {sayHi, sayBye} from './say.js';
-    "allowSyntheticDefaultImports": true,
-    "isolatedModules": true
-  },
-  "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS"
-    }
-  },
-  "include": [
-    "./config/jest/setupTests.ts",
-    "./src/**/*.ts",
-    "./src/**/*.tsx"
-  ]
+        "outDir": "./dist/",
+        "noImplicitAny": true,
+        "module": "ESNext",
+        "target": "es5",
+        "jsx": "react-jsx",
+        "allowJs": true,
+        "moduleResolution": "node",
+        "strict": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./src/*"]
+        },
+        // esModuleInterop позволяет делать импорты не через require(), а через import
+        "esModuleInterop": true,
+        // allowSyntheticDefaultImports позволяет делать импорты частично, а не целиком
+        // то есть вместо import * as say from './say.js'; делать import {sayHi, sayBye} from './say.js';
+        "allowSyntheticDefaultImports": true,
+        "isolatedModules": true
+    },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
+    },
+    "include": [
+        "./config/jest/setupTests.ts",
+        "./src/**/*.ts",
+        "./src/**/*.tsx"
+    ]
 }

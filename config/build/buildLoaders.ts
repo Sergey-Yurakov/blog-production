@@ -6,9 +6,7 @@ import { buildSvgLoader } from './loaders/buildSvgLoader';
 import { BuildOptions } from './types/config';
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
-    const {
-        isDev,
-    } = options;
+    const { isDev } = options;
     const svgLoader = buildSvgLoader();
 
     const fileLoader = {

@@ -19,11 +19,7 @@ interface CommentCardProps {
 }
 
 export const CommentCard = memo((props: CommentCardProps) => {
-    const {
-        className,
-        comment,
-        isLoading,
-    } = props;
+    const { className, comment, isLoading } = props;
 
     if (isLoading) {
         return (
@@ -34,22 +30,10 @@ export const CommentCard = memo((props: CommentCardProps) => {
                 data-testid="CommentCard.Loading"
             >
                 <HStack max>
-                    <Skeleton
-                        width={30}
-                        height={30}
-                        border="50%"
-                    />
-                    <Skeleton
-                        height={16}
-                        width={100}
-                        className={cl.username}
-                    />
+                    <Skeleton width={30} height={30} border="50%" />
+                    <Skeleton height={16} width={100} className={cl.username} />
                 </HStack>
-                <Skeleton
-                    className={cl.text}
-                    width="100%"
-                    height={50}
-                />
+                <Skeleton className={cl.text} width="100%" height={50} />
             </VStack>
         );
     }
@@ -64,15 +48,10 @@ export const CommentCard = memo((props: CommentCardProps) => {
             max
             data-testid="CommentCard.Content"
         >
-            <AppLink
-                to={getRouteProfile(comment.user.id)}
-            >
+            <AppLink to={getRouteProfile(comment.user.id)}>
                 <HStack max gap="8">
                     {comment.user.avatar ? (
-                        <Avatar
-                            size={30}
-                            src={comment.user.avatar}
-                        />
+                        <Avatar size={30} src={comment.user.avatar} />
                     ) : null}
                     <Text
                         title={comment.user.username}
@@ -80,9 +59,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
                     />
                 </HStack>
             </AppLink>
-            <Text
-                text={comment.text}
-            />
+            <Text text={comment.text} />
         </VStack>
     );
 });

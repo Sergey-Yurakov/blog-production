@@ -38,9 +38,7 @@ describe('updateProfileData', () => {
     });
 
     test('error', async () => {
-        const error = [
-            ValidateProfileErrors.SERVER_ERROR,
-        ];
+        const error = [ValidateProfileErrors.SERVER_ERROR];
         const thunk = new TestAsyncThunk(updateProfileData, {
             profile: {
                 form: data,
@@ -56,9 +54,7 @@ describe('updateProfileData', () => {
     });
 
     test('validate error', async () => {
-        const error = [
-            ValidateProfileErrors.INCORRECT_USER_DATA,
-        ];
+        const error = [ValidateProfileErrors.INCORRECT_USER_DATA];
         const thunk = new TestAsyncThunk(updateProfileData, {
             profile: {
                 form: { ...data, lastname: '' },

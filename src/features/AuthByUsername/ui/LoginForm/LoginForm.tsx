@@ -26,7 +26,6 @@ export interface LoginFormProps {
     className?: string;
     isOpen?: boolean;
     onSuccess: () => void;
-
 }
 
 const initialReducers: ReducersList = {
@@ -34,11 +33,7 @@ const initialReducers: ReducersList = {
 };
 
 const LoginForm = memo((props: LoginFormProps) => {
-    const {
-        className,
-        isOpen = false,
-        onSuccess,
-    } = props;
+    const { className, isOpen = false, onSuccess } = props;
 
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
@@ -48,13 +43,19 @@ const LoginForm = memo((props: LoginFormProps) => {
     const isLoading = useSelector(getLoginIsLoading);
     const error = useSelector(getLoginError);
 
-    const onChangeUserName = useCallback((value: string) => {
-        dispatch(loginActions.setUsername(value));
-    }, [dispatch]);
+    const onChangeUserName = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setUsername(value));
+        },
+        [dispatch],
+    );
 
-    const onChangePassword = useCallback((value: string) => {
-        dispatch(loginActions.setPassword(value));
-    }, [dispatch]);
+    const onChangePassword = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setPassword(value));
+        },
+        [dispatch],
+    );
 
     const onLoginClick = useCallback(async () => {
         const result = await dispatch(loginByUsername({ username, password }));
@@ -64,12 +65,14 @@ const LoginForm = memo((props: LoginFormProps) => {
         }
     }, [dispatch, onSuccess, password, username]);
 
-    const onKeyDown = useCallback((e: KeyboardEvent) => {
-        if (e.key === 'Enter') {
-            onLoginClick()
-                .then((r) => r);
-        }
-    }, [onLoginClick]);
+    const onKeyDown = useCallback(
+        (e: KeyboardEvent) => {
+            if (e.key === 'Enter') {
+                onLoginClick().then((r) => r);
+            }
+        },
+        [onLoginClick],
+    );
 
     useEffect(() => {
         if (isOpen) {
@@ -82,18 +85,18 @@ const LoginForm = memo((props: LoginFormProps) => {
     }, [isOpen, onKeyDown]);
 
     return (
-        <DynamicModuleLoader
-            reducers={initialReducers}
-        >
+        <DynamicModuleLoader reducers={initialReducers}>
             <div className={cn(cl.LoginForm, {}, [className])}>
                 <div>
                     <Text title={t('Форма авторизации')} />
                     <div>
-                        { error && (
-                            <Text theme={TextTheme.ERROR} text={t('Вы ввели неверный логин или пароль')} />
+                        {error && (
+                            <Text
+                                theme={TextTheme.ERROR}
+                                text={t('Вы ввели неверный логин или пароль')}
+                            />
                         )}
                     </div>
-
                 </div>
                 <Input
                     isOpen={isOpen}
@@ -117,7 +120,7 @@ const LoginForm = memo((props: LoginFormProps) => {
                     onClick={onLoginClick}
                     disabled={isLoading}
                 >
-                    {t('Войти') }
+                    {t('Войти')}
                 </Button>
             </div>
         </DynamicModuleLoader>

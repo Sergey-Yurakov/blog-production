@@ -13,7 +13,7 @@ export enum ArticleSortField {
 
 export enum ArticleView {
     BIG = 'BIG',
-    SMALL = 'SMALL'
+    SMALL = 'SMALL',
 }
 
 export enum ArticleBlockType {

@@ -10,10 +10,11 @@ import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';
 export default {
     title: 'pages/ArticleDetailsPage/ArticleDetailsPageHeader',
     component: ArticleDetailsPageHeader,
-
 } as ComponentMeta<typeof ArticleDetailsPageHeader>;
 
-const Template: ComponentStory<typeof ArticleDetailsPageHeader> = (args) => <ArticleDetailsPageHeader {...args} />;
+const Template: ComponentStory<typeof ArticleDetailsPageHeader> = (args) => (
+    <ArticleDetailsPageHeader {...args} />
+);
 
 const article: Article = {
     id: '1',
@@ -33,11 +34,13 @@ const article: Article = {
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
-    user: {
-        authData: { id: '1' },
-    },
-    articleDetails: {
-        data: article,
-    },
-})];
+Normal.decorators = [
+    StoreDecorator({
+        user: {
+            authData: { id: '1' },
+        },
+        articleDetails: {
+            data: article,
+        },
+    }),
+];

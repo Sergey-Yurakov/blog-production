@@ -20,11 +20,16 @@ interface ArticleListProps {
     target?: HTMLAttributeAnchorTarget;
 }
 
-const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
-    .fill(0)
-    .map((item, index) => (
-        <ArticleListItemSkeleton key={index} view={view} className={cl.card} />
-    ));
+const getSkeletons = (view: ArticleView) =>
+    new Array(view === ArticleView.SMALL ? 9 : 3)
+        .fill(0)
+        .map((item, index) => (
+            <ArticleListItemSkeleton
+                key={index}
+                view={view}
+                className={cl.card}
+            />
+        ));
 
 // todo: сюда потом можно добавить виртуализацию, через react virtuozo
 export const ArticleList = memo((props: ArticleListProps) => {
@@ -41,10 +46,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     if (!isLoading && !articles.length) {
         return (
             <div className={cn(cl.ArticleList, {}, [className, cl[view]])}>
-                <Text
-                    title={t('Статьи не найдены')}
-                    size={TextSize.L}
-                />
+                <Text title={t('Статьи не найдены')} size={TextSize.L} />
             </div>
         );
     }
@@ -54,19 +56,16 @@ export const ArticleList = memo((props: ArticleListProps) => {
             className={cn(cl.ArticleList, {}, [className, cl[view]])}
             data-testid="ArticleList"
         >
-            {
-                articles.map((article) => (
-                    <ArticleListItem
-                        article={article}
-                        view={view}
-                        target={target}
-                        key={article.id}
-                        className={cl.card}
-                    />
-                ))
-            }
+            {articles.map((article) => (
+                <ArticleListItem
+                    article={article}
+                    view={view}
+                    target={target}
+                    key={article.id}
+                    className={cl.card}
+                />
+            ))}
             {isLoading && getSkeletons(view)}
         </div>
-
     );
 });

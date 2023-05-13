@@ -19,9 +19,7 @@ import {
     getArticlesPageHasMore,
     getArticlesPageIsLoading,
 } from '../../model/selectors/articlesPageSelectors';
-import {
-    fetchNextArticlesPage,
-} from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
@@ -68,10 +66,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     }
 
     return (
-        <DynamicModuleLoader
-            reducers={reducers}
-            removeAfterUnmount={false}
-        >
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page
                 data-testid="ArticlesPage"
                 className={cn(cl.ArticlesPage, {}, [className])}

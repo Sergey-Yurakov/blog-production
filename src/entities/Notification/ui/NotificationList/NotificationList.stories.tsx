@@ -14,10 +14,11 @@ export default {
     title: 'entities/Notification/Notification/NotificationList',
     component: NotificationList,
     decorators: [StoreDecorator({})],
-
 } as ComponentMeta<typeof NotificationList>;
 
-const Template: ComponentStory<typeof NotificationList> = (args) => <NotificationList {...args} />;
+const Template: ComponentStory<typeof NotificationList> = (args) => (
+    <NotificationList {...args} />
+);
 
 const notifications: Notification = {
     title: 'title',

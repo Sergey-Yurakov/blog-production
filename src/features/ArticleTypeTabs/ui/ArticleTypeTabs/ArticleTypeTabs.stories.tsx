@@ -7,10 +7,11 @@ import { ArticleTypeTabs } from './ArticleTypeTabs';
 export default {
     title: 'features/Article/ArticleTypeTabs',
     component: ArticleTypeTabs,
-
 } as ComponentMeta<typeof ArticleTypeTabs>;
 
-const Template: ComponentStory<typeof ArticleTypeTabs> = (args) => <ArticleTypeTabs {...args} />;
+const Template: ComponentStory<typeof ArticleTypeTabs> = (args) => (
+    <ArticleTypeTabs {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};

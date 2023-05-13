@@ -9,5 +9,8 @@ export { getArticleDetailData } from './model/selectors/articleDetails';
 export { ArticleList } from './ui/ArticleList/ArticleList';
 
 export {
-    ArticleType, ArticleView, ArticleSortField, ArticleBlockType,
+    ArticleType,
+    ArticleView,
+    ArticleSortField,
+    ArticleBlockType,
 } from './model/consts/articleConsts';

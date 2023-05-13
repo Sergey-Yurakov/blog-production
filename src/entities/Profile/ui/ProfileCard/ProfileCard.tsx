@@ -50,11 +50,14 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     const { t } = useTranslation('profile');
 
-    const validateAge = useCallback((event: KeyboardEvent<HTMLInputElement>) => {
-        if (/\D/.test(event.key) && event.key !== 'Backspace') {
-            event.preventDefault();
-        }
-    }, []);
+    const validateAge = useCallback(
+        (event: KeyboardEvent<HTMLInputElement>) => {
+            if (/\D/.test(event.key) && event.key !== 'Backspace') {
+                event.preventDefault();
+            }
+        },
+        [],
+    );
 
     if (isLoading) {
         return (
@@ -90,21 +93,10 @@ export const ProfileCard = (props: ProfileCardProps) => {
     };
 
     return (
-        <VStack
-            className={cn(cl.ProfileCard, mods, [className])}
-            max
-            gap="16"
-        >
+        <VStack className={cn(cl.ProfileCard, mods, [className])} max gap="16">
             {data?.avatar && (
-                <HStack
-                    className={cl.avatarWrapper}
-                    max
-                    justify="center"
-                >
-                    <Avatar
-                        src={data?.avatar}
-                        alt="avatar icon"
-                    />
+                <HStack className={cl.avatarWrapper} max justify="center">
+                    <Avatar src={data?.avatar} alt="avatar icon" />
                 </HStack>
             )}
             <Input

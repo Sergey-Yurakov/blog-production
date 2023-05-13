@@ -18,18 +18,15 @@ interface AvatarProps {
 }
 
 export const Avatar = (props: AvatarProps) => {
-    const {
-        alt,
-        src,
-        size = 100,
-        className,
-        fallbackInverted,
-    } = props;
+    const { alt, src, size = 100, className, fallbackInverted } = props;
 
-    const styles = useMemo<CSSProperties>(() => ({
-        width: size,
-        height: size,
-    }), [size]);
+    const styles = useMemo<CSSProperties>(
+        () => ({
+            width: size,
+            height: size,
+        }),
+        [size],
+    );
 
     const mods: Mods = {};
     const fallback = <Skeleton width={size} height={size} border="50%" />;

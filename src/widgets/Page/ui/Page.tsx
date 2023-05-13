@@ -1,6 +1,4 @@
-import {
-    MutableRefObject, ReactNode, UIEvent, useRef,
-} from 'react';
+import { MutableRefObject, ReactNode, UIEvent, useRef } from 'react';
 
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
@@ -37,17 +35,21 @@ export const Page = (props: PageProps) => {
 
     const dispatch = useAppDispatch();
     const { pathname } = useLocation();
-    const scrollPosition = useSelector((state: StateSchema) => getUIScrollByPath(state, pathname));
+    const scrollPosition = useSelector((state: StateSchema) =>
+        getUIScrollByPath(state, pathname),
+    );
 
     useInitialEffect(() => {
         wrapperRef.current.scrollTop = scrollPosition;
     });
 
     const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-        dispatch(uiActions.setScrollPosition({
-            path: pathname,
-            position: e.currentTarget.scrollTop,
-        }));
+        dispatch(
+            uiActions.setScrollPosition({
+                path: pathname,
+                position: e.currentTarget.scrollTop,
+            }),
+        );
     }, 500);
 
     useInfiniteScroll({
@@ -67,8 +69,7 @@ export const Page = (props: PageProps) => {
             {children}
             {onScrollEnd ? (
                 <div ref={triggerRef} className={cl.trigger} />
-            )
-                : null}
+            ) : null}
         </main>
     );
 };

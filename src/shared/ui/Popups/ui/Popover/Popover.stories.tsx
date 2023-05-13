@@ -10,12 +10,17 @@ export default {
     title: 'shared/Popover',
     component: Popover,
     decorators: [
-        (Story) => <div style={{ padding: '100px', width: 'fit-content' }}><Story /></div>,
+        (Story) => (
+            <div style={{ padding: '100px', width: 'fit-content' }}>
+                <Story />
+            </div>
+        ),
     ],
-
 } as ComponentMeta<typeof Popover>;
 
-const Template: ComponentStory<typeof Popover> = (args) => <Popover {...args} />;
+const Template: ComponentStory<typeof Popover> = (args) => (
+    <Popover {...args} />
+);
 
 export const TopLeft = Template.bind({});
 TopLeft.args = {

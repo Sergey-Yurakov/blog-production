@@ -34,18 +34,18 @@ const reducers: ReducersList = {
     addCommentForm: addCommentFormReducer,
 };
 
-const AddCommentForm = ({
-    className,
-    onSendComment,
-}: AddCommentFormProps) => {
+const AddCommentForm = ({ className, onSendComment }: AddCommentFormProps) => {
     const { t } = useTranslation('comment');
     const text = useSelector(getAddCommentFormText);
     const error = useSelector(getAddCommentFormError);
     const dispatch = useAppDispatch();
 
-    const onCommentTextChange = useCallback((value: string) => {
-        dispatch(addCommentFormActions.setText(value));
-    }, [dispatch]);
+    const onCommentTextChange = useCallback(
+        (value: string) => {
+            dispatch(addCommentFormActions.setText(value));
+        },
+        [dispatch],
+    );
 
     const onSendHandler = useCallback(() => {
         onSendComment(text || '');
@@ -55,9 +55,7 @@ const AddCommentForm = ({
     if (error) {
         return (
             <div className={cl.error}>
-                <Text
-                    text={t('Произошла ошибка при добавлении комментария')}
-                />
+                <Text text={t('Произошла ошибка при добавлении комментария')} />
             </div>
         );
     }

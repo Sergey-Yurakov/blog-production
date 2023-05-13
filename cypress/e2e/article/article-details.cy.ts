@@ -19,7 +19,10 @@ describe('Пользователь заходит на страницу стат
     it('И видит содержимое статьи', () => {
         // проверяем, что элемент просто есть на странице
         cy.getByTestId('ArticleDetails.Info').should('exist');
-        cy.getByTestId('ArticleDetails.Text.Header').should('have.text', 'TESTING ARTICLE');
+        cy.getByTestId('ArticleDetails.Text.Header').should(
+            'have.text',
+            'TESTING ARTICLE',
+        );
     });
 
     it('И видит список рекомендаций', () => {
@@ -48,7 +51,9 @@ describe('Пользователь заходит на страницу стат
         // указываем сперва тип запроса - гет, пост и прочее
         // затем часть пути урла, по которому будет запрос
         // затем фикстуру - то есть готовый json файл с данными
-        cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
+        cy.intercept('GET', '**/articles/*', {
+            fixture: 'article-details.json',
+        });
         cy.getByTestId('ArticleDetails.Info');
         cy.getByTestId('RatingCard').scrollIntoView();
         cy.setRate(4, 'feedback');

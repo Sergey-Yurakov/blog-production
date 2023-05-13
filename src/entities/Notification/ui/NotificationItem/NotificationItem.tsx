@@ -10,7 +10,7 @@ import cl from './NotificationItem.module.scss';
 
 interface NotificationItemProps {
     className?: string;
-    item: Notification
+    item: Notification;
 }
 
 export const NotificationItem = memo((props: NotificationItemProps) => {

@@ -12,19 +12,24 @@ import { NotificationButton } from './NotificationButton';
 export default {
     title: 'features/NotificationButton',
     component: NotificationButton,
-    decorators: [StoreDecorator({}), (Story) => (
-        <div style={{
-            display: 'flex',
-            justifyContent: 'flex-end',
-        }}
-        >
-            <Story />
-        </div>
-    )],
-
+    decorators: [
+        StoreDecorator({}),
+        (Story) => (
+            <div
+                style={{
+                    display: 'flex',
+                    justifyContent: 'flex-end',
+                }}
+            >
+                <Story />
+            </div>
+        ),
+    ],
 } as ComponentMeta<typeof NotificationButton>;
 
-const Template: ComponentStory<typeof NotificationButton> = (args) => <NotificationButton {...args} />;
+const Template: ComponentStory<typeof NotificationButton> = (args) => (
+    <NotificationButton {...args} />
+);
 
 const data: Notification = {
     title: 'title',

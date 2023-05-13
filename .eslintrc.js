@@ -8,6 +8,8 @@ module.exports = {
         'plugin:react/recommended',
         'airbnb',
         'plugin:i18next/recommended',
+        'plugin:storybook/recommended',
+        'prettier',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -26,10 +28,8 @@ module.exports = {
         'unused-imports',
     ],
     rules: {
-        'react/jsx-indent': [2, 4],
-        'react/jsx-indent-props': [2, 4],
-        indent: [2, 4],
-        'react/jsx-filename-extension': [2,
+        'react/jsx-filename-extension': [
+            2,
             { extensions: ['.js', '.jsx', '.tsx'] },
         ],
         'unused-imports/no-unused-imports': 'error',
@@ -72,21 +72,23 @@ module.exports = {
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
-        'i18next/no-literal-string': ['error',
+        'i18next/no-literal-string': [
+            'error',
             {
                 markupOnly: true,
                 onlyAttribute: [''],
                 ignoreAttribute: ['data-testid', 'to', 'target'],
             },
         ],
-        'max-len': ['error', {
-            ignoreComments: true,
-            code: 140,
-        }],
-        'no-unused-vars': 'off',
-        '@typescript-eslint/no-unused-vars': [
-            'warn',
+        'max-len': [
+            'error',
+            {
+                ignoreComments: true,
+                code: 140,
+            },
         ],
+        'no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': ['warn'],
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',
         'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
@@ -98,17 +100,25 @@ module.exports = {
         'arrow-body-style': 'off',
         'stells-plugin/path-cheker': ['error', { alias: '@' }],
         'stells-plugin/public-api-imports': [
-            'error', {
+            'error',
+            {
                 alias: '@',
-                testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+                testFilesPatterns: [
+                    '**/*.test.*',
+                    '**/*.story.*',
+                    '**/StoreDecorator.tsx',
+                ],
             },
         ],
         'stells-plugin/layer-imports': [
-            'error', {
+            'error',
+            {
                 alias: '@',
                 ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
             },
         ],
+        // когда больше 4 элементов в строке, то делаем перенос
+        'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
     },
     globals: {
         __IS_DEV__: true,

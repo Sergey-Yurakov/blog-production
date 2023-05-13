@@ -22,18 +22,17 @@ describe('articlesPageSlice', () => {
                 state as ArticlesPageSchema,
                 articlesPageActions.setPage(2),
             ),
-        )
-            .toEqual({
-                isLoading: false,
-                error: undefined,
-                ids: [],
-                entities: {},
-                view: ArticleView.SMALL,
-                page: 2,
-                hasMore: true,
-                _inited: false,
-                type: ArticleType.ALL,
-            });
+        ).toEqual({
+            isLoading: false,
+            error: undefined,
+            ids: [],
+            entities: {},
+            view: ArticleView.SMALL,
+            page: 2,
+            hasMore: true,
+            _inited: false,
+            type: ArticleType.ALL,
+        });
     });
 
     test('test set in setView', () => {
@@ -53,17 +52,16 @@ describe('articlesPageSlice', () => {
                 state as ArticlesPageSchema,
                 articlesPageActions.setView(ArticleView.BIG),
             ),
-        )
-            .toEqual({
-                isLoading: false,
-                error: undefined,
-                ids: [],
-                entities: {},
-                view: ArticleView.BIG,
-                page: 1,
-                hasMore: true,
-                type: ArticleType.ALL,
-                _inited: false,
-            });
+        ).toEqual({
+            isLoading: false,
+            error: undefined,
+            ids: [],
+            entities: {},
+            view: ArticleView.BIG,
+            page: 1,
+            hasMore: true,
+            type: ArticleType.ALL,
+            _inited: false,
+        });
     });
 });

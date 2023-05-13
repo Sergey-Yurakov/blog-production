@@ -11,7 +11,6 @@ import { Navbar } from './Navbar';
 export default {
     title: 'widgets/Navbar',
     component: Navbar,
-
 } as ComponentMeta<typeof Navbar>;
 
 const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
@@ -22,9 +21,11 @@ Light.decorators = [StoreDecorator({})];
 
 export const AuthNavbar = Template.bind({});
 AuthNavbar.args = {};
-AuthNavbar.decorators = [StoreDecorator({
-    user: { authData: {} },
-})];
+AuthNavbar.decorators = [
+    StoreDecorator({
+        user: { authData: {} },
+    }),
+];
 
 export const Dark = Template.bind({});
 Dark.args = {};

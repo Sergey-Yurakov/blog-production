@@ -6,12 +6,10 @@ import { buildPlugins } from './buildPlugins';
 import { buildResolvers } from './buildResolvers';
 import { BuildOptions } from './types/config';
 
-export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
-    const {
-        mode,
-        paths,
-        isDev,
-    } = options;
+export function buildWebpackConfig(
+    options: BuildOptions,
+): webpack.Configuration {
+    const { mode, paths, isDev } = options;
 
     return {
         mode,

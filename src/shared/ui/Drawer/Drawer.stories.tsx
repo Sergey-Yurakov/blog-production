@@ -7,7 +7,6 @@ import { Drawer } from './Drawer';
 export default {
     title: 'shared/Drawer',
     component: Drawer,
-
 } as ComponentMeta<typeof Drawer>;
 
 const Template: ComponentStory<typeof Drawer> = (args) => <Drawer {...args} />;
@@ -17,10 +16,22 @@ Normal.args = {
     isOpen: true,
     children: (
         <>
-            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, totam.</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, totam.</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, totam.</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, totam.</div>
+            <div>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic,
+                totam.
+            </div>
+            <div>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic,
+                totam.
+            </div>
+            <div>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic,
+                totam.
+            </div>
+            <div>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic,
+                totam.
+            </div>
         </>
     ),
 };

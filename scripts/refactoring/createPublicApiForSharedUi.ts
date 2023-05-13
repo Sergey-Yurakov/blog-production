@@ -21,7 +21,14 @@ const componentsDir = sharedUiDirectory?.getDirectories();
 
 function isAbsolute(value: string) {
     // массив слоев, по которым проверяем
-    const layers = ['app', 'entities', 'features', 'pages', 'shared', 'widgets'];
+    const layers = [
+        'app',
+        'entities',
+        'features',
+        'pages',
+        'shared',
+        'widgets',
+    ];
 
     // проверяем, чтобы импорт находился в одном из слоев
     return layers.some((layer) => value.startsWith(layer));
@@ -41,7 +48,9 @@ componentsDir?.forEach((directory) => {
         const sourceCode = `export * from'./${directory.getBaseName()}';`;
 
         // создаем файл и передаем туда путь и код
-        const file = directory.createSourceFile(indexFilePath, sourceCode, { overwrite: true });
+        const file = directory.createSourceFile(indexFilePath, sourceCode, {
+            overwrite: true,
+        });
 
         // сохраняем файл в системе самой
         file.save();
@@ -71,9 +80,7 @@ files.forEach((sourceFile) => {
 
         if (isAbsolute(valueWithoutAlias) && isSharedLayer && isUiSlice) {
             // сплитим строку по слэшу, удаляем лишнее и снова превращаем в строку
-            const value = valueWithoutAlias.split('/')
-                .slice(0, 3)
-                .join('/');
+            const value = valueWithoutAlias.split('/').slice(0, 3).join('/');
             importDeclaration.setModuleSpecifier(`@/${value}`);
         }
     });

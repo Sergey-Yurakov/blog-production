@@ -9,7 +9,6 @@ import { Avatar } from './Avatar';
 export default {
     title: 'shared/Avatar',
     component: Avatar,
-
 } as ComponentMeta<typeof Avatar>;
 
 const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;

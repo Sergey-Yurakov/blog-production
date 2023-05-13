@@ -24,9 +24,9 @@ interface ListBoxProps {
     value?: string;
     defaultValue?: string;
     onChange: (value: string) => void;
-    readOnly? : boolean;
+    readOnly?: boolean;
     direction?: DropdownDirection;
-    label?: string,
+    label?: string;
 }
 
 export const ListBox = (props: ListBoxProps) => {
@@ -49,7 +49,7 @@ export const ListBox = (props: ListBoxProps) => {
 
     return (
         <HStack gap="4">
-            {label && <span className={cn('', labelMods)}>{`${label}>`}</span> }
+            {label && <span className={cn('', labelMods)}>{`${label}>`}</span>}
             <HListBox
                 disabled={readOnly}
                 as="div"
@@ -57,17 +57,13 @@ export const ListBox = (props: ListBoxProps) => {
                 value={value}
                 onChange={onChange}
             >
-                <HListBox.Button
-                    className={cl.trigger}
-                    as="div"
-                >
-                    <Button disabled={readOnly}>
-                        {value ?? defaultValue}
-                    </Button>
+                <HListBox.Button className={cl.trigger} as="div">
+                    <Button disabled={readOnly}>{value ?? defaultValue}</Button>
                 </HListBox.Button>
-                <HListBox.Options className={cn(cl.options, {}, optionsClasses)}>
+                <HListBox.Options
+                    className={cn(cl.options, {}, optionsClasses)}
+                >
                     {items?.map((item) => (
-
                         <HListBox.Option
                             key={item.value}
                             disabled={item.disabled}
@@ -75,10 +71,15 @@ export const ListBox = (props: ListBoxProps) => {
                             as={Fragment}
                         >
                             {({ active, selected }) => (
-                                <li className={cn(cl.item, {
-                                    [popupCl.active]: active,
-                                    [popupCl.disabled]: item.disabled,
-                                }, [])}
+                                <li
+                                    className={cn(
+                                        cl.item,
+                                        {
+                                            [popupCl.active]: active,
+                                            [popupCl.disabled]: item.disabled,
+                                        },
+                                        [],
+                                    )}
                                 >
                                     {selected && '!!'}
                                     {item.content}

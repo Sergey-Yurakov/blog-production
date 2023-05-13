@@ -23,12 +23,7 @@ const article = {
         avatar: '',
     },
 
-    type: [
-        'IT',
-        'COMPUTER',
-        'SCIENCE',
-        'POLITICS',
-    ],
+    type: ['IT', 'COMPUTER', 'SCIENCE', 'POLITICS'],
     blocks: [
         {
             id: '1',
@@ -63,7 +58,7 @@ const article = {
         {
             id: '3',
             type: 'CODE',
-            code: 'const path = require(\'path\');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, \'db.json\'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);',
+            code: "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);",
         },
         {
             id: '7',
@@ -94,19 +89,18 @@ const article = {
 export default {
     title: 'entities/Article/ArticleList',
     component: ArticleList,
-
 } as ComponentMeta<typeof ArticleList>;
 
-const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
+const Template: ComponentStory<typeof ArticleList> = (args) => (
+    <ArticleList {...args} />
+);
 
 export const ListSmall = Template.bind({});
 ListSmall.args = {
-    articles: new Array(10)
-        .fill(0)
-        .map((item, index) => ({
-            ...article,
-            id: String(index),
-        })),
+    articles: new Array(10).fill(0).map((item, index) => ({
+        ...article,
+        id: String(index),
+    })),
     view: ArticleView.SMALL,
 };
 
@@ -119,24 +113,20 @@ LoadingSmall.args = {
 
 export const DarkSmall = Template.bind({});
 DarkSmall.args = {
-    articles: new Array(10)
-        .fill(0)
-        .map((item, index) => ({
-            ...article,
-            id: String(index),
-        })),
+    articles: new Array(10).fill(0).map((item, index) => ({
+        ...article,
+        id: String(index),
+    })),
     view: ArticleView.SMALL,
 };
 DarkSmall.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const ListBig = Template.bind({});
 ListBig.args = {
-    articles: new Array(5)
-        .fill(0)
-        .map((item, index) => ({
-            ...article,
-            id: String(index),
-        })),
+    articles: new Array(5).fill(0).map((item, index) => ({
+        ...article,
+        id: String(index),
+    })),
     view: ArticleView.BIG,
 };
 export const LoadingBig = Template.bind({});
@@ -148,12 +138,10 @@ LoadingBig.args = {
 
 export const DarkBig = Template.bind({});
 DarkBig.args = {
-    articles: new Array(5)
-        .fill(0)
-        .map((item, index) => ({
-            ...article,
-            id: String(index),
-        })),
+    articles: new Array(5).fill(0).map((item, index) => ({
+        ...article,
+        id: String(index),
+    })),
     view: ArticleView.BIG,
 };
 DarkBig.decorators = [ThemeDecorator(Theme.DARK)];

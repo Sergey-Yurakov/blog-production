@@ -11,11 +11,12 @@ import { ProfileCard } from './ProfileCard';
 export default {
     title: 'entities/Profile/ProfileCard',
     component: ProfileCard,
-
 } as ComponentMeta<typeof ProfileCard>;
 
 // @ts-ignore
-const Template: ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...args} />;
+const Template: ComponentStory<typeof ProfileCard> = (args) => (
+    <ProfileCard {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {

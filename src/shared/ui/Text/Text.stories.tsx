@@ -10,7 +10,6 @@ import { Text, TextSize, TextTheme } from './Text';
 export default {
     title: 'shared/Text',
     component: Text,
-
 } as ComponentMeta<typeof Text>;
 
 const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />;

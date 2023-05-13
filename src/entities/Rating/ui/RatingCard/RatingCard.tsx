@@ -38,17 +38,20 @@ export const RatingCard = memo((props: RatingCardProps) => {
     const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
 
-    const onSelectStars = useCallback((selectedStarsCount: number) => {
-        setStarsCount(selectedStarsCount);
+    const onSelectStars = useCallback(
+        (selectedStarsCount: number) => {
+            setStarsCount(selectedStarsCount);
 
-        // если передан флаг, то надо открыть модалку,
-        // либо же просто передать наверх кол-во выбранных звезд
-        if (hasFeedback) {
-            setIsModalOpen(true);
-        } else {
-            onAccept?.(selectedStarsCount);
-        }
-    }, [hasFeedback, onAccept]);
+            // если передан флаг, то надо открыть модалку,
+            // либо же просто передать наверх кол-во выбранных звезд
+            if (hasFeedback) {
+                setIsModalOpen(true);
+            } else {
+                onAccept?.(selectedStarsCount);
+            }
+        },
+        [hasFeedback, onAccept],
+    );
 
     const onAcceptHandle = useCallback(() => {
         setIsModalOpen(false);
@@ -81,7 +84,11 @@ export const RatingCard = memo((props: RatingCardProps) => {
         >
             <VStack align="center" gap="8">
                 <Text title={starsCount ? t('Спасибо за оценку!') : title} />
-                <StarRating size={40} onSelect={onSelectStars} selectedStars={starsCount} />
+                <StarRating
+                    size={40}
+                    onSelect={onSelectStars}
+                    selectedStars={starsCount}
+                />
             </VStack>
             <BrowserView>
                 <Modal isOpen={isModalOpen} lazy>

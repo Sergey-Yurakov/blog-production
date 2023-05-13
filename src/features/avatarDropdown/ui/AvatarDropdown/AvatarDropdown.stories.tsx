@@ -11,10 +11,11 @@ export default {
     component: AvatarDropdown,
     decorators: [
         (Story) => (
-            <div style={{
-                display: 'flex',
-                justifyContent: 'flex-end',
-            }}
+            <div
+                style={{
+                    display: 'flex',
+                    justifyContent: 'flex-end',
+                }}
             >
                 <Story />
             </div>
@@ -22,16 +23,20 @@ export default {
     ],
 } as ComponentMeta<typeof AvatarDropdown>;
 
-const Template: ComponentStory<typeof AvatarDropdown> = (args) => <AvatarDropdown {...args} />;
+const Template: ComponentStory<typeof AvatarDropdown> = (args) => (
+    <AvatarDropdown {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
-    user: {
-        authData: {
-            id: '1',
-            username: 'user',
-            avatar: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+Normal.decorators = [
+    StoreDecorator({
+        user: {
+            authData: {
+                id: '1',
+                username: 'user',
+                avatar: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+            },
         },
-    },
-})];
+    }),
+];

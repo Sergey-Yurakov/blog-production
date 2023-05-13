@@ -10,32 +10,26 @@ interface UseThemeResult {
 }
 
 export const useTheme = (): UseThemeResult => {
-    const {
-        theme,
-        setTheme,
-    } = useContext(ThemeContext);
+    const { theme, setTheme } = useContext(ThemeContext);
 
-    useEffect(
-        () => {
-            document.body.className = theme || Theme.LIGHT;
-        },
-        [theme],
-    );
+    useEffect(() => {
+        document.body.className = theme || Theme.LIGHT;
+    }, [theme]);
 
     const toggleTheme = () => {
         let newTheme: Theme;
         switch (theme) {
-        case Theme.DARK:
-            newTheme = Theme.LIGHT;
-            break;
-        case Theme.LIGHT:
-            newTheme = Theme.ORANGE;
-            break;
-        case Theme.ORANGE:
-            newTheme = Theme.DARK;
-            break;
-        default:
-            newTheme = Theme.LIGHT;
+            case Theme.DARK:
+                newTheme = Theme.LIGHT;
+                break;
+            case Theme.LIGHT:
+                newTheme = Theme.ORANGE;
+                break;
+            case Theme.ORANGE:
+                newTheme = Theme.DARK;
+                break;
+            default:
+                newTheme = Theme.LIGHT;
         }
         setTheme?.(newTheme);
         // document.body.className = newTheme;

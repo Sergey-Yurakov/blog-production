@@ -26,15 +26,9 @@ import {
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slices/articleDetailsSlice';
 import { ArticleBlock } from '../../model/types/article';
-import {
-    ArticleCodeBlockComponent,
-} from '../../ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import {
-    ArticleImageBlockComponent,
-} from '../../ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
-import {
-    ArticleTextBlockComponent,
-} from '../../ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { ArticleCodeBlockComponent } from '../../ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleImageBlockComponent } from '../../ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from '../../ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 import cl from './ArticleDetails.module.scss';
 
@@ -47,10 +41,7 @@ const reducers: ReducersList = {
     articleDetails: articleDetailsReducer,
 };
 
-export const ArticleDetails = memo(({
-    className,
-    id,
-}: ArticleDetailsProps) => {
+export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     const { t } = useTranslation('article-details');
     const dispatch = useAppDispatch();
 
@@ -60,32 +51,32 @@ export const ArticleDetails = memo(({
 
     const renderBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
-        case ArticleBlockType.CODE:
-            return (
-                <ArticleCodeBlockComponent
-                    key={block.id}
-                    block={block}
-                    className={cl.block}
-                />
-            );
-        case ArticleBlockType.TEXT:
-            return (
-                <ArticleTextBlockComponent
-                    key={block.id}
-                    block={block}
-                    className={cl.block}
-                />
-            );
-        case ArticleBlockType.IMAGE:
-            return (
-                <ArticleImageBlockComponent
-                    key={block.id}
-                    block={block}
-                    className={cl.block}
-                />
-            );
-        default:
-            return null;
+            case ArticleBlockType.CODE:
+                return (
+                    <ArticleCodeBlockComponent
+                        key={block.id}
+                        block={block}
+                        className={cl.block}
+                    />
+                );
+            case ArticleBlockType.TEXT:
+                return (
+                    <ArticleTextBlockComponent
+                        key={block.id}
+                        block={block}
+                        className={cl.block}
+                    />
+                );
+            case ArticleBlockType.IMAGE:
+                return (
+                    <ArticleImageBlockComponent
+                        key={block.id}
+                        block={block}
+                        className={cl.block}
+                    />
+                );
+            default:
+                return null;
         }
     }, []);
 
@@ -99,7 +90,12 @@ export const ArticleDetails = memo(({
     if (isLoading) {
         content = (
             <VStack gap="32" max>
-                <Skeleton className={cl.avatar} width={200} height={200} border="50%" />
+                <Skeleton
+                    className={cl.avatar}
+                    width={200}
+                    height={200}
+                    border="50%"
+                />
                 <Skeleton width={300} height={32} />
                 <Skeleton width={600} height={24} />
                 <Skeleton width="100%" height={200} />
@@ -116,9 +112,7 @@ export const ArticleDetails = memo(({
     } else {
         content = (
             <>
-                <HStack
-                    max
-                >
+                <HStack max>
                     <Avatar
                         size={200}
                         src={article?.img}
@@ -135,26 +129,16 @@ export const ArticleDetails = memo(({
                 />
                 <VStack gap="4" max data-testid="ArticleDetails.Info">
                     <HStack gap="8">
-                        <Icon
-                            Svg={EyeIcon}
-                            className={cl.icon}
-                        />
-                        <Text
-                            text={String(article?.views)}
-                        />
+                        <Icon Svg={EyeIcon} className={cl.icon} />
+                        <Text text={String(article?.views)} />
                     </HStack>
                     <HStack gap="8">
-                        <Icon
-                            Svg={CalendarIcon}
-                            className={cl.icon}
-                        />
+                        <Icon Svg={CalendarIcon} className={cl.icon} />
 
-                        <Text
-                            text={article?.createdAt}
-                        />
+                        <Text text={article?.createdAt} />
                     </HStack>
                 </VStack>
-                {article?.blocks.map((renderBlock))}
+                {article?.blocks.map(renderBlock)}
             </>
         );
     }

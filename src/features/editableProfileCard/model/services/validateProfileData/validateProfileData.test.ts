@@ -25,10 +25,12 @@ describe('validateProfileData', () => {
     });
 
     test('without first and last name', async () => {
-        const errors = [
-            ValidateProfileErrors.INCORRECT_USER_DATA,
-        ];
-        const result = validateProfileData({ ...data, first: '', lastname: '' });
+        const errors = [ValidateProfileErrors.INCORRECT_USER_DATA];
+        const result = validateProfileData({
+            ...data,
+            first: '',
+            lastname: '',
+        });
 
         console.log('result', result);
 
@@ -36,9 +38,7 @@ describe('validateProfileData', () => {
     });
 
     test('incorrect age', async () => {
-        const errors = [
-            ValidateProfileErrors.INCORRECT_AGE,
-        ];
+        const errors = [ValidateProfileErrors.INCORRECT_AGE];
         const result = validateProfileData({ ...data, age: undefined });
 
         console.log('result', result);
