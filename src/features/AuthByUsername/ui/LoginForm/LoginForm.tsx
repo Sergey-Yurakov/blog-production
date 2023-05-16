@@ -4,7 +4,10 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from '@/shared/ui/Buttton';
 import { Input } from '@/shared/ui/Input';
@@ -87,7 +90,12 @@ const LoginForm = memo((props: LoginFormProps) => {
                 <div>
                     <Text title={t('Форма авторизации')} />
                     <div>
-                        {error && <Text theme={TextTheme.ERROR} text={t('Вы ввели неверный логин или пароль')} />}
+                        {error && (
+                            <Text
+                                theme={TextTheme.ERROR}
+                                text={t('Вы ввели неверный логин или пароль')}
+                            />
+                        )}
                     </div>
                 </div>
                 <Input
@@ -106,7 +114,12 @@ const LoginForm = memo((props: LoginFormProps) => {
                     onChange={onChangePassword}
                     value={password}
                 />
-                <Button className={cl.loginBtn} theme={ButtonTheme.OUTLINE} onClick={onLoginClick} disabled={isLoading}>
+                <Button
+                    className={cl.loginBtn}
+                    theme={ButtonTheme.OUTLINE}
+                    onClick={onLoginClick}
+                    disabled={isLoading}
+                >
                     {t('Войти')}
                 </Button>
             </div>

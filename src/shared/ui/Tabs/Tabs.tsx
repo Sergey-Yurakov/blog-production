@@ -34,6 +34,7 @@ export const Tabs = genericTypedMemo(
             <div className={cn(cl.Tabs, {}, [className])}>
                 {tabs.map((tab) => (
                     <Card
+                        data-testid={`Tabs.${tab.value}`}
                         className={cl.tab}
                         key={tab.value}
                         theme={

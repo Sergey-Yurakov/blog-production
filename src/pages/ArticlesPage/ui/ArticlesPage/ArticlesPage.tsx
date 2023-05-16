@@ -5,7 +5,10 @@ import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text, TextAlign } from '@/shared/ui/Text';
@@ -54,7 +57,10 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     if (error) {
         return (
             <Page>
-                <Text title={t('Произошла ошибка при получении статей')} align={TextAlign.CENTER} />
+                <Text
+                    title={t('Произошла ошибка при получении статей')}
+                    align={TextAlign.CENTER}
+                />
             </Page>
         );
     }

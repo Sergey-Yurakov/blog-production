@@ -118,7 +118,13 @@ module.exports = {
             },
         ],
         // когда больше 4 элементов в строке, то делаем перенос
-        'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
+        'react/jsx-max-props-per-line': [
+            'error',
+            {
+                maximum: 3,
+                when: 'multiline',
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,

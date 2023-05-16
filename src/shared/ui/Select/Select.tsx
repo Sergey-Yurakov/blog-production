@@ -21,7 +21,15 @@ interface SelectProps<T extends string> {
 
 export const Select = genericTypedMemo(
     <T extends string>(props: SelectProps<T>) => {
-        const { className, label, option, value, readOnly, onChange } = props;
+        const {
+            className,
+            label,
+            option,
+            value,
+            readOnly,
+            onChange,
+            ...otherProps
+        } = props;
 
         const optionList = useMemo(
             () =>
@@ -53,6 +61,7 @@ export const Select = genericTypedMemo(
                     value={value}
                     onChange={onChangeHandle}
                     disabled={readOnly}
+                    {...otherProps}
                 >
                     {optionList}
                 </select>
