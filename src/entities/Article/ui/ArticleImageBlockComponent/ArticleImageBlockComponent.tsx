@@ -12,17 +12,13 @@ interface ArticleImageBlockComponentProps {
     block: ArticleImageBlock;
 }
 
-export const ArticleImageBlockComponent = memo(
-    (props: ArticleImageBlockComponentProps) => {
-        const { className, block } = props;
+export const ArticleImageBlockComponent = memo((props: ArticleImageBlockComponentProps) => {
+    const { className, block } = props;
 
-        return (
-            <div className={cn('', {}, [className])}>
-                <img src={block.src} alt={block.title} className={cl.image} />
-                {block.title && (
-                    <Text text={block.title} align={TextAlign.CENTER} />
-                )}
-            </div>
-        );
-    },
-);
+    return (
+        <div className={cn('', {}, [className])}>
+            <img src={block.src} alt={block.title} className={cl.image} />
+            {block.title && <Text text={block.title} align={TextAlign.CENTER} />}
+        </div>
+    );
+});

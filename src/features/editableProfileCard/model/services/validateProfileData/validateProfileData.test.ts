@@ -47,10 +47,7 @@ describe('validateProfileData', () => {
     });
 
     test('incorrect city and username', async () => {
-        const errors = [
-            ValidateProfileErrors.INCORRECT_CITY,
-            ValidateProfileErrors.INCORRECT_USERNAME,
-        ];
+        const errors = [ValidateProfileErrors.INCORRECT_CITY, ValidateProfileErrors.INCORRECT_USERNAME];
         const result = validateProfileData({ ...data, city: '', username: '' });
 
         console.log('result', result);

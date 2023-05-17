@@ -2,10 +2,7 @@ import { User } from '../../../src/entities/User';
 import { USER_LOCALSTORAGE_KEY } from '../../../src/shared/const/localstorage';
 import { selectByTestId } from '../../helpers/selectByTestId';
 
-export const login = (
-    username: string = 'testuser',
-    password: string = '123',
-) => {
+export const login = (username: string = 'testuser', password: string = '123') => {
     return cy
         .request({
             method: 'POST',
@@ -16,10 +13,7 @@ export const login = (
             },
         })
         .then(({ body }) => {
-            window.localStorage.setItem(
-                USER_LOCALSTORAGE_KEY,
-                JSON.stringify(body),
-            );
+            window.localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(body));
             return body;
         });
 };

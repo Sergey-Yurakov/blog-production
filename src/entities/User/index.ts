@@ -8,8 +8,4 @@ export { getUserAuthData } from './model/selectors/getUserAuthData/getUserAuthDa
 
 export { getUserInited } from './model/selectors/getUserInited/getUserInited';
 
-export {
-    isUserAdmin,
-    isUserManager,
-    getUserRoles,
-} from './model/selectors/getUserRoles/getUserRoles';
+export { isUserAdmin, isUserManager, getUserRoles } from './model/selectors/getUserRoles/getUserRoles';

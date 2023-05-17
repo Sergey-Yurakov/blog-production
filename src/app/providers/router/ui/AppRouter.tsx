@@ -13,23 +13,13 @@ const AppRouter = () => {
     const renderWithWrapper = useCallback((route: AppRoutesProps) => {
         const { path, element, authOnly } = route;
 
-        const elements = (
-            <Suspense fallback={<PageLoader />}>{element}</Suspense>
-        );
+        const elements = <Suspense fallback={<PageLoader />}>{element}</Suspense>;
 
         return (
             <Route
                 key={path}
                 path={path}
-                element={
-                    authOnly ? (
-                        <RequireAuth roles={route.roles}>
-                            {elements}
-                        </RequireAuth>
-                    ) : (
-                        elements
-                    )
-                }
+                element={authOnly ? <RequireAuth roles={route.roles}>{elements}</RequireAuth> : elements}
             />
         );
     }, []);

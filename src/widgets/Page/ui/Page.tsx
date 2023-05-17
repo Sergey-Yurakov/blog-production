@@ -23,21 +23,14 @@ interface PageProps extends TestsProps {
 export const PAGE_ID = 'PAGE_ID';
 
 export const Page = (props: PageProps) => {
-    const {
-        className,
-        children,
-        onScrollEnd,
-        'data-testid': dataTestId,
-    } = props;
+    const { className, children, onScrollEnd, 'data-testid': dataTestId } = props;
 
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
 
     const dispatch = useAppDispatch();
     const { pathname } = useLocation();
-    const scrollPosition = useSelector((state: StateSchema) =>
-        getUIScrollByPath(state, pathname),
-    );
+    const scrollPosition = useSelector((state: StateSchema) => getUIScrollByPath(state, pathname));
 
     useInitialEffect(() => {
         wrapperRef.current.scrollTop = scrollPosition;
@@ -67,9 +60,7 @@ export const Page = (props: PageProps) => {
             data-testid={dataTestId ?? 'Page'}
         >
             {children}
-            {onScrollEnd ? (
-                <div ref={triggerRef} className={cl.trigger} />
-            ) : null}
+            {onScrollEnd ? <div ref={triggerRef} className={cl.trigger} /> : null}
         </main>
     );
 };

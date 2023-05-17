@@ -21,14 +21,7 @@ const componentsDir = sharedUiDirectory?.getDirectories();
 
 function isAbsolute(value: string) {
     // массив слоев, по которым проверяем
-    const layers = [
-        'app',
-        'entities',
-        'features',
-        'pages',
-        'shared',
-        'widgets',
-    ];
+    const layers = ['app', 'entities', 'features', 'pages', 'shared', 'widgets'];
 
     // проверяем, чтобы импорт находился в одном из слоев
     return layers.some((layer) => value.startsWith(layer));

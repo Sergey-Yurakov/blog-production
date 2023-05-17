@@ -6,11 +6,7 @@ export interface UseInfiniteScrollOptions {
     wrapperRef: MutableRefObject<HTMLElement>;
 }
 
-export function useInfiniteScroll({
-    wrapperRef,
-    triggerRef,
-    callback,
-}: UseInfiniteScrollOptions) {
+export function useInfiniteScroll({ wrapperRef, triggerRef, callback }: UseInfiniteScrollOptions) {
     useEffect(() => {
         const triggerElement = triggerRef.current;
         const wrapperElement = wrapperRef.current;

@@ -11,9 +11,9 @@ describe('Пользователь заходит на страницу со с�
         cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 3);
     });
 
-    // it('поиск', { defaultCommandTimeout: 4000 }, () => {
-    //     cy.getByTestId('ArticlesPageFilters').type('go');
-    // });
+    it('поиск', { defaultCommandTimeout: 4000 }, () => {
+        cy.getByTestId('ArticlesPageFilters').type('go');
+    });
 
     // it('и нажимает таб айти', () => {
     //     cy.getByTestId('Tabs.IT').click();

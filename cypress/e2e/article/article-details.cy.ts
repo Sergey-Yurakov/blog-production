@@ -19,10 +19,7 @@ describe('Пользователь заходит на страницу стат
     it('И видит содержимое статьи', () => {
         // проверяем, что элемент просто есть на странице
         cy.getByTestId('ArticleDetails.Info').should('exist');
-        cy.getByTestId('ArticleDetails.Text.Header').should(
-            'have.text',
-            'TESTING ARTICLE',
-        );
+        cy.getByTestId('ArticleDetails.Text.Header').should('have.text', 'TESTING ARTICLE');
     });
 
     it('И видит список рекомендаций', () => {

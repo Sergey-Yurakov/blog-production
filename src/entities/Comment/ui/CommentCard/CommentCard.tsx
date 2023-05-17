@@ -43,20 +43,11 @@ export const CommentCard = memo((props: CommentCardProps) => {
     }
 
     return (
-        <VStack
-            className={cn(cl.CommentCard, {}, [className])}
-            max
-            data-testid="CommentCard.Content"
-        >
+        <VStack className={cn(cl.CommentCard, {}, [className])} max data-testid="CommentCard.Content">
             <AppLink to={getRouteProfile(comment.user.id)}>
                 <HStack max gap="8">
-                    {comment.user.avatar ? (
-                        <Avatar size={30} src={comment.user.avatar} />
-                    ) : null}
-                    <Text
-                        title={comment.user.username}
-                        className={cl.username}
-                    />
+                    {comment.user.avatar ? <Avatar size={30} src={comment.user.avatar} /> : null}
+                    <Text title={comment.user.username} className={cl.username} />
                 </HStack>
             </AppLink>
             <Text text={comment.text} />

@@ -17,12 +17,7 @@ describe('articlesPageSlice', () => {
             _inited: false,
             type: ArticleType.ALL,
         };
-        expect(
-            articlesPageReducer(
-                state as ArticlesPageSchema,
-                articlesPageActions.setPage(2),
-            ),
-        ).toEqual({
+        expect(articlesPageReducer(state as ArticlesPageSchema, articlesPageActions.setPage(2))).toEqual({
             isLoading: false,
             error: undefined,
             ids: [],
@@ -47,12 +42,7 @@ describe('articlesPageSlice', () => {
             type: ArticleType.ALL,
             _inited: false,
         };
-        expect(
-            articlesPageReducer(
-                state as ArticlesPageSchema,
-                articlesPageActions.setView(ArticleView.BIG),
-            ),
-        ).toEqual({
+        expect(articlesPageReducer(state as ArticlesPageSchema, articlesPageActions.setView(ArticleView.BIG))).toEqual({
             isLoading: false,
             error: undefined,
             ids: [],

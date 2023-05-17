@@ -28,9 +28,7 @@ export function Popover(props: PopoverProps) {
                 {trigger}
             </HPopover.Button>
 
-            <HPopover.Panel className={cn(cl.panel, {}, menuClasses)}>
-                {children}
-            </HPopover.Panel>
+            <HPopover.Panel className={cn(cl.panel, {}, menuClasses)}>{children}</HPopover.Panel>
         </HPopover>
     );
 }

@@ -16,48 +16,31 @@ interface ArticleRecommendationsListProps {
     className?: string;
 }
 
-export const ArticleRecommendationsList = memo(
-    (props: ArticleRecommendationsListProps) => {
-        const { className } = props;
-        const { t } = useTranslation('article-details');
-        const {
-            isLoading,
-            error,
-            data: articles,
-        } = useArticleRecommendationsList(3);
+export const ArticleRecommendationsList = memo((props: ArticleRecommendationsListProps) => {
+    const { className } = props;
+    const { t } = useTranslation('article-details');
+    const { isLoading, error, data: articles } = useArticleRecommendationsList(3);
 
-        if (isLoading) {
-            return (
-                <HStack justify="center" max>
-                    <Loader />
-                </HStack>
-            );
-        }
-
-        if (error || !articles) {
-            return (
-                <div className={cl.error}>
-                    <Text
-                        text={t('Произошла ошибка')}
-                        theme={TextTheme.ERROR}
-                    />
-                </div>
-            );
-        }
-
+    if (isLoading) {
         return (
-            <VStack
-                className={classNames('', {}, [className])}
-                gap="8"
-                data-testid="ArticleRecommendationsList"
-            >
-                <Text size={TextSize.L} title={t('Рекомендуем')} />
-                <ArticleList
-                    articles={articles}
-                    isLoading={isLoading}
-                    target="_blank"
-                />
-            </VStack>
+            <HStack justify="center" max>
+                <Loader />
+            </HStack>
         );
-    },
-);
+    }
+
+    if (error || !articles) {
+        return (
+            <div className={cl.error}>
+                <Text text={t('Произошла ошибка')} theme={TextTheme.ERROR} />
+            </div>
+        );
+    }
+
+    return (
+        <VStack className={classNames('', {}, [className])} gap="8" data-testid="ArticleRecommendationsList">
+            <Text size={TextSize.L} title={t('Рекомендуем')} />
+            <ArticleList articles={articles} isLoading={isLoading} target="_blank" />
+        </VStack>
+    );
+});

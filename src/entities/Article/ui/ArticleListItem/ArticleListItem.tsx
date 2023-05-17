@@ -14,10 +14,7 @@ import { Icon } from '@/shared/ui/Icon';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { Text } from '@/shared/ui/Text';
 
-import {
-    ArticleBlockType,
-    ArticleView,
-} from '../../model/consts/articleConsts';
+import { ArticleBlockType, ArticleView } from '../../model/consts/articleConsts';
 import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
@@ -43,22 +40,14 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     );
 
     if (view === ArticleView.BIG) {
-        const textBlock = article.blocks.find(
-            (block) => block.type === ArticleBlockType.TEXT,
-        ) as ArticleTextBlock;
+        const textBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
 
         return (
-            <div
-                className={cn(cl.ArticleListItem, {}, [className, cl[view]])}
-                data-testid="ArticleListItem"
-            >
+            <div className={cn(cl.ArticleListItem, {}, [className, cl[view]])} data-testid="ArticleListItem">
                 <Card>
                     <div className={cl.header}>
                         <Avatar size={30} src={article.user.avatar} />
-                        <Text
-                            text={article.user.username}
-                            className={cl.username}
-                        />
+                        <Text text={article.user.username} className={cl.username} />
                         <Text text={article.createdAt} className={cl.date} />
                     </div>
                     <Text title={article.title} className={cl.title} />
@@ -69,17 +58,9 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         alt={article.title}
                         className={cl.img}
                     />
-                    {textBlock && (
-                        <ArticleTextBlockComponent
-                            block={textBlock}
-                            className={cl.textBlock}
-                        />
-                    )}
+                    {textBlock && <ArticleTextBlockComponent block={textBlock} className={cl.textBlock} />}
                     <div className={cl.footer}>
-                        <AppLink
-                            to={getRouteArticleDetails(article.id)}
-                            target={target}
-                        >
+                        <AppLink to={getRouteArticleDetails(article.id)} target={target}>
                             <Button>{t('Читать далее ...')}</Button>
                         </AppLink>
                         {views}

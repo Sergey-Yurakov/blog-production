@@ -23,23 +23,11 @@ interface ArticleListProps {
 const getSkeletons = (view: ArticleView) =>
     new Array(view === ArticleView.SMALL ? 9 : 3)
         .fill(0)
-        .map((item, index) => (
-            <ArticleListItemSkeleton
-                key={index}
-                view={view}
-                className={cl.card}
-            />
-        ));
+        .map((item, index) => <ArticleListItemSkeleton key={index} view={view} className={cl.card} />);
 
 // todo: сюда потом можно добавить виртуализацию, через react virtuozo
 export const ArticleList = memo((props: ArticleListProps) => {
-    const {
-        className,
-        articles,
-        isLoading,
-        view = ArticleView.SMALL,
-        target,
-    } = props;
+    const { className, articles, isLoading, view = ArticleView.SMALL, target } = props;
 
     const { t } = useTranslation('article');
 
@@ -52,18 +40,9 @@ export const ArticleList = memo((props: ArticleListProps) => {
     }
 
     return (
-        <div
-            className={cn(cl.ArticleList, {}, [className, cl[view]])}
-            data-testid="ArticleList"
-        >
+        <div className={cn(cl.ArticleList, {}, [className, cl[view]])} data-testid="ArticleList">
             {articles.map((article) => (
-                <ArticleListItem
-                    article={article}
-                    view={view}
-                    target={target}
-                    key={article.id}
-                    className={cl.card}
-                />
+                <ArticleListItem article={article} view={view} target={target} key={article.id} className={cl.card} />
             ))}
             {isLoading && getSkeletons(view)}
         </div>

@@ -111,11 +111,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
                     onChange={onChangeSearch}
                 />
             </Card>
-            <ArticleTypeTabs
-                value={type}
-                onChangeType={onChangeType}
-                className={cl.tabs}
-            />
+            <ArticleTypeTabs value={type} onChangeType={onChangeType} className={cl.tabs} />
         </div>
     );
 });

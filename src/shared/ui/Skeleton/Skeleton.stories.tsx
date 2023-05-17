@@ -12,9 +12,7 @@ export default {
     component: Skeleton,
 } as ComponentMeta<typeof Skeleton>;
 
-const Template: ComponentStory<typeof Skeleton> = (args) => (
-    <Skeleton {...args} />
-);
+const Template: ComponentStory<typeof Skeleton> = (args) => <Skeleton {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {

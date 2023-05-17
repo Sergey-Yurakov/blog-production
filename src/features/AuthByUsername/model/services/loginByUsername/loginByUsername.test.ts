@@ -73,9 +73,7 @@ describe('loginByUsername', () => {
 
         console.log('result', result);
 
-        expect(thunk.dispatch).toHaveBeenCalledWith(
-            userActions.setAuthData(userValue),
-        );
+        expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue));
         // кол-во диспатч вызовов при вызове метода
         expect(thunk.dispatch).toHaveBeenCalledTimes(3);
         expect(thunk.api.post).toHaveBeenCalled();

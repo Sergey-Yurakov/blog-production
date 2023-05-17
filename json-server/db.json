@@ -152,10 +152,10 @@
             "id": "1h4xMVf"
         },
         {
-            "articleId": "BKCvqNw",
+            "articleId": "i0yKftW",
             "userId": "4",
             "text": "text",
-            "id": "LacLjtn"
+            "id": "DrPPMDN"
         }
     ],
     "profile": [
@@ -705,6 +705,17 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "TESTING ARTICLE",
+            "subtitle": "БиологиЯ",
+            "img": "http://phonoteka.org/uploads/posts/2022-02/1645056345_43-phonoteka-org-p-biologicheskii-fon-43.jpg",
+            "views": 10,
+            "createdAt": "26.02.2022",
+            "userId": "1",
+            "type": ["SCIENCE"],
+            "blocks": [],
+            "id": "i0yKftW"
         }
     ],
     "article-ratings": [

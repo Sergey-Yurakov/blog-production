@@ -50,22 +50,15 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     const { t } = useTranslation('profile');
 
-    const validateAge = useCallback(
-        (event: KeyboardEvent<HTMLInputElement>) => {
-            if (/\D/.test(event.key) && event.key !== 'Backspace') {
-                event.preventDefault();
-            }
-        },
-        [],
-    );
+    const validateAge = useCallback((event: KeyboardEvent<HTMLInputElement>) => {
+        if (/\D/.test(event.key) && event.key !== 'Backspace') {
+            event.preventDefault();
+        }
+    }, []);
 
     if (isLoading) {
         return (
-            <HStack
-                className={cn(cl.ProfileCard, {}, [className, cl.loading])}
-                justify="center"
-                max
-            >
+            <HStack className={cn(cl.ProfileCard, {}, [className, cl.loading])} justify="center" max>
                 <Loader />
             </HStack>
         );
@@ -73,11 +66,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (error) {
         return (
-            <HStack
-                className={cn(cl.ProfileCard, {}, [className, cl.error])}
-                justify="center"
-                max
-            >
+            <HStack className={cn(cl.ProfileCard, {}, [className, cl.error])} justify="center" max>
                 <Text
                     theme={TextTheme.ERROR}
                     title={t('Произошла ошибка при загрузке профиля')}
@@ -120,12 +109,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 onKeyDown={validateAge}
                 readOnly={readOnly}
             />
-            <Input
-                value={data?.city}
-                placeholder={t('Город')}
-                onChange={onChangeCity}
-                readOnly={readOnly}
-            />
+            <Input value={data?.city} placeholder={t('Город')} onChange={onChangeCity} readOnly={readOnly} />
             <Input
                 value={data?.username}
                 placeholder={t('Введите имя пользователя')}
@@ -138,16 +122,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 onChange={onChangeAvatar}
                 readOnly={readOnly}
             />
-            <CurrencySelect
-                value={data?.currency}
-                readOnly={readOnly}
-                onChange={onChangeCurrency}
-            />
-            <CountrySelect
-                value={data?.country}
-                readOnly={readOnly}
-                onChange={onChangeCountry}
-            />
+            <CurrencySelect value={data?.currency} readOnly={readOnly} onChange={onChangeCurrency} />
+            <CountrySelect value={data?.country} readOnly={readOnly} onChange={onChangeCountry} />
         </VStack>
     );
 };

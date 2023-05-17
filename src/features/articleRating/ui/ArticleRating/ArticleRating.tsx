@@ -8,10 +8,7 @@ import { getUserAuthData } from '@/entities/User';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { Skeleton } from '@/shared/ui/Skeleton';
 
-import {
-    useGetArticleRating,
-    useRateArticle,
-} from '../../api/articleRatingApi';
+import { useGetArticleRating, useRateArticle } from '../../api/articleRatingApi';
 
 export interface ArticleRatingProps {
     className?: string;
@@ -72,9 +69,7 @@ const ArticleRating = (props: ArticleRatingProps) => {
             onCancel={onCancel}
             className={cn('', {}, [className])}
             title={t('Оцените статью')}
-            feedbackTitle={t(
-                'Оставьте свой отзыв о статье, это поможет улучшить качество',
-            )}
+            feedbackTitle={t('Оставьте свой отзыв о статье, это поможет улучшить качество')}
             hasFeedback
             rate={rating?.rate}
         />

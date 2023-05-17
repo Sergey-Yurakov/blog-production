@@ -36,16 +36,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <header className={cn(cl.Navbar, {}, [className])}>
-                <Text
-                    className={cl.appName}
-                    title={t('Ulbi TV App')}
-                    theme={TextTheme.INVERTED}
-                />
-                <AppLink
-                    to={getRouteArticleCreate()}
-                    theme={AppLinkTheme.SECONDARY}
-                    className={cl.createBtn}
-                >
+                <Text className={cl.appName} title={t('Ulbi TV App')} theme={TextTheme.INVERTED} />
+                <AppLink to={getRouteArticleCreate()} theme={AppLinkTheme.SECONDARY} className={cl.createBtn}>
                     {t('Создать статью')}
                 </AppLink>
                 <HStack gap="16" className={cl.actions}>
@@ -59,16 +51,10 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
     return (
         <header className={cn(cl.Navbar, {}, [className])}>
-            <Button
-                className={cl.links}
-                theme={ButtonTheme.CLEAR_INVERTED}
-                onClick={onShowModal}
-            >
+            <Button className={cl.links} theme={ButtonTheme.CLEAR_INVERTED} onClick={onShowModal}>
                 {t('Войти')}
             </Button>
-            {isAuthModal && (
-                <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
-            )}
+            {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />}
         </header>
     );
 });

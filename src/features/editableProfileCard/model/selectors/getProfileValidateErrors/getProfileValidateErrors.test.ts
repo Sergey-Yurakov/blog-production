@@ -6,10 +6,7 @@ import { getProfileValidateErrors } from './getProfileValidateErrors';
 
 describe('getProfileValidateErrors', () => {
     test('should return data', () => {
-        const errors = [
-            ValidateProfileErrors.SERVER_ERROR,
-            ValidateProfileErrors.NO_DATA,
-        ];
+        const errors = [ValidateProfileErrors.SERVER_ERROR, ValidateProfileErrors.NO_DATA];
 
         const state: DeepPartial<StateSchema> = {
             profile: {
@@ -21,8 +18,6 @@ describe('getProfileValidateErrors', () => {
 
     test('should work with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getProfileValidateErrors(state as StateSchema)).toEqual(
-            undefined,
-        );
+        expect(getProfileValidateErrors(state as StateSchema)).toEqual(undefined);
     });
 });

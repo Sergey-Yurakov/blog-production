@@ -30,16 +30,7 @@ interface ListBoxProps {
 }
 
 export const ListBox = (props: ListBoxProps) => {
-    const {
-        items,
-        className,
-        defaultValue,
-        value,
-        readOnly,
-        direction = 'bottom right',
-        label,
-        onChange,
-    } = props;
+    const { items, className, defaultValue, value, readOnly, direction = 'bottom right', label, onChange } = props;
 
     const optionsClasses = [mapDirectionClass[direction]];
 
@@ -60,16 +51,9 @@ export const ListBox = (props: ListBoxProps) => {
                 <HListBox.Button className={cl.trigger} as="div">
                     <Button disabled={readOnly}>{value ?? defaultValue}</Button>
                 </HListBox.Button>
-                <HListBox.Options
-                    className={cn(cl.options, {}, optionsClasses)}
-                >
+                <HListBox.Options className={cn(cl.options, {}, optionsClasses)}>
                     {items?.map((item) => (
-                        <HListBox.Option
-                            key={item.value}
-                            disabled={item.disabled}
-                            value={item.value}
-                            as={Fragment}
-                        >
+                        <HListBox.Option key={item.value} disabled={item.disabled} value={item.value} as={Fragment}>
                             {({ active, selected }) => (
                                 <li
                                     className={cn(

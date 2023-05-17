@@ -61,10 +61,7 @@ export const Text = memo((props: TextProps) => {
     return (
         <div className={cn(cl.Text, mods, [className])}>
             {title && (
-                <HeaderTag
-                    className={cl.title}
-                    data-testid={`${dataTestId}.Header`}
-                >
+                <HeaderTag className={cl.title} data-testid={`${dataTestId}.Header`}>
                     {title}
                 </HeaderTag>
             )}

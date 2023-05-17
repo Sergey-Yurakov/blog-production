@@ -26,24 +26,12 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     };
 
     const itemsList = useMemo(
-        () =>
-            sidebarItemsList.map((item) => (
-                <SidebarItem
-                    item={item}
-                    collapsed={collapsed}
-                    key={item.path}
-                />
-            )),
+        () => sidebarItemsList.map((item) => <SidebarItem item={item} collapsed={collapsed} key={item.path} />),
         [collapsed, sidebarItemsList],
     );
 
     return (
-        <aside
-            data-testid="sidebar"
-            className={cn(cl.Sidebar, { [cl.collapsed]: collapsed }, [
-                className,
-            ])}
-        >
+        <aside data-testid="sidebar" className={cn(cl.Sidebar, { [cl.collapsed]: collapsed }, [className])}>
             <Button
                 data-testid="sidebar-toggle"
                 onClick={onToggle}

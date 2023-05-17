@@ -16,22 +16,10 @@ Normal.args = {
     isOpen: true,
     children: (
         <>
-            <div>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic,
-                totam.
-            </div>
-            <div>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic,
-                totam.
-            </div>
-            <div>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic,
-                totam.
-            </div>
-            <div>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic,
-                totam.
-            </div>
+            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, totam.</div>
+            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, totam.</div>
+            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, totam.</div>
+            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, totam.</div>
         </>
     ),
 };

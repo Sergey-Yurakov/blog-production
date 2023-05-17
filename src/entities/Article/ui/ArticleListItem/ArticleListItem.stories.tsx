@@ -91,9 +91,7 @@ export default {
     component: ArticleListItem,
 } as ComponentMeta<typeof ArticleListItem>;
 
-const Template: ComponentStory<typeof ArticleListItem> = (args) => (
-    <ArticleListItem {...args} />
-);
+const Template: ComponentStory<typeof ArticleListItem> = (args) => <ArticleListItem {...args} />;
 
 export const ItemSmall = Template.bind({});
 ItemSmall.args = {

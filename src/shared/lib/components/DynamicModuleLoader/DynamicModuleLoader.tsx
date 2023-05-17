@@ -3,11 +3,7 @@ import { ReactNode, useEffect } from 'react';
 import { Reducer } from '@reduxjs/toolkit';
 import { useDispatch, useStore } from 'react-redux';
 
-import {
-    ReduxStoreWithManager,
-    StateSchema,
-    StateSchemaKey,
-} from '@/app/providers/StoreProvider';
+import { ReduxStoreWithManager, StateSchema, StateSchemaKey } from '@/app/providers/StoreProvider';
 
 export type ReducersList = {
     // более строго типизируем список редьюсеров

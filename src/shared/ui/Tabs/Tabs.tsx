@@ -19,35 +19,29 @@ interface TabsProps<T extends string> {
     onTabClick: (tab: TabsItem<T>) => void;
 }
 
-export const Tabs = genericTypedMemo(
-    <T extends string>(props: TabsProps<T>) => {
-        const { className, tabs, value, onTabClick } = props;
+export const Tabs = genericTypedMemo(<T extends string>(props: TabsProps<T>) => {
+    const { className, tabs, value, onTabClick } = props;
 
-        const clickHandle = useCallback(
-            (tab: TabsItem<T>) => () => {
-                onTabClick?.(tab);
-            },
-            [onTabClick],
-        );
+    const clickHandle = useCallback(
+        (tab: TabsItem<T>) => () => {
+            onTabClick?.(tab);
+        },
+        [onTabClick],
+    );
 
-        return (
-            <div className={cn(cl.Tabs, {}, [className])}>
-                {tabs.map((tab) => (
-                    <Card
-                        data-testid={`Tabs.${tab.value}`}
-                        className={cl.tab}
-                        key={tab.value}
-                        theme={
-                            tab.value === value
-                                ? CardTheme.NORMAL
-                                : CardTheme.OUTLINED
-                        }
-                        onClick={clickHandle(tab)}
-                    >
-                        {tab.content}
-                    </Card>
-                ))}
-            </div>
-        );
-    },
-);
+    return (
+        <div className={cn(cl.Tabs, {}, [className])}>
+            {tabs.map((tab) => (
+                <Card
+                    data-testid={`Tabs.${tab.value}`}
+                    className={cl.tab}
+                    key={tab.value}
+                    theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINED}
+                    onClick={clickHandle(tab)}
+                >
+                    {tab.content}
+                </Card>
+            ))}
+        </div>
+    );
+});
