@@ -17,6 +17,7 @@ const ThemeProvider = (props: ThemeProviderProps) => {
 
     const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
 
+    // todo
     useEffect(() => {
         if (!isThemeInited) {
             setTheme(defaultTheme);
