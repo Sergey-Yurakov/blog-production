@@ -1,7 +1,8 @@
-import { Node, Project, SyntaxKind } from 'ts-morph';
+import { Project, SyntaxKind } from 'ts-morph';
 
-const removedFeatureName = process.argv[2]; // example isCounterEnabled
-const featureState = process.argv[3]; // example on/off
+import { featureState, removedFeatureName } from './argsFromFunction';
+import { replaceComponent, isToggleComponent } from './replaceComponent';
+import { isToggleFunction, replaceToggleFunction } from './replaceToggleFunction';
 
 // проверки на входные аргументы
 if (!removedFeatureName) {
@@ -26,51 +27,16 @@ project.addSourceFilesAtPaths('src/**/*.ts');
 // после рекурсии получаем файлы как обычный объект и можем уже по ним пройтись
 const files = project.getSourceFiles();
 
-function isToggleFunction(node: Node) {
-    let isToggleFeatures = false;
-
-    node.forEachChild((child) => {
-        if (child.isKind(SyntaxKind.Identifier) && child.getText() === 'toggleFeatures') {
-            isToggleFeatures = true;
-        }
-    });
-
-    return isToggleFeatures;
-}
-
 files.forEach((sourceFile) => {
     // обходим всех потомков
     sourceFile.forEachDescendant((node) => {
         // ищем ноду по определенному узлу
         if (node.isKind(SyntaxKind.CallExpression) && isToggleFunction(node)) {
-            // получаем первого потомка по типу
-            const objectOptions = node.getFirstDescendantByKind(SyntaxKind.ObjectLiteralExpression);
+            replaceToggleFunction(node);
+        }
 
-            if (!objectOptions) return;
-
-            // получаем по названию проперти нужный элемент
-            const featureNameProperty = objectOptions.getProperty('name');
-
-            const onFunctionProperty = objectOptions.getProperty('on');
-            const offFunctionProperty = objectOptions.getProperty('off');
-
-            const onFunction = onFunctionProperty?.getFirstDescendantByKind(SyntaxKind.ArrowFunction)?.getBody();
-            const offFunction = offFunctionProperty?.getFirstDescendantByKind(SyntaxKind.ArrowFunction)?.getBody();
-
-            const featureName = featureNameProperty
-                ?.getFirstDescendantByKind(SyntaxKind.StringLiteral)
-                ?.getText()
-                .slice(1, -1);
-
-            if (featureName !== removedFeatureName) return;
-
-            if (featureState === 'on') {
-                node.replaceWithText(onFunction?.getText() ?? '');
-            }
-
-            if (featureState === 'off') {
-                node.replaceWithText(offFunction?.getText() ?? '');
-            }
+        if (node.isKind(SyntaxKind.JsxSelfClosingElement) && isToggleComponent(node)) {
+            replaceComponent(node);
         }
     });
 });

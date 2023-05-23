@@ -774,19 +774,6 @@
           ]
         }
       ]
-    },
-    {
-      "title": "TESTING ARTICLE",
-      "subtitle": "БиологиЯ",
-      "img": "http://phonoteka.org/uploads/posts/2022-02/1645056345_43-phonoteka-org-p-biologicheskii-fon-43.jpg",
-      "views": 10,
-      "createdAt": "26.02.2022",
-      "userId": "1",
-      "type": [
-        "SCIENCE"
-      ],
-      "blocks": [],
-      "id": "i0yKftW"
     }
   ],
   "article-ratings": [
