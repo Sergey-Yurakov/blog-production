@@ -6,9 +6,9 @@ import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { AppLogo } from '@/shared/ui/AppLogo';
-import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Buttton';
-import { VStack } from '@/shared/ui/Stack';
+import { AppLogo } from '@/shared/ui/deprecated/AppLogo';
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Buttton';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 
 import { getSidebarItems } from '../../selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';

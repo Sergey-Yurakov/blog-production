@@ -36,8 +36,7 @@
     "**/*.{ts,tsx}": [
       "eslint",
       "prettier --write"
-    ],
-    "**/*.{scss,css}": "stylelint"
+    ]
   },
   "keywords": [],
   "author": "",

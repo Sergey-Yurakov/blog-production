@@ -3,7 +3,7 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
-import { ListBox } from '@/shared/ui/Popups';
+import { ListBox } from '@/shared/ui/deprecated/Popups';
 
 import { Country } from '../../model/types/country';
 
@@ -15,11 +15,26 @@ interface CountrySelectProps {
 }
 
 const options = [
-    { value: Country.ARMENIA, content: Country.ARMENIA },
-    { value: Country.BELARUS, content: Country.BELARUS },
-    { value: Country.KAZAKHSTAN, content: Country.KAZAKHSTAN },
-    { value: Country.RUSSIA, content: Country.RUSSIA },
-    { value: Country.UKRAINE, content: Country.UKRAINE },
+    {
+        value: Country.ARMENIA,
+        content: Country.ARMENIA,
+    },
+    {
+        value: Country.BELARUS,
+        content: Country.BELARUS,
+    },
+    {
+        value: Country.KAZAKHSTAN,
+        content: Country.KAZAKHSTAN,
+    },
+    {
+        value: Country.RUSSIA,
+        content: Country.RUSSIA,
+    },
+    {
+        value: Country.UKRAINE,
+        content: Country.UKRAINE,
+    },
 ];
 
 export const CountrySelect = memo((props: CountrySelectProps) => {

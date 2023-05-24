@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/Buttton';
+import { Button } from '@/shared/ui/deprecated/Buttton';
 
 import cl from './PageError.module.scss';
 

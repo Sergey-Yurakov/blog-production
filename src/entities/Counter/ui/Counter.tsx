@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { Button } from '@/shared/ui/Buttton';
+import { Button } from '@/shared/ui/deprecated/Buttton';
 
 import { useCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 import { useCounterActions } from '../model/slices/counterSlice';
