@@ -81,7 +81,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     } else {
         content = (
             <>
-                <HStack max>
+                <HStack max justify="center">
                     <Avatar size={200} src={article?.img} className={cl.avatar} />
                 </HStack>
 

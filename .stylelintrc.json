@@ -5,6 +5,6 @@
       4
     ],
     "selector-class-pattern": null,
-    "max-line-length": "off"
+    "max-line-length": "warn"
   }
 }

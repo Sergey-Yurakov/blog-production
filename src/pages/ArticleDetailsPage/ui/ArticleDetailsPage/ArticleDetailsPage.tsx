@@ -40,7 +40,7 @@ const ArticleDetailsPage = ({ className }: ArticlesDetailPageProps) => {
                     <ToggleFeatures
                         feature="isArticleRatingEnabled"
                         on={<ArticleRating articleId={id!} />}
-                        off={<Card>{t('Оценка статей скоро появится!')}</Card>}
+                        off={<Card maxWidth>{t('Оценка статей скоро появится!')}</Card>}
                     />
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id!} />
