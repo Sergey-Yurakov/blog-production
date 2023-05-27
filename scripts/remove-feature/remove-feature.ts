@@ -29,14 +29,15 @@ const files = project.getSourceFiles();
 
 files.forEach((sourceFile) => {
     // обходим всех потомков
+    // eslint-disable-next-line consistent-return
     sourceFile.forEachDescendant((node) => {
         // ищем ноду по определенному узлу
         if (node.isKind(SyntaxKind.CallExpression) && isToggleFunction(node)) {
-            replaceToggleFunction(node);
+            return replaceToggleFunction(node);
         }
 
         if (node.isKind(SyntaxKind.JsxSelfClosingElement) && isToggleComponent(node)) {
-            replaceComponent(node);
+            return replaceComponent(node);
         }
     });
 });
