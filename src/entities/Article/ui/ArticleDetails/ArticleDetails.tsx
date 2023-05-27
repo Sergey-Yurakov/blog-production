@@ -6,13 +6,16 @@ import { useSelector } from 'react-redux';
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { Icon } from '@/shared/ui/deprecated/Icon';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 import { Text, TextAlign, TextSize } from '@/shared/ui/deprecated/Text';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 import { ArticleBlockType } from '../../model/consts/articleConsts';
 import {
@@ -49,11 +52,17 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     const renderBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
             case ArticleBlockType.CODE:
-                return <ArticleCodeBlockComponent key={block.id} block={block} className={cl.block} />;
+                return (
+                    <ArticleCodeBlockComponent key={block.id} block={block} className={cl.block} />
+                );
             case ArticleBlockType.TEXT:
-                return <ArticleTextBlockComponent key={block.id} block={block} className={cl.block} />;
+                return (
+                    <ArticleTextBlockComponent key={block.id} block={block} className={cl.block} />
+                );
             case ArticleBlockType.IMAGE:
-                return <ArticleImageBlockComponent key={block.id} block={block} className={cl.block} />;
+                return (
+                    <ArticleImageBlockComponent key={block.id} block={block} className={cl.block} />
+                );
             default:
                 return null;
         }
@@ -77,7 +86,9 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
             </VStack>
         );
     } else if (error) {
-        content = <Text align={TextAlign.CENTER} title={t('Произошла ошибка при загрузке статьи')} />;
+        content = (
+            <Text align={TextAlign.CENTER} title={t('Произошла ошибка при загрузке статьи')} />
+        );
     } else {
         content = (
             <>

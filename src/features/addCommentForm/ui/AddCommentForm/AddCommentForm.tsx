@@ -4,15 +4,24 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button } from '@/shared/ui/deprecated/Buttton';
 import { Input } from '@/shared/ui/deprecated/Input';
-import { HStack } from '@/shared/ui/deprecated/Stack';
 import { Text } from '@/shared/ui/deprecated/Text';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
-import { getAddCommentFormError, getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
-import { addCommentFormActions, addCommentFormReducer } from '../../model/slices/addCommentFormSlice';
+import {
+    getAddCommentFormError,
+    getAddCommentFormText,
+} from '../../model/selectors/addCommentFormSelectors';
+import {
+    addCommentFormActions,
+    addCommentFormReducer,
+} from '../../model/slices/addCommentFormSlice';
 
 import cl from './AddCommentForm.module.scss';
 
@@ -53,7 +62,12 @@ const AddCommentForm = ({ className, onSendComment }: AddCommentFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <HStack className={cn(cl.AddCommentForm, {}, [className])} max gap="8" data-testid="AddCommentForm">
+            <HStack
+                className={cn(cl.AddCommentForm, {}, [className])}
+                max
+                gap="8"
+                data-testid="AddCommentForm"
+            >
                 <Input
                     className={cl.input}
                     placeholder={t('Введите текст комментария')}
@@ -61,7 +75,11 @@ const AddCommentForm = ({ className, onSendComment }: AddCommentFormProps) => {
                     onChange={onCommentTextChange}
                     data-testid="AddCommentForm.Input"
                 />
-                <Button className={cl.btn} onClick={onSendHandler} data-testid="AddCommentForm.Button">
+                <Button
+                    className={cl.btn}
+                    onClick={onSendHandler}
+                    data-testid="AddCommentForm.Button"
+                >
                     {t('Отправить')}
                 </Button>
             </HStack>

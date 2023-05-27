@@ -12,8 +12,8 @@ import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { AppLink, AppLinkTheme } from '@/shared/ui/deprecated/AppLink';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Buttton';
-import { HStack } from '@/shared/ui/deprecated/Stack';
 import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 import cl from './Navbar.module.scss';
 
@@ -40,8 +40,16 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 feature="isAppRedesigned"
                 off={
                     <header className={cn(cl.Navbar, {}, [className])}>
-                        <Text className={cl.appName} title={t('Ulbi TV App')} theme={TextTheme.INVERTED} />
-                        <AppLink to={getRouteArticleCreate()} theme={AppLinkTheme.SECONDARY} className={cl.createBtn}>
+                        <Text
+                            className={cl.appName}
+                            title={t('Ulbi TV App')}
+                            theme={TextTheme.INVERTED}
+                        />
+                        <AppLink
+                            to={getRouteArticleCreate()}
+                            theme={AppLinkTheme.SECONDARY}
+                            className={cl.createBtn}
+                        >
                             {t('Создать статью')}
                         </AppLink>
                         <HStack gap="16" className={cl.actions}>

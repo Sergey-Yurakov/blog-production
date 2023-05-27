@@ -5,7 +5,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Flex } from './Flex';
 
 export default {
-    title: 'shared/Flex',
+    title: 'shared/redesigned/Flex',
     component: Flex,
 } as ComponentMeta<typeof Flex>;
 

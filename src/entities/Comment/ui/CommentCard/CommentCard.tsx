@@ -5,8 +5,8 @@ import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
 import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 import { Text } from '@/shared/ui/deprecated/Text';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 import { Comment } from '../../model/types/comment';
 
@@ -43,7 +43,11 @@ export const CommentCard = memo((props: CommentCardProps) => {
     }
 
     return (
-        <VStack className={cn(cl.CommentCard, {}, [className])} max data-testid="CommentCard.Content">
+        <VStack
+            className={cn(cl.CommentCard, {}, [className])}
+            max
+            data-testid="CommentCard.Content"
+        >
             <AppLink to={getRouteProfile(comment.user.id)}>
                 <HStack max gap="8">
                     {comment.user.avatar ? <Avatar size={30} src={comment.user.avatar} /> : null}

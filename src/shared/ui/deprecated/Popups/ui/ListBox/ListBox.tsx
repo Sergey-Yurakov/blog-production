@@ -5,8 +5,8 @@ import { Listbox as HListBox } from '@headlessui/react';
 import { classNames as cn, Mods } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
 
+import { HStack } from '../../../../redesigned/Stack';
 import { Button } from '../../../Buttton/Button';
-import { HStack } from '../../../Stack';
 import { mapDirectionClass } from '../../styles/consts';
 import popupCl from '../../styles/popup.module.scss';
 
@@ -35,7 +35,16 @@ interface ListBoxProps {
  */
 
 export const ListBox = (props: ListBoxProps) => {
-    const { items, className, defaultValue, value, readOnly, direction = 'bottom right', label, onChange } = props;
+    const {
+        items,
+        className,
+        defaultValue,
+        value,
+        readOnly,
+        direction = 'bottom right',
+        label,
+        onChange,
+    } = props;
 
     const optionsClasses = [mapDirectionClass[direction]];
 
@@ -58,7 +67,12 @@ export const ListBox = (props: ListBoxProps) => {
                 </HListBox.Button>
                 <HListBox.Options className={cn(cl.options, {}, optionsClasses)}>
                     {items?.map((item) => (
-                        <HListBox.Option key={item.value} disabled={item.disabled} value={item.value} as={Fragment}>
+                        <HListBox.Option
+                            key={item.value}
+                            disabled={item.disabled}
+                            value={item.value}
+                            as={Fragment}
+                        >
                             {({ active, selected }) => (
                                 <li
                                     className={cn(

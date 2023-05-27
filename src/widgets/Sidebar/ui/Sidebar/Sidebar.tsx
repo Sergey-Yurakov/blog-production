@@ -8,9 +8,9 @@ import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Buttton';
-import { VStack } from '@/shared/ui/deprecated/Stack';
 import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
 import { Icon } from '@/shared/ui/redesigned/Icon';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 import { getSidebarItems } from '../../selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
@@ -34,7 +34,10 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     };
 
     const itemsList = useMemo(
-        () => sidebarItemsList.map((item) => <SidebarItem item={item} collapsed={collapsed} key={item.path} />),
+        () =>
+            sidebarItemsList.map((item) => (
+                <SidebarItem item={item} collapsed={collapsed} key={item.path} />
+            )),
         [collapsed, sidebarItemsList],
     );
 
@@ -44,7 +47,9 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             on={
                 <aside
                     data-testid="sidebar"
-                    className={cn(cl.SidebarRedesigned, { [cl.collapsedRedesigned]: collapsed }, [className])}
+                    className={cn(cl.SidebarRedesigned, { [cl.collapsedRedesigned]: collapsed }, [
+                        className,
+                    ])}
                 >
                     <AppLogo size={collapsed ? 30 : 50} className={cl.appLogo} />
                     <VStack className={cl.items} gap="8" role="navigation">
@@ -64,7 +69,10 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                 </aside>
             }
             off={
-                <aside data-testid="sidebar" className={cn(cl.Sidebar, { [cl.collapsed]: collapsed }, [className])}>
+                <aside
+                    data-testid="sidebar"
+                    className={cn(cl.Sidebar, { [cl.collapsed]: collapsed }, [className])}
+                >
                     <Button
                         data-testid="sidebar-toggle"
                         onClick={onToggle}

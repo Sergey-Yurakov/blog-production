@@ -3,7 +3,7 @@ import { CSSProperties, useMemo } from 'react';
 import { classNames as cn, Mods } from '@/shared/lib/classNames/classNames';
 
 import UserIcon from '../../../assets/icons/user-32-32.svg';
-import { AppImage } from '../AppImage';
+import { AppImage } from '../../redesigned/AppImage';
 import { Icon } from '../Icon';
 import { Skeleton } from '../Skeleton';
 
@@ -35,7 +35,9 @@ export const Avatar = (props: AvatarProps) => {
 
     const mods: Mods = {};
     const fallback = <Skeleton width={size} height={size} border="50%" />;
-    const errorFallback = <Icon inverted={fallbackInverted} width={size} height={size} Svg={UserIcon} />;
+    const errorFallback = (
+        <Icon inverted={fallbackInverted} width={size} height={size} Svg={UserIcon} />
+    );
 
     return (
         <AppImage

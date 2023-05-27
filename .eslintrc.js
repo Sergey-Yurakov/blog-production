@@ -117,7 +117,7 @@ module.exports = {
                 ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
             },
         ],
-        // когда больше 4 элементов в строке, то делаем перенос
+        // когда больше 3 элементов в строке, то делаем перенос
         'react/jsx-max-props-per-line': [
             'error',
             {

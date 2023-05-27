@@ -8,8 +8,8 @@ import { classNames as cn, Mods } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { Input } from '@/shared/ui/deprecated/Input';
 import { Loader } from '@/shared/ui/deprecated/Loader';
-import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 import { Text, TextAlign, TextTheme } from '@/shared/ui/deprecated/Text';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 import { Profile } from '../../model/types/profile';
 
@@ -58,7 +58,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (isLoading) {
         return (
-            <HStack className={cn(cl.ProfileCard, {}, [className, cl.loading])} justify="center" max>
+            <HStack
+                className={cn(cl.ProfileCard, {}, [className, cl.loading])}
+                justify="center"
+                max
+            >
                 <Loader />
             </HStack>
         );
@@ -109,7 +113,12 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 onKeyDown={validateAge}
                 readOnly={readOnly}
             />
-            <Input value={data?.city} placeholder={t('Город')} onChange={onChangeCity} readOnly={readOnly} />
+            <Input
+                value={data?.city}
+                placeholder={t('Город')}
+                onChange={onChangeCity}
+                readOnly={readOnly}
+            />
             <Input
                 value={data?.username}
                 placeholder={t('Введите имя пользователя')}
@@ -122,7 +131,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 onChange={onChangeAvatar}
                 readOnly={readOnly}
             />
-            <CurrencySelect value={data?.currency} readOnly={readOnly} onChange={onChangeCurrency} />
+            <CurrencySelect
+                value={data?.currency}
+                readOnly={readOnly}
+                onChange={onChangeCurrency}
+            />
             <CountrySelect value={data?.country} readOnly={readOnly} onChange={onChangeCountry} />
         </VStack>
     );

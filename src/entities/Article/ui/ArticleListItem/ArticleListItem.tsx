@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { getRouteArticleDetails } from '@/shared/const/router';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
-import { AppImage } from '@/shared/ui/deprecated/AppImage';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
 import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { Button } from '@/shared/ui/deprecated/Buttton';
@@ -13,6 +12,7 @@ import { Card } from '@/shared/ui/deprecated/Card';
 import { Icon } from '@/shared/ui/deprecated/Icon';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { Text } from '@/shared/ui/deprecated/Text';
+import { AppImage } from '@/shared/ui/redesigned/AppImage';
 
 import { ArticleBlockType, ArticleView } from '../../model/consts/articleConsts';
 import { Article, ArticleTextBlock } from '../../model/types/article';
@@ -40,10 +40,15 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     );
 
     if (view === ArticleView.BIG) {
-        const textBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
+        const textBlock = article.blocks.find(
+            (block) => block.type === ArticleBlockType.TEXT,
+        ) as ArticleTextBlock;
 
         return (
-            <div className={cn(cl.ArticleListItem, {}, [className, cl[view]])} data-testid="ArticleListItem">
+            <div
+                className={cn(cl.ArticleListItem, {}, [className, cl[view]])}
+                data-testid="ArticleListItem"
+            >
                 <Card>
                     <div className={cl.header}>
                         <Avatar size={30} src={article.user.avatar} />
@@ -58,7 +63,9 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         alt={article.title}
                         className={cl.img}
                     />
-                    {textBlock && <ArticleTextBlockComponent block={textBlock} className={cl.textBlock} />}
+                    {textBlock && (
+                        <ArticleTextBlockComponent block={textBlock} className={cl.textBlock} />
+                    )}
                     <div className={cl.footer}>
                         <AppLink to={getRouteArticleDetails(article.id)} target={target}>
                             <Button>{t('Читать далее ...')}</Button>
