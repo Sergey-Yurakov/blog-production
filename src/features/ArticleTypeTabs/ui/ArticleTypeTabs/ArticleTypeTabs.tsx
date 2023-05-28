@@ -4,12 +4,14 @@ import { useTranslation } from 'react-i18next';
 
 import { ArticleType } from '@/entities/Article';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
-import { Tabs, TabsItem } from '@/shared/ui/deprecated/Tabs';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Tabs as TabsDeprecated, TabsItem } from '@/shared/ui/deprecated/Tabs';
+import { Tabs } from '@/shared/ui/redesigned/Tabs';
 
 interface ArticleTypeTabsProps {
     className?: string;
     value: ArticleType;
-    onChangeType: (tab: TabsItem<ArticleType>) => void;
+    onChangeType: (type: TabsItem<ArticleType>) => void;
 }
 
 export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
@@ -38,5 +40,27 @@ export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
         [t],
     );
 
-    return <Tabs className={cn('', {}, [className])} tabs={typeTabs} value={value} onTabClick={onChangeType} />;
+    return (
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            off={
+                <TabsDeprecated
+                    className={cn('', {}, [className])}
+                    tabs={typeTabs}
+                    value={value}
+                    onTabClick={onChangeType}
+                />
+            }
+            on={
+                <Tabs
+                    className={cn('', {}, [className])}
+                    tabs={typeTabs}
+                    value={value}
+                    onTabClick={onChangeType}
+                    direction="column"
+                    align="start"
+                />
+            }
+        />
+    );
 });

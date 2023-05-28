@@ -4,7 +4,7 @@ import { classNames as cn, Mods } from '@/shared/lib/classNames/classNames';
 
 import cl from './Button.module.scss';
 
-export type ButtonVariant = 'clear' | 'outline';
+export type ButtonVariant = 'clear' | 'outline' | 'filled';
 
 export type ButtonSize = 'm' | 'l' | 'xl';
 
@@ -37,7 +37,16 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button = memo((props: ButtonProps) => {
-    const { className, children, square, variant = 'outline', size = 'm', disabled, fullWidth, ...otherProps } = props;
+    const {
+        className,
+        children,
+        square,
+        variant = 'outline',
+        size = 'm',
+        disabled,
+        fullWidth,
+        ...otherProps
+    } = props;
 
     const mods: Mods = {
         [cl.square]: square,
