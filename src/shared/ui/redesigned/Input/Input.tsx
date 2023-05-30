@@ -3,28 +3,36 @@ import React, { InputHTMLAttributes, ReactNode, useEffect, useRef, useState } fr
 import { genericTypedMemo } from '@/shared/const/genericTypedMemo';
 import { classNames as cn, Mods } from '@/shared/lib/classNames/classNames';
 
+import { HStack } from '../Stack';
+import { Text } from '../Text';
+
 import cl from './Input.module.scss';
 
 type HTMLInputProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    'value' | 'onChange' | 'readOnly'
+    'value' | 'onChange' | 'readOnly' | 'size'
 >;
+
+type InputSize = 's' | 'm' | 'l';
 
 interface InputProps<T> extends HTMLInputProps {
     className?: string;
     value?: T | number;
+    label?: T;
     onChange?: (value: T) => void;
     autofocus?: boolean;
     isOpen?: boolean;
     readOnly?: boolean;
     addonLeft?: ReactNode;
     addonRight?: ReactNode;
+    size?: InputSize;
 }
 
 export const Input = genericTypedMemo(<T extends string>(props: InputProps<T>) => {
     const {
         className,
         value,
+        label,
         onChange,
         type = 'text',
         placeholder,
@@ -33,6 +41,7 @@ export const Input = genericTypedMemo(<T extends string>(props: InputProps<T>) =
         readOnly,
         addonLeft,
         addonRight,
+        size = 'm',
         ...otherProps
     } = props;
 
@@ -71,8 +80,8 @@ export const Input = genericTypedMemo(<T extends string>(props: InputProps<T>) =
         [cl.withAddonRight]: Boolean(addonRight),
     };
 
-    return (
-        <div className={cn(cl.InputWrapper, mods, [className])}>
+    const input = (
+        <div className={cn(cl.InputWrapper, mods, [className, cl[size]])}>
             {addonLeft && <div className={cl.addonLeft}>{addonLeft}</div>}
             <input
                 ref={ref}
@@ -89,4 +98,15 @@ export const Input = genericTypedMemo(<T extends string>(props: InputProps<T>) =
             {addonRight && <div className={cl.addonRight}>{addonRight}</div>}
         </div>
     );
+
+    if (label) {
+        return (
+            <HStack gap="8" max>
+                <Text text={label} />
+                {input}
+            </HStack>
+        );
+    }
+
+    return input;
 });

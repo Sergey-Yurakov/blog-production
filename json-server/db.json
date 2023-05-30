@@ -164,8 +164,8 @@
       "first": "Sergey",
       "lastname": "Yurakov",
       "age": 30,
-      "currency": "RUB",
-      "country": "Russia",
+      "currency": "EUR",
+      "country": "Kazakhstan",
       "city": "Moscow",
       "username": "admin",
       "avatar": "https://thumbs.dreamstime.com/b/hacker-working-laptop-black-white-graphic-vector-92229941.jpg"
@@ -207,7 +207,7 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_dark_theme",
+        "theme": "app_light_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
         "isArticlesPageWasOpened": true

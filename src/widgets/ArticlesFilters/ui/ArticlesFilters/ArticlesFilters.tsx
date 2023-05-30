@@ -46,6 +46,7 @@ export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
         <Card className={cn(cl.ArticlesFilters, {}, [className])} padding="24">
             <VStack gap="32">
                 <Input
+                    size="s"
                     data-testid="ArticlesPageFilters"
                     placeholder={t('Поиск')}
                     value={search}
