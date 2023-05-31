@@ -37,17 +37,21 @@
     outline: none;
 }
 
+.outline {
+    border: 1px solid var(--icon-redesigned);
+    border-radius: 34px;
+    background: none;
+
+    &:hover {
+        border: 1px solid var(--accent-redesigned);
+    }
+}
+
 .filled {
     background: var(--light-bg-redesigned);
     border: none;
     outline: none;
     border-radius: 34px;
-}
-
-.outline {
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
-    background: none;
 }
 
 .square {

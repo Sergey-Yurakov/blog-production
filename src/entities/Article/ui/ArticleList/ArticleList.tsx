@@ -8,7 +8,7 @@ import { Text, TextSize } from '@/shared/ui/deprecated/Text';
 import { ArticleView } from '../../model/consts/articleConsts';
 import { Article } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
-import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton/ArticleListItemSkeleton';
 
 import cl from './ArticleList.module.scss';
 
@@ -23,7 +23,9 @@ interface ArticleListProps {
 const getSkeletons = (view: ArticleView) =>
     new Array(view === ArticleView.SMALL ? 9 : 3)
         .fill(0)
-        .map((item, index) => <ArticleListItemSkeleton key={index} view={view} className={cl.card} />);
+        .map((item, index) => (
+            <ArticleListItemSkeleton key={index} view={view} className={cl.card} />
+        ));
 
 // todo: сюда потом можно добавить виртуализацию, через react virtuozo
 export const ArticleList = memo((props: ArticleListProps) => {
@@ -42,7 +44,13 @@ export const ArticleList = memo((props: ArticleListProps) => {
     return (
         <div className={cn(cl.ArticleList, {}, [className, cl[view]])} data-testid="ArticleList">
             {articles.map((article) => (
-                <ArticleListItem article={article} view={view} target={target} key={article.id} className={cl.card} />
+                <ArticleListItem
+                    article={article}
+                    view={view}
+                    target={target}
+                    key={article.id}
+                    className={cl.card}
+                />
             ))}
             {isLoading && getSkeletons(view)}
         </div>
