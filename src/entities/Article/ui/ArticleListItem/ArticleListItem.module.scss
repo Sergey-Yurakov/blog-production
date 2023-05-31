@@ -108,3 +108,15 @@
         width: 200px;
     }
 }
+
+.ArticleListItemRedesigned {
+    cursor: auto;
+
+    &.BIG {
+        width: 100%;
+    }
+
+    &.SMALL {
+        margin-right: 8px;
+    }
+}

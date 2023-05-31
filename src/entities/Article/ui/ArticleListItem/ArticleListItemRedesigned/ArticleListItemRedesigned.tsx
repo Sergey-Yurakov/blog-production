@@ -25,7 +25,13 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
     const { className, article, view, target } = props;
     const { t } = useTranslation('article');
 
-    const types = <Text text={article.type.join(', ')} className={cl.types} />;
+    const userInfo = (
+        <>
+            <Avatar size={32} src={article.user.avatar} />
+            <Text bold text={article.user.username} />
+        </>
+    );
+
     const views = (
         <HStack gap="8">
             <Icon Svg={EyeIcon} />
@@ -78,26 +84,28 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
 
     return (
         <AppLink
-            className={cn(cl.ArticleListItem, {}, [className, cl[view]])}
-            to={getRouteArticleDetails(article.id)}
-            target={target}
             data-testid="ArticleListItem"
+            target={target}
+            to={getRouteArticleDetails(article.id)}
+            className={cn(cl.ArticleListItem, {}, [className, cl[view]])}
         >
-            <Card>
-                <div className={cl.imageWrapper}>
-                    <AppImage
-                        fallback={<Skeleton width={200} height={200} />}
-                        src={article.img}
-                        alt={article.title}
-                        className={cl.img}
-                    />
-                    <Text text={article.createdAt} className={cl.date} />
-                </div>
-                <div className={cl.infoWrapper}>
-                    {types}
-                    {views}
-                </div>
-                <Text text={article.title} className={cl.title} />
+            <Card className={cl.card} border="round">
+                <AppImage
+                    fallback={<Skeleton width={200} height={200} />}
+                    alt={article.title}
+                    src={article.img}
+                    className={cl.img}
+                />
+                <VStack className={cl.info} gap="4">
+                    <Text title={article.title} className={cl.title} />
+                    <VStack gap="4" className={cl.footer} max>
+                        <HStack justify="between" max>
+                            <Text text={article.createdAt} className={cl.date} />
+                            {views}
+                        </HStack>
+                        <HStack gap="4">{userInfo}</HStack>
+                    </VStack>
+                </VStack>
             </Card>
         </AppLink>
     );
