@@ -4,6 +4,7 @@ import { Listbox as HListBox } from '@headlessui/react';
 
 import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 import { classNames as cn, Mods } from '@/shared/lib/classNames/classNames';
+import { getFeaturesFlag } from '@/shared/lib/features';
 import { DropdownDirection } from '@/shared/types/ui';
 
 import { HStack } from '../../../../redesigned/Stack';
@@ -44,6 +45,7 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
     } = props;
 
     const optionsClasses = [mapDirectionClass[direction], popupCl.menu];
+    const isAppRedesigned = getFeaturesFlag('isAppRedesigned');
 
     const selectedItem = useMemo(() => {
         return items?.find((item) => item.value === value);
@@ -53,9 +55,15 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
         [cl.readOnly]: readOnly,
     };
 
+    const labelType = isAppRedesigned ? `${label}` : `${label}>`;
+
     return (
         <HStack gap="4">
-            {label && <span className={cn('', labelMods)}>{`${label}>`}</span>}
+            {label && (
+                <span className={cn(isAppRedesigned ? cl.marginAfterLabel : '', labelMods, [])}>
+                    {labelType}
+                </span>
+            )}
             <HListBox
                 disabled={readOnly}
                 as="div"
