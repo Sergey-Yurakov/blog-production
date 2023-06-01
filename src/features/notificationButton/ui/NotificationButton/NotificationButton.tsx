@@ -8,9 +8,9 @@ import NotificationIcon from '@/shared/assets/icons/notification.svg';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Buttton';
-import { Drawer } from '@/shared/ui/deprecated/Drawer';
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
 import { Popover as PopoverDeprecated } from '@/shared/ui/deprecated/Popups';
+import { Drawer } from '@/shared/ui/redesigned/Drawer';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { Popover } from '@/shared/ui/redesigned/Popups';
 
@@ -67,7 +67,7 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
             </BrowserView>
             <MobileView>
                 {trigger}
-                <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+                <Drawer lazy isOpen={isOpen} onClose={onCloseDrawer}>
                     <NotificationList />
                 </Drawer>
             </MobileView>

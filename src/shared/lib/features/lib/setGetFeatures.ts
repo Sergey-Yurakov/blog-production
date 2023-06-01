@@ -10,7 +10,7 @@ export function setFeaturesFlag(newFeatureFlags?: FeatureFlags) {
 }
 
 export function getFeaturesFlag(flag: keyof FeatureFlags) {
-    return featureFlags[flag];
+    return featureFlags[flag] ?? true;
 }
 
 export function getAllFeaturesFlags() {
