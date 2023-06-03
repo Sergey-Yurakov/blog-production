@@ -46,14 +46,20 @@ const ArticleDetailsPage = ({ className }: ArticlesDetailPageProps) => {
             <ToggleFeatures
                 feature="isAppRedesigned"
                 off={
-                    <Page className={cn(cl.ArticlesDetailPage, {}, [className])}>
+                    <Page
+                        className={cn(cl.ArticlesDetailPage, {}, [className])}
+                    >
                         <VStack max gap="16">
                             <ArticleDetailsPageHeader />
                             <ArticleDetails id={id} />
                             <ToggleFeatures
                                 feature="isArticleRatingEnabled"
                                 on={<ArticleRating articleId={id} />}
-                                off={<Card maxWidth>{t('Оценка статей скоро появится!')}</Card>}
+                                off={
+                                    <Card maxWidth>
+                                        {t('Оценка статей скоро появится!')}
+                                    </Card>
+                                }
                             />
                             <ArticleRecommendationsList />
                             <ArticleDetailsComments id={id} />
@@ -63,7 +69,11 @@ const ArticleDetailsPage = ({ className }: ArticlesDetailPageProps) => {
                 on={
                     <StickyContentLayout
                         content={
-                            <Page className={cn(cl.ArticlesDetailPage, {}, [className])}>
+                            <Page
+                                className={cn(cl.ArticlesDetailPage, {}, [
+                                    className,
+                                ])}
+                            >
                                 <VStack max gap="16">
                                     <DetailsContainer />
                                     <ArticleRating articleId={id} />

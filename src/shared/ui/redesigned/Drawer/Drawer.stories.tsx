@@ -5,7 +5,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Drawer } from './Drawer';
 
 export default {
-    title: 'shared/Drawer',
+    title: 'shared/redesigned/Drawer',
     component: Drawer,
 } as ComponentMeta<typeof Drawer>;
 
@@ -16,10 +16,22 @@ Normal.args = {
     isOpen: true,
     children: (
         <>
-            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, totam.</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, totam.</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, totam.</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, totam.</div>
+            <div>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic,
+                totam.
+            </div>
+            <div>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic,
+                totam.
+            </div>
+            <div>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic,
+                totam.
+            </div>
+            <div>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic,
+                totam.
+            </div>
         </>
     ),
 };
