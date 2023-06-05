@@ -115,7 +115,7 @@ const AddCommentForm = ({ className, onSendComment }: AddCommentFormProps) => {
                     </HStack>
                 }
                 on={
-                    <Card maxWidth padding="24" border="round">
+                    <Card maxWidth padding="24" border="partial">
                         <HStack
                             className={cn(cl.AddCommentFormRedesigned, {}, [
                                 className,

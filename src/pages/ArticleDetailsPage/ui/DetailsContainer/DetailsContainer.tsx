@@ -20,7 +20,7 @@ export const DetailsContainer = memo((props: DetailsContainerProps) => {
 
     return (
         <Card
-            border="round"
+            border="partial"
             padding="24"
             maxWidth
             className={cn('', {}, [className])}

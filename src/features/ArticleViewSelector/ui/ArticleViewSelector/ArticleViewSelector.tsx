@@ -7,7 +7,10 @@ import TiledIcon from '@/shared/assets/icons/tile.svg';
 import TiledIconDeprecated from '@/shared/assets/icons/tiled-24-24.svg';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
-import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Buttton';
+import {
+    Button as ButtonDeprecated,
+    ButtonTheme,
+} from '@/shared/ui/deprecated/Buttton';
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
 import { Card } from '@/shared/ui/redesigned/Card/Card';
 import { Icon } from '@/shared/ui/redesigned/Icon';
@@ -73,8 +76,10 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
             }
             on={
                 <Card
-                    border="round"
-                    className={cn(cl.ArticleViewSelectorRedesigned, {}, [className])}
+                    border="partial"
+                    className={cn(cl.ArticleViewSelectorRedesigned, {}, [
+                        className,
+                    ])}
                 >
                     <HStack gap="8">
                         {viewTypes.map((viewType) => (

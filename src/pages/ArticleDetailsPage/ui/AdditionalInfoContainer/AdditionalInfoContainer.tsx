@@ -27,7 +27,7 @@ export const AdditionalInfoContainer = memo(() => {
 
     // todo: добавить скелетон
     return (
-        <Card padding="24" border="round" className={cn(cl.card, {}, [])}>
+        <Card padding="24" border="partial" className={cn(cl.card, {}, [])}>
             <ArticleAdditionalInfo
                 author={article.user}
                 createdAt={article.createdAt}

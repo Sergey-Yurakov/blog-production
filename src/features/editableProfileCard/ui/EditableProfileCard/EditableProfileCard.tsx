@@ -11,10 +11,12 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated, TextTheme } from '@/shared/ui/deprecated/Text';
 import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import { ValidateProfileErrors } from '../../model/consts/consts';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
@@ -23,12 +25,15 @@ import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/g
 import { getProfileReadOnly } from '../../model/selectors/getProfileReadOnly/getProfileReadOnly';
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
-import { profileActions, profileReducer } from '../../model/slices/profileSlice';
+import {
+    profileActions,
+    profileReducer,
+} from '../../model/slices/profileSlice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
 interface EditableProfileCardProps {
     className?: string;
-    id: string;
+    id?: string;
 }
 
 const reducers: ReducersList = {
@@ -47,9 +52,13 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     const validateErrors = useSelector(getProfileValidateErrors);
 
     const validateErrorsTranslates = {
-        [ValidateProfileErrors.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+        [ValidateProfileErrors.INCORRECT_USER_DATA]: t(
+            'Имя и фамилия обязательны',
+        ),
         [ValidateProfileErrors.INCORRECT_AGE]: t('Некорректный возраст'),
-        [ValidateProfileErrors.INCORRECT_USERNAME]: t('Некорректное имя пользователя'),
+        [ValidateProfileErrors.INCORRECT_USERNAME]: t(
+            'Некорректное имя пользователя',
+        ),
         [ValidateProfileErrors.INCORRECT_CITY]: t('Некорректный город'),
         [ValidateProfileErrors.SERVER_ERROR]: t('Серверная ошибка'),
         [ValidateProfileErrors.NO_DATA]: t('Данные не указаны'),
@@ -119,15 +128,28 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <VStack className={classNames('', {}, [className])} max gap="16">
-                <EditableProfileCardHeader />
+            <VStack max gap="16" className={classNames('', {}, [className])}>
+                <EditableProfileCardHeader isLoading={isLoading} />
                 {validateErrors?.length &&
                     validateErrors.map((err) => (
-                        <Text
-                            theme={TextTheme.ERROR}
-                            key={err}
-                            text={validateErrorsTranslates[err]}
-                            data-testid="EditableProfileCard.Error"
+                        <ToggleFeatures
+                            feature="isAppRedesigned"
+                            off={
+                                <TextDeprecated
+                                    theme={TextTheme.ERROR}
+                                    key={err}
+                                    text={validateErrorsTranslates[err]}
+                                    data-testid="EditableProfileCard.Error"
+                                />
+                            }
+                            on={
+                                <Text
+                                    variant="error"
+                                    key={err}
+                                    text={validateErrorsTranslates[err]}
+                                    data-testid="EditableProfileCard.Error"
+                                />
+                            }
                         />
                     ))}
                 <ProfileCard

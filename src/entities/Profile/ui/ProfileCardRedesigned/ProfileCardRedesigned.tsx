@@ -11,11 +11,14 @@ import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 
-import { ProfileCardProps, validateAge } from '../ProfileCardProps/ProfileCardProps';
+import {
+    ProfileCardProps,
+    validateAge,
+} from '../ProfileCardProps/ProfileCardProps';
 
 export const ProfileCardRedesignedSkeleton = () => {
     return (
-        <Card maxWidth padding="24">
+        <Card maxWidth padding="24" border="partial">
             <VStack gap="32">
                 <HStack max justify="center">
                     <Skeleton border="100%" width={128} height={128} />
@@ -71,11 +74,15 @@ export const ProfileCardRedesigned = memo((props: ProfileCardProps) => {
     const { t } = useTranslation('profile');
 
     return (
-        <Card className={className} padding="24" maxWidth>
+        <Card className={className} padding="24" maxWidth border="partial">
             <VStack gap="32">
                 {data?.avatar && (
                     <HStack max justify="center">
-                        <Avatar size={128} src={data?.avatar} alt="avatar icon" />
+                        <Avatar
+                            size={128}
+                            src={data?.avatar}
+                            alt="avatar icon"
+                        />
                     </HStack>
                 )}
                 <HStack max gap="24">

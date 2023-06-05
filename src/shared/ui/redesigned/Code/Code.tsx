@@ -42,6 +42,7 @@ export const Code = memo((props: CodeProps) => {
             on={
                 <pre className={cn(cl.CodeRedesigned, {}, [className])}>
                     <Icon
+                        absoluteBtn
                         Svg={CopyIcon}
                         clickable
                         onClick={onCopy}

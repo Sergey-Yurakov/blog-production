@@ -81,7 +81,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
                 </VStack>
             }
             on={
-                <Card maxWidth padding="24" border="round">
+                <Card maxWidth padding="24" border="partial">
                     <VStack
                         className={cn(cl.CommentCardRedesigned, {}, [
                             className,
