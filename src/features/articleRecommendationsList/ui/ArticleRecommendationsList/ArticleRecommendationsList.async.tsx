@@ -4,11 +4,15 @@ import { toggleFeatures } from '@/shared/lib/features';
 import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 import { Skeleton as SkeletonRedesign } from '@/shared/ui/redesigned/Skeleton';
 
-import { ArticleRatingProps } from './ArticleRating';
+import { ArticleRecommendationsListProps } from './ArticleRecommendationsList';
 
-const ArticleRatingLazy = lazy(() => import('./ArticleRating'));
+const ArticleRecommendationsListLazy = lazy(
+    () => import('./ArticleRecommendationsList'),
+);
 
-export const ArticleRatingAsync = (props: ArticleRatingProps) => {
+export const ArticleRecommendationsListAsync = (
+    props: ArticleRecommendationsListProps,
+) => {
     const Skeleton = toggleFeatures({
         name: 'isAppRedesigned',
         off: () => SkeletonDeprecated,
@@ -16,8 +20,8 @@ export const ArticleRatingAsync = (props: ArticleRatingProps) => {
     });
 
     return (
-        <Suspense fallback={<Skeleton width="100%" height={120} />}>
-            <ArticleRatingLazy {...props} />
+        <Suspense fallback={<Skeleton width="100%" height={250} />}>
+            <ArticleRecommendationsListLazy {...props} />
         </Suspense>
     );
 };

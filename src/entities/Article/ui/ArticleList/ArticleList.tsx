@@ -26,12 +26,22 @@ const getSkeletons = (view: ArticleView) =>
     new Array(view === ArticleView.SMALL ? 9 : 3)
         .fill(0)
         .map((item, index) => (
-            <ArticleListItemSkeleton key={index} view={view} className={cl.card} />
+            <ArticleListItemSkeleton
+                key={index}
+                view={view}
+                className={cl.card}
+            />
         ));
 
 // todo: сюда потом можно добавить виртуализацию, через react virtuozo
 export const ArticleList = memo((props: ArticleListProps) => {
-    const { className, articles, isLoading, view = ArticleView.SMALL, target } = props;
+    const {
+        className,
+        articles,
+        isLoading,
+        view = ArticleView.SMALL,
+        target,
+    } = props;
 
     const { t } = useTranslation('article');
 

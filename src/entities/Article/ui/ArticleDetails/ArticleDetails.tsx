@@ -10,9 +10,9 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 import { Text as TextDeprecated, TextAlign } from '@/shared/ui/deprecated/Text';
 import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import {
     getArticleDetailError,
@@ -25,6 +25,7 @@ import cl from './ArticleDetails.module.scss';
 
 import { ArticleDetailsDeprecated } from './ArticleDetailsDeprecated/ArticleDetailsDeprecated';
 import { ArticleDetailsRedesigned } from './ArticleDetailsRedesigned/ArticleDetailsRedesigned';
+import { ArticleDetailsSkeleton } from './ArticleDetailsSkeleton/ArticleDetailsSkeleton';
 
 interface ArticleDetailsProps {
     className?: string;
@@ -50,25 +51,23 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
 
     let content;
     if (isLoading) {
-        content = (
-            <VStack gap="32" max>
-                <SkeletonDeprecated
-                    className={cl.avatar}
-                    width={200}
-                    height={200}
-                    border="50%"
-                />
-                <SkeletonDeprecated width={300} height={32} />
-                <SkeletonDeprecated width={600} height={24} />
-                <SkeletonDeprecated width="100%" height={200} />
-                <SkeletonDeprecated width="100%" height={200} />
-            </VStack>
-        );
+        content = <ArticleDetailsSkeleton />;
     } else if (error) {
         content = (
-            <TextDeprecated
-                align={TextAlign.CENTER}
-                title={t('Произошла ошибка при загрузке статьи')}
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                off={
+                    <TextDeprecated
+                        align={TextAlign.CENTER}
+                        title={t('Произошла ошибка при загрузке статьи')}
+                    />
+                }
+                on={
+                    <Text
+                        align="center"
+                        title={t('Произошла ошибка при загрузке статьи')}
+                    />
+                }
             />
         );
     } else {

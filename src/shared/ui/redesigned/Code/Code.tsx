@@ -23,6 +23,7 @@ export const Code = memo((props: CodeProps) => {
         navigator.clipboard.writeText(text);
     }, [text]);
 
+    // todo: поправить для on кнопку так, чтобы код не смещался (уезжает влево первая строка)
     return (
         <ToggleFeatures
             feature="isAppRedesigned"
