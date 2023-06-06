@@ -4,7 +4,7 @@ import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { FeatureFlags } from '@/shared/types/featureFlags';
 
 import { updateFeatureFlagsMutation } from '../api/featureFlagsApi';
-import { getAllFeaturesFlags } from '../lib/setGetFeatures';
+import { getAllFeaturesFlags, setFeaturesFlag } from '../lib/setGetFeatures';
 
 interface UpdateFeatureFlagsOptions {
     userId: string;
@@ -20,18 +20,20 @@ export const updateFeatureFlags = createAsyncThunk<
 
     const featureFlags = getAllFeaturesFlags();
 
+    const allFeatures = {
+        ...featureFlags,
+        ...newFeatures,
+    };
     try {
         await dispatch(
             updateFeatureFlagsMutation({
                 userId,
-                features: {
-                    ...featureFlags,
-                    ...newFeatures,
-                },
+                features: allFeatures,
             }),
         );
 
-        window.location.reload();
+        setFeaturesFlag(allFeatures);
+
         return undefined;
     } catch (e) {
         console.log(e);
