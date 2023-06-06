@@ -110,13 +110,14 @@
 }
 
 .ArticleListItemRedesigned {
-    cursor: auto;
-
     &.BIG {
         width: 100%;
     }
 
     &.SMALL {
-        margin-right: 8px;
+        .card {
+            height: 350px;
+            width: 240px;
+        }
     }
 }

@@ -31,7 +31,7 @@
 // Скроллбар для Firefox
 * {
     scrollbar-width: thin;
-    scrollbar-color: var(--inverted-primary-color) var(--card-bg);
+    scrollbar-color: var(--icon-redesigned) var(--light-bg-redesigned);
 }
 
 // Скроллбар в Chrome/Edge/Safari
@@ -41,10 +41,34 @@
 }
 
 *::-webkit-scrollbar-track {
-    background: var(--card-bg); /* цвет дорожки */
+    background: var(--light-bg-redesigned); /* цвет дорожки */
 }
 
 *::-webkit-scrollbar-thumb {
+    background-color: var(--icon-redesigned); /* цвет плашки */
+    border-radius: 20px; /* закругления плашки */
+    border: 1px solid var(--accent-redesigned); /* padding вокруг плашки */
+}
+
+// deprecated
+
+// Скроллбар для Firefox
+.app * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--inverted-primary-color) var(--card-bg);
+}
+
+// Скроллбар в Chrome/Edge/Safari
+.app *::-webkit-scrollbar {
+    width: 12px; /* ширина scrollbar */
+    height: 8px;
+}
+
+.app *::-webkit-scrollbar-track {
+    background: var(--card-bg); /* цвет дорожки */
+}
+
+.app *::-webkit-scrollbar-thumb {
     background-color: var(--inverted-primary-color); /* цвет плашки */
     border-radius: 20px; /* закругления плашки */
     border: 2px solid var(--primary-color); /* padding вокруг плашки */

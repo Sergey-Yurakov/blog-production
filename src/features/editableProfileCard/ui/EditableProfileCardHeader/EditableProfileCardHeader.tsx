@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 import { getUserAuthData } from '@/entities/User';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
-import { ToggleFeatures } from '@/shared/lib/features';
+import { getFeaturesFlag, ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
     Button as ButtonDeprecated,
@@ -36,6 +36,8 @@ export const EditableProfileCardHeader = memo(
         const redOnly = useSelector(getProfileReadOnly);
         const authData = useSelector(getUserAuthData);
         const profileData = useSelector(getProfileData);
+        const isAppRedesigned = getFeaturesFlag('isAppRedesigned');
+
         const caeEdit = authData?.id === profileData?.id;
 
         const onEdit = useCallback(() => {
@@ -50,7 +52,7 @@ export const EditableProfileCardHeader = memo(
             dispatch(updateProfileData());
         }, [dispatch]);
 
-        if (isLoading) {
+        if (isLoading && isAppRedesigned) {
             return (
                 <Card maxWidth padding="16">
                     <HStack justify="between">
