@@ -10,7 +10,7 @@ export default {
 } as ComponentMeta<typeof AppLoaderLayout>;
 
 const Template: ComponentStory<typeof AppLoaderLayout> = (args) => (
-    <AppLoaderLayout {...args} />
+    <AppLoaderLayout />
 );
 
 export const Normal = Template.bind({});
