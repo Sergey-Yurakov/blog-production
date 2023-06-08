@@ -14,6 +14,8 @@ export const ScrollToolbar = memo((props: ScrollToolbarProps) => {
     const { className } = props;
 
     // todo: добавить появление кнопки ScrollToTopButton, после прокрутки страницы самой
+    // можно сделать отдельный хук, который будет смотреть, есть ли сейчас прокрутка и
+    // возвращать true, если есть
     return (
         <VStack
             justify="center"
