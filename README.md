@@ -22,7 +22,6 @@ password: 123
 <img src="./public/screens/img_1.png" alt="prod-Proj2">
 <img src="./public/screens/img_2.png" alt="prod-Proj3">
 <img src="./public/screens/img_3.png" alt="prod-Proj4">
-<img src="./public/screens/img_4.png" alt="prod-Proj5">
 
 ## Скрипты
 
