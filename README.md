@@ -16,12 +16,16 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 login: admin
 password: 123
 
+----
+
 ### Демонстрация интерфейса
 
 <img src="./public/screens/img.png" alt="prod-Proj1">
 <img src="./public/screens/img_1.png" alt="prod-Proj2">
 <img src="./public/screens/img_2.png" alt="prod-Proj3">
 <img src="./public/screens/img_3.png" alt="prod-Proj4">
+
+----
 
 ## Скрипты
 
